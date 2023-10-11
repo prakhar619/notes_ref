@@ -32,6 +32,8 @@ Repository
 		Clone already existing project
 		git clone http://github.com/myfolder_server => will create a dir with name myfolder_server
 		git clone <url> workstation_foldName
+	
+		implicitly links the name "origin" to cloned server 
 		
 	
 Status
@@ -39,8 +41,142 @@ Status
 		verbose; bad for quick read
 	git status -s		(--short)
 		brief
-		2 columns; 
+		2 columns; (left: green)(right: red)
+		M means modified; A means new files that have been staged
+			New files(untracked): 	??
+			Unstaged:		_M
+			Staged:			M_
+			New file Staged		A_
 
-Editing Repo
+	git diff
+		gives what exactly changed; (now dir and staged area compared)
+		green color text => added text; white color text => unchanged/already existing text; red color text => removed text;
+	
+	git diff --staged		(--cached)
+		gives what exactly changed; (staged area and last commit compared)
+
+	git difftool
+		to open gui/cli based difftool for ease
+
+	
+History
+	git log
+		recent is shown first
+		format:
+		#########################################################
+			checksum (Head->branch)
+			Author
+			Timestamp
+			
+				commit msg
+		#########################################################
+	git log -p	(--patch)
+
+	git log --stat
+		format:
+		###########################################################
+			checksum (Head->branch)
+			Author
+			Timestamp
+			
+				commit msg
+			
+			file info (deleted, insertion etc)
+		############################################################
+	
+	git log --pretty=oneline
+
+	git log -2 --since=2.weeks --until="2023-08-4"
+		-2 means only starting 2 log
+		--since and --until accepts multiple format
+
+		
+			
+	
+Editing Local Repo
 	git add file1.txt
+		Staging the changes; Adding file to stage area
+	
+	cat .gitignore
+	*~
+	*.[oa]
+		Files to ignore when staging;
+		edit .gitignore file and type the file name or file pattern
+
+	git commit
+		open editor for commit msg;
+		commits the result; <node for a branch>
+
+	git commit -v
+		shows git diff result in editor; commented out therefore wont be added to commit msg
+
+	
+	git commit -m "commit msg"
+		
+	git commit -a 
+		git add * + git commit combined
+		well not exactly; works only for tracked file; new file needs to  be added as git add *
+
+	git commit --amend
+		redo your last commit with now commiting
+		last commit erased and now staging area committed
+		not a overlay; not deletion of earlier commit; and now new commit; 
+		old commit lost forever
+
+	git reset HEAD file.txt
+		removes file from staging area
+		currdir completely unchanged
+	
+	--------------dont know why use restore instead of reset and checkout
+
+	git restore --staged filename.txt
+
+	git checkout -- filename.txt
+		reverting the file to the last commit
+	
+	git restore filename.txt
+		reverting the file to the last commit
+
+	git rm <file.txt>
+		removes file from working dir and stages the deletion;
+
+		simply removing file shown as unstaged => no way to stage the change
+			run: git rm <file.txt>
+
+		git rm <already_staged_file.txt> 
+			error
+
+		git rm -f <already_staged_file.txt>
+			removes file from dir, stage area and then stages changes
+
+	git rm --cached <file.txt>
+		does not removes from dir; but removes from repo; 
+		no longer tracked;
+		just like .gitignore
+	
+	git mv <old_name.txt> <new_name.txt>
+		renames the file and stages the changes
+		equivalent: 	mv oldname.txt newname.txt
+				git rm oldname.txt
+				git add newname.txt
+
+	
+Remotes
+	git remote
+		to see which remote server have you configured 
+		blank means offline repo
+
+	git remote -v
+		fetch and push remote servers
+	
+	git remote add <alias name> <url>
+
+
+			
+	
+	
+
+
+
+	
 	
