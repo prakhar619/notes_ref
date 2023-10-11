@@ -177,19 +177,54 @@ Branching Name:
 			there is another ptr origin/head which in origin repo is pointing to origin current branch
 
 Branching
+		git branch	
+			lists all the current branches of our repo
+			* before current branch(HEAD)
+
+		git branch -v
+			commit msg with branch ptrs
+
+		git branch --merged  	(--no-merged)
+			filter to see which branch have been merged with our current branch
+			safe to git branch -d for --merged entries
+
+
 		git branch <branch_name>
-			to create a new branch
+			to create a new branch; from last commit; (unstaged and uncommitted changes not branched)
 			local workstation Branching
 			doesnt switch to new branch implicitly
 
+		git branch -d <branch_name>
+			delete a branch ptr
+			-D flg for forced deletion 
+			
 		git log or git log --oneline --decorate
-			gives all the current Branching (pointers)
+			gives all the current (remote as well) Branching (pointers)
+			doesnt show all branches
+
+		git log --all
+		git log --oneline --decorate --graph --all	
+			graph rep of Branching
+			think of ptrs and nodes
 
 		git checkout <branch_name>
 			to switch to a new branch
 		
-		
+		git checkout -b <branch_name>
+			git branch <branch_name> + git checkout <branch_name>
 
+		git merge <branch_name>		
+			current branch(HEAD) + branch_name
+			commit before merging
+
+		git branch --move new_branch_name old_branch_name
+			local change
+
+		git push --set-upstream <alias>  new_branch_name
+			to push a branch to remote
+
+		git push origin --delete branch_name
+			to delete a branch on remote
 
 Remotes
 	git remote
@@ -207,8 +242,6 @@ Remotes
 
 	git remote remove <alias>
 		removes remote
-
-	
 
 	git remote show <alias name>
 		shows remote branches

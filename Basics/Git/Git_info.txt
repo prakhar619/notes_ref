@@ -39,6 +39,20 @@ Git
 					Blob 
 					Blob 
 		HEAD pointer
+	Git merging	
+		FastForward 
+			No divergent working
+			No new commit; just forwarding of branch
+			Same line
+			History of both is checked to see if fastforwarding is available
+		3WayMerge 
+			current branch is updated with new commit; branch_name doesn't changes
+			common ancestor; both branches ptr 
+			Different line 
+			merge commit (A new commit is done)
+			merge commit has more than one parent;
+
+
 
 
 	
