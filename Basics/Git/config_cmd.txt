@@ -9,7 +9,7 @@ Help/Man
 	man git-<verb>
 	git <verb> -h
 		less verboseq
-q
+
 Configuration Setting Edit Cmds
 	git config --global user.name "Name"
 	git config --global user.email example@example.com
@@ -18,10 +18,13 @@ Configuration Setting Edit Cmds
 
 Repository
 	git init
-		Already created dir(non version control dir); applying version control
+		Created dir(non version control dir); applying version control
 		creates a dir .git (repository)
 		no file added in version control
+
 	git add *
+		Stages the changes; now commit 
+
 	git commit -m 'Initial project version'
 		Adding all the files to the version control already created
 
@@ -33,6 +36,10 @@ Repository
 	
 Status
 	git status
+		verbose; bad for quick read
+	git status -s		(--short)
+		brief
+		2 columns; 
 
 Editing Repo
 	git add file1.txt
