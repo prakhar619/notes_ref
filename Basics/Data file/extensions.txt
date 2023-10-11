@@ -1,0 +1,52 @@
+Extensions
+	.py	python
+	.sh	shell scripting
+	.txt	text file
+	.pptx	powerpoint file
+	.csv	comma separated file
+	.docx	word file
+	.jpeg	image
+	.jpg	image
+	.png	image
+	.gif	graphics interchange format
+	.mp4	audio
+	.mp5	audio
+	.html	markup lang
+	.css	web stylesheet
+	.js	javascript
+	.md	markup lang
+	.tex	latex file
+	.pdf	digital graphic file
+	.vhdl	hdl
+	.dwg	drawing 2d and 3d
+	.java
+	.exe
+	.out
+	.c
+	.cpp
+	.cs
+	.wav
+	.ogg
+	.rar
+	.rpm
+	.z
+	.zip
+	.pkg
+	.deb
+	.7z
+	.tar.gz
+	.iso
+	.bin
+	.dmg
+	.db
+	.tar
+	.xml
+	.json
+	.apk
+	.svg
+	.webp
+	.config
+	.tmp
+	.avi
+	.mkv
+	

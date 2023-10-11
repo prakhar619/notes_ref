@@ -1,0 +1,10 @@
+\documentclass[12pt, letterpaper]{article}
+\begin{document}
+We will use $Dir_L$ ($a_1,\cdots,a_L$) to denote the finite-dimensional Dirichlet distribution on the sim-\\plex $S_L$. Also,we will use $Mult_L(b_1, \cdots, b_L)$. We will form a K $\times$ V matrix $\beta$, whose t^{th} row is the $t^{th}$ topic (how $\beta$ is formed will be described shortly). Thus, \beta will consist of vec-\\tors $\beta_1, \cdots, \beta_K$, all lying in $S_V$. The LDA model is indexed by hyperparameters $\eta \subset (0, \infty) $and $\alpha \subset (0, \infty)^K$. It is represented graphically in Figure 1, and described formally by the following hierarchical model:
+\begin{enumerate}
+\item $\beta_t \stackrel{iid}{~} Dir_V(\eta,\cdots,\eta), t = 1,\cdots, K$.
+\item $\theta_d \stackrel{iid}{~} Dir_K(\alpha),d = 1,...,D, and the \theta_d's are independent of the \beta_t's$.
+\item Given $ \theta_1,\cdots,\theta_D,z_{di} \stackrel{iid}{~} Mult_K(\theta_d), i = 1,\cdots,n_d, d=1,\cdots,D, and the D matrices (z_{11},\cdots,z_{1n_1}),\cdots,(z_{D1},\cdots,z_{Dn_D})$ are independent.
+\item Given $\beta and the z_{di}'s, the w_{di}'s are independently drawn from the row of \beta indicated by z_{di}, i = 1,\cdots,n_d, d=1,\cdots,D$.
+\end{enumerate}
+\end{document}

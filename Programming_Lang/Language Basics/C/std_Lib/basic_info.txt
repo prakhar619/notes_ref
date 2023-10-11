@@ -1,0 +1,37 @@
+Standard Functions of both C89 and C99.
+C89 is subset of C99. C99 compiler provides backward compactibility
+
+C compiler:
+    translate souce -> object code
+    standard lib must be implemented
+
+Linkers
+    Combines various pieces of code
+    Resolve addresses of call and load
+
+Separate Compilation
+    Source code -compiler-> Object file -linker-> executable file
+    external references, 
+
+
+
+
+
+Library Files and Object Files
+    Linking object files means entire content becomes part of finished executable.
+    Linking library files means only that specific file (each file contains 1 specific function) becomes part of executable
+
+Library 
+    Header:
+        2 jobs
+            Contains function needed data types (each library uses new defined data types. Header stores it. No dependency on other library files)
+                <stdio.h> contains FILE datatype
+            Contains function prototype. (allows stronger type checking)
+
+__ or _<CAP char> reserved name in C
+
+LINK File1 File2 File3 LIBC
+    linker first tries to solve dependencies using file1 file2 and file3 then using standard c library LIBC
+
+    Redefining library function may have side effects on never be able to use that library Functions in all connected code
+    

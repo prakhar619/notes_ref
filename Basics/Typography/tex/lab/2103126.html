@@ -1,0 +1,92 @@
+<!doctype html>
+<head>
+   <title>Canvas</title> 
+</head>
+<body style="background-color:lightblue">
+<h1> Drawing </h1>
+This webpage helps you to visualize simple geometrical shapes such as circle and rectangle.
+<h2>Circle</h2>
+The area of a circle with radius r is given by pi*r^2. Similarly, the perimeter of a circle with radius r is given by 2*pi*r. Now, let's visualize the circle using Javascript and HTML.
+<label for="radi">Enter the radius r: </label>
+<input type="number" id="rad" name="radius">
+<button type="button" onclick="radval();">Validate</button>
+<button type="button" onclick="draww();">Draw</button>
+<button type="button" onclick="compute();">Compute Area\Perimeter</button>
+<br>
+<h3>Area:<p id="area01"></p></h3>
+<h3>Perimeter:<p id="perimeter"></p></h3>
+<canvas id="paper1" widht="400px" height="400px" style="border:2px solid #f10909;">Your browser does not support the HTML5 canvas tag</canvas>
+
+<h2>Rectangle</h2>
+<p>The area of a rectangle with width w and height h is given by ab. Similarly, the perimeter of a rectangle with width a and height b is given by 2(w+h). Now , lets visualize the rectangle using javascript and HTML</p>
+<label for="legthi">Enter the radius l: </label>
+<input type="number" id="length" name="length">
+<label for="widthi">Enter the radius l: </label>
+<input type="number" id="width" name="width">
+<button type="button" onclick="val();">Validate</button>
+<button type="button" onclick="drawww();">Draw</button>
+<button type="button" onclick="computee();">Compute Area\Perimeter</button>
+<br>
+<h3>Area:<p id="area011"></p></h3>
+<h3>Perimeter:<p id="perimeter011"></p></h3>
+<canvas id="paper11" widht="400px" height="400px" style="border:2px solid #f10909;">Your browser does not support the HTML5 canvas tag</canvas>
+
+<script>
+    function draww()
+    {
+    let ctx = document.getElementById(paper1).getContext("2d");
+    ctx.beginPath();
+    ctx.arc([center_x],[center_y],[radius],0,2*Math.PI);
+    ct.stroke();
+}
+    function radval(){
+      let radius01 = document.getElementById('rad').value;
+        if(radius01<0)
+       {
+         alert("Please enter correct radius");
+        }
+        else
+        { alert("Correct radius entered");}
+    }
+    function compute(){
+        let radius01 = document.getElementById('rad').value;
+        let area = radius01 * radius01 * 3.14;
+        let perimeter = radius01 * 2 * 3.14;
+        document.getElementById('area01').innerHTML = area
+        document.getElementById('perimeter').innerHTML = perimeter
+
+    }
+    function computee(){
+        
+
+    }
+    function val(){
+        let len01 = document.getElementById('length').value;
+        let wid01 = document.getElementById('width').value;
+        if(len01<0)
+       {
+         alert("Please enter correct length");
+        }
+        elseif
+        { 
+            alert("Correct length entered");
+    }
+
+        if(wid01<0)
+       {
+         alert("Please enter correct width");
+        }
+        elseif
+        { alert("Correct length width");}
+
+        
+    }
+    function drawww(){var ctx = document.getElementById(paper11).getContext("2d");
+ctx.beginPath();
+ctx.rect([start_x_coordinate], [start_y_coordinate], [width],[height]);
+ctx.stroke();
+
+    }
+    
+</script>
+</body>

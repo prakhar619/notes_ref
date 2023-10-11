@@ -1,0 +1,171 @@
+Spring Framework
+    Container or Spring Application Context (SAC) 
+        Creates and Manages application components (beans)
+        Does DI
+        Earlier using one or more xml files
+            <bean id="bean1" class = "com.example.Bean1" />
+            <bean id="bean2" class = "com.example.Bean2" />
+                <constructor-arg ref="bean1" />
+            </bean>
+        Now Java based Config files
+            @Configuration
+            public class ServiceConfiguation{
+                @Bean 
+                public Bean1 bean1(){
+                    return new Bean1();
+                }
+                @Bean
+                public Bean2 bean2(){
+                    return new Bean2(bean1());
+                }
+            }
+    
+DI (Dependency Injection)
+    act of wiring components(beans) together based on a known pattern.
+
+Spring has automatic configuration techniques:
+    Autowiring
+    Component Scanning
+        Automatically discover components from an application's classpath and create them as bean in spring app context
+    
+Spring Boot is extension of Spring Framework   
+    Autoconfiguration
+        Reasonable guess of what components needs to be configured and wired together
+    Started Dependencies
+    Testing Env, Flexible env properties
+    
+Spring Initializr bootstrap your application
+    is a both REST API and browser based web application
+    automatically generates structural code for project
+    Sources:
+        start.spring.io 
+        curl cmd
+        Spring Tool Suite
+        IntelliJ IDEA
+        NetBeans
+
+Maven is software project management based on project object model(POM).
+    project file system and heirarchy (project structure)
+        /src/main
+                /java 
+                    (main java file)
+                /resource 
+                    /static
+                        (img,css,js etc)             
+                    /template
+                        (template files)
+            /test
+                /java
+                    (test java files)
+        pom.xml
+            (configuration file)
+
+Jar vs War 
+    these are just how software is packaged
+    Jar 
+        Java Archive
+        contains libraries, resources and accessories files
+    War 
+        Web Archive
+        Web Applicaton Archive
+        Runs inside application server
+        contains web application
+
+Spring MVC is web based framework that comes with Spring   
+    concept of controller, a class that handles request and responds.
+    @Controller 
+        primary purpose is to identify this class as component for component Scanning
+        create bean of this class automatically in SAC 
+        Similar annotations: @Service @Component @Respository
+    @GetMapping
+        HTTP GET request handler
+    @PostMapping
+    @PutMapping
+    @DeleteMapping
+    @PatchMapping
+    @RequestMapping
+        General purpose request handling
+        @RequestMapping(method=RequestMethod.GET)
+
+Thymeleaf   
+    Model: is an object that ferries data between a controller and thymeleaf.
+        ultimately the data is placed in Model attributes is copied into servlet response attributes
+    model.addattribute("templatefile",obj)
+
+Dependency:
+    Thymeleaf :=> spring-boot-starter-thymeleaf 
+                template engine Thymeleaf 
+                Thymeleaf layout dialect
+    Web       :=> spring-boot-started-web 
+                Embedded Tomcat
+                Spring MVC framework (web and non web framework)
+    DevTools  :=> spring-boot-devTools 
+                automatic application restart when code changes; automatic browser restart when browser destined resources changes; automatic disable of template cache; built in H2 console (database related)
+                2 separate class loader
+    Test      :=> spring-boot-starter-test 
+
+Main Java file
+    /src/main/java
+        .java file
+ 
+Default CLASS:
+    @SpringBootApplication  composite of 3 annotation
+        @SpringBootConfiguration
+            designates this class as a configuration class.
+        @EnableAutoConfiguration
+            enables spring boot automatic configuration
+        @ComponentScan
+            lets you declare annotation like @Component, @Controller, @Service so spring can automatically discover them
+        
+    SpringApplication.run() static call to SpringApplication class which actual bootstraps creating Spring Application context
+
+
+OUR CLASS:
+	@Controller
+		primary purpose is to identity this class as a component for component scanning
+		@Component, @Service, @Repository, @ Controller all serves similar purpose
+	@GetMapping("/")
+		indicates if HTTP Get request for root path (/) then this method should handle that request.
+
+
+
+Java Test file  
+    /src/test/java
+
+DEFAULT TEST CLASS:
+    @RunWith(SpringRunner.class)
+        @RunWith is JUnit annotation providing a test runner that guides JUnit in running a test
+        SpringRunner is alias for SpringJUnit4ClassRunner
+    @SpringBootTest
+        tells JUnit to bootstrap the test with Spring Boot capabilities
+    @Test   
+
+OUR TEST CLASS:
+    @RunWith(SpringRunner.class)
+    @WebMvcTest(HomeController.class)
+        test run in context of spring mvc app
+        arranges for HomeController to be registered in spring mvc for throwing request against it
+    @Autowired
+
+    @Test   
+        mockMvc.perform("/")
+            this object performs the request and checks if any of the requirement is met or not
+
+
+
+lombok (isnt a spring lib)
+    Data 
+        @Data 
+            Tells to add all missing method as well as contructor that accepts all final properties as argument
+    RequiredArgsConstructor
+        @RequiredArgsConstructor
+    SLF4J
+        Simple Logging Facade For Java 
+        Logger in java
+
+
+
+	
+
+
+    

@@ -1,0 +1,12 @@
+Template Engines are used to enable fast rendering of server-side data that needs to be passed to application
+Run on server and are not built as APIs
+
+Popular Template Engines for NodeJS  
+    EJS
+        Embedded Javascript
+    PUG
+    JADE
+    Mustache
+    HandlebarJS
+    Jinja2
+    Blade

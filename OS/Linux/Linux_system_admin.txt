@@ -1,0 +1,371 @@
+su		//to switch to root
+su usrname	//to change user 
+passwd usrname	//to change user password
+sudo		// regular usr given root privileges
+
+Root USER
+	filesystem
+	software installation
+	user account
+	network interfaces and configuration
+	servers
+	security features
+
+RHEL GUI support	
+system-config
+	system-config-bind
+	system-config-httpd
+	system-config-nfs
+	system-config-boot
+	system-config-rootpassword
+	system-config-display
+	system-config-samba
+	system-config-services
+	PackageKit
+	authconfig-gtk
+	system-config-date
+	system-config-firewall
+	system-config-language
+	system-config-lvm
+	system-config-users
+	system-config-network
+	system-config-printer
+	gconf-editor
+	gnome-utils
+	gnome-disk-utility
+	system-config-kickstart
+	policycoreutils-gui
+	
+/etc/passwd
+	root:x:0:0:root:/root:/bin/bash
+	 passd:usrID:grpID
+
+/etc/shadow
+	file store encrypted password
+	
+usermod		//to modify user data
+exit		//log out of root or other user
+
+$ vs #	(normal user vs root user prompt)
+
+Sudoers facility:
+	full or limited root privilege
+
+/etc/sudoers
+	contains info for sudoers
+	passwd_timeout variable to change sudo time allotment
+	
+/usr/sbin/visudo	
+	visudo cmd does syntax checking on sudoer file	
+	all or nothing admin privilege
+
+Administrative CMDS
+$PATH for root	(dir for checking cmd functionality)
+	/sbin		
+		contains cmd to boot system;
+			fsck		//checks filesystem
+			service		//start and stops services
+	/usr/sbin
+		cmds for managing usrs 
+			useradd		//to add users
+			lsof		//checking processes that are holding files open
+			sshd
+			pppd
+			cupsd
+			
+$PATH for regular users 	
+	/bin
+		mount			//to see list of mounted filesystem
+	/usr/bin
+
+
+EXTRA DIR that 3rd party apps add to $PATH
+	/usr/local/bin
+	/usr/local/sbin
+	
+	
+	
+	
+	
+/usr/share/man/man8	for description and options for most linux admin cmds
+
+
+Administrative Configuration files
+	major locations
+		/etc
+		~/		(home directory)
+
+
+Admin Log files
+	/etc/rsyslogd.conf		//controls the logging
+	/var/log			//dir to store log files
+		boot.log		
+	messages	
+	secure
+	
+
+Hardware Management (HAL: Hardware Abstraction Layer)
+	/var/log/demsg
+	
+	PCI buses
+		lspci
+			lspci -v
+		lsusb
+		lscpu
+		
+	LOADING/UNLOADING HARDWARE MODULES (all drivers are modules/ all modules are not drivers)(modules may be builtin kernel or may be dynamically loaded)
+		lsmod
+			/lib/modules		//contains executable files for modules
+		modprobe <moduleName>		//to load module
+		rmmod <moduleName>		//to remove module
+		
+GRUB	(Grand Unified Boot loader)	
+		Supports for multiple OS.
+		Support for multiple filesystem types.
+		
+
+Software Packaging
+	Tarball	
+	DEB packaging
+		apt-get
+		dpkg
+	RPM packaging
+		rpm
+		yum
+
+
+	rpm
+		RPM package manager
+		rpm -qi firefox
+		Upstream software providers -> Linux Distributions ->
+		drawbacks
+			exact name of package along with its version etc
+			dependencies resolve manually
+				therefore YUM
+	yum
+		YellowDog Updater Modified
+		yum install firefox
+			//also dependency resolved by putting everything in repositories
+			
+			
+User Management
+	
+	useradd -d
+		//useradd performs multiple entries in files
+			/etc/login.defs and /etc/default/useradd-files to get default values for creating accounts
+			/etc/passwd and /etc/shadow entries for new user
+			/etc/group	entries for new users
+			/home
+	
+	usermod
+	userdel
+	
+	groupadd
+		groupadd newGroup
+		groupadd -g 310 newGroup
+		
+	groupmod	
+		group -g 330 newGroup	//change groupid
+		group -n newnewGroup newGroup	//newGroup changed to newnewgroup
+
+#Linux only allow one user and one group per file
+#ACL allows multiple users and multiple groups per file	
+#ACL superset for chmod as it also affects basic permissions
+	ACL	
+		(Access Control List)
+		setfacl
+			setfacl -m u:username:rwx filename		//m means modify permissions
+									//-x means remove acl permissions
+		getfacl
+			getfacl filename
+				//mask is the max permission granted
+				//even if we allow more than mask; mask will eventual block the extra access;
+			
+	
+	
+	chmod
+	chown -R(for dir) username filename		//change user/owner of file
+	chown  user:group  filename			//change owner/user and group of file
+	chgrp  groupname   filename			//assign groupt to file	
+			
+FILE PERMISSIONS
+	7777
+	drws_rws_rwt
+		//s instead of x	uid 4; gid 2; stickybit 1
+		//t instead of x
+		//d instead of --empty--
+		
+		//s in user means uid	meaning everyone has same permission as user of file when executing it
+		//s in grp means gid    meaning everyone has same permission as group of file when executing it; for dir gidbit means files in that dir will have grp of parent dir and not of user who created it; anyone can create file in that dir but modify access to group of dir and creator of file
+		//t means sticky bit	meaning everyone even who has permission to write/execute cant delete/rename a file		
+		//d means directory
+	
+Collabrating directories
+	groupadd -g groupID groupName
+	usermod -aG groupName userName
+	mkdir collabDIR
+	chgrp  groupName collabDIR
+	chmod  2775
+	
+LDAP
+	Lightweight Directory Access Protocol
+	Centralised user authentication software
+		 
+Daemon processes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MANAGING Disk and FILESYSTEM
+	LVM (logical Volume Management)
+	Disk is divided into partitions and each partitions have a formatted filesystem.
+	LVM physical volumns and swap area	
+	Swap area used when ram is full and new process needs to be loaded up
+		ram will swap out data from 'ram' that isnt used to swap area
+		swap space is a hard disk partition
+		
+	LVM
+		default: /(root) has one partition
+		although common to have /home, /var, /tmp
+		
+	Mounting means connectiong a partition/filesystem in harddisk to particular point in filesystem.
+	mount	
+	umount /dev/sda	
+	FileSystem Types:
+		VFAT filesystem default
+		NTFS support	(requires kernel drivers)
+	
+	lsblk
+		list block devices
+		reads sysfs filesystem and udev db
+		
+	
+	fdisk -c -u -l /dev/sd?		(sda, sdb, sdc ... for each device connected)
+		-l shows disk partitions
+		-c turn off dos compatibility mode
+	
+	sector/sector size/sector count
+	SECTOR
+		physical location on the storage device
+		Made of 3 parts:
+			sector header
+			error correcting code
+			body: area that actually stores data
+		Standard size of 512 bytes(1956)
+		Now 1024 and 2048 and 4096 bytes also
+		Single file can span multiple sectors.
+		Bigger the sector less the fragmentation
+		BOOT SECTOR: 
+		BAD SECTOR:
+		
+		
+	i/o size
+	
+	
+	fdisk -ul /dev/sda
+		p to view partition
+		l to view all available partition
+		d to delete the partition
+		n to create new partition
+		w to make partition table permanent (sync) and quit fdisk	//final step
+			+500M for last sector else number will be taken as no of sectors
+	
+		max allowed partition for minor devices 16: 16 minor devices
+			sda1, sda2, sda3, ...
+			each partition can have their own filesystem formatting like FAT32/Linux swap/Linux/LVMs
+			
+		x86 computers 4 primary partition
+				then one extended partition (occupy all left space)
+				logical partitions use space from extended partition
+			
+		
+	Creating a single partition disk
+		Unmount if partitions are already mounted
+		Create a new partition using fdisk (slices of memory)(sector management)
+		Create file system for the partition using mkfs (how actually the file will be stored)(cluster management)
+		Then Mount the partition in any dir
+	
+	mkfs -t ext4 /dev/sda
+	mkfs -t ntfs /dev/sda
+	mount /dev/sda1 ./usb/usb_sda1
+	df -h /usb/usb_sda1
+	mount /dev/sda1
+	
+	Automatic mounting:
+		/etc/fstab file to change where the partitions are mounted
+		
+	
+	CLUSTER
+		smallest amount of disk space that can be allocated to hold a file.
+		each cluster can store at max one file.
+		small cluster size means more optimised storage.
+		large cluster size means optimised reading writing speed.
+	sector associated with partition (more hardware)
+	cluster associated with filesystem
+	
+	4 partition: either 4 primary or 3primary+1extended(this itself can contain multiple partition)
+		
+	
+	
+	LVM (logical volumn management partitions)
+		logical group and logical partition
+		add space to logical volumn
+		add space to logical group
+		
+	/proc/filesystem
+		to see all the filesystem that was loaded
+		
+	
+	
+	free -m 
+		to see main memory status
+	swapon	/dev/sda2	(swap area)
+	swapoff /dev/sda2	(swap area)
+	

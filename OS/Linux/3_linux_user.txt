@@ -1,0 +1,57 @@
+Linux User Management CMDS
+
+Types of User
+	super user	(root;uid:0 gid:0)
+	regular user
+	System user	(no login; system processes; not root privileges)
+	Service user	(service/software related)
+	
+cat /etc/passwd       ( to access file for user/userid/gid/name/room no/)    username : x : user id : user group id : : /home/username : /bin/bash
+	
+user 
+		whoami				(to get current usr)
+		id username01          		(to get grpid/gid and usrid/uid)
+		passwd    			(to change password of current user)
+		id				(current usr uid/gid)
+		groups				(current usr grps)
+		awk -F ':' '{print $1}' /etc/passwd		(to get all users)
+		
+		su user02
+		useradd username01 -m	(-m flg to create login dir)	
+		passwd username01	(to set/change password of a user)
+		userdel -r username01
+		
+		usermod flag username01	(to change usr setting/data)
+			flags
+				-b   allow bad names
+				-d   new home directory for the user account
+				-e   set account expiration date 
+				-f   set password inactive after expiration to inactive
+				-g   change group id
+				-L   lock the user account
+				-l   change login name
+				-o   allow using duplicate UID
+				-p   use encrypted password for the new password
+				-u   change uid for a user
+				-U   unlock a user
+				-aG   to adduser to a group
+					sudo usermod -aG group01(sudo) user01
+													
+		users	(to get current users logged in to current host)
+		who	(to get current users logged in)
+		users     (all users online)
+							
+		last    (id+ ipaddress + login time + active users +login date+ time log in)
+			(single computer: user login : time : status)
+													
+		chmod
+			chmod 777 file01		(4 for exe, 2 for write, 1 for read)(owner group other)
+			chmod 421 folder01	
+			chmod ugo-x file01		(u owner, g group, o others, a all)(+, -)(x execute, w write, r read)
+			chmod u+x file01
+			chmod go+rwx file01
+			chmod uo-r file01
+			
+		chown	
+			chown revai:revai /filepath01	(change ownership)
+

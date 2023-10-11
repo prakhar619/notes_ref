@@ -1,0 +1,188 @@
+! FORTRAN 90
+	! case insensitive
+
+program <name>
+	
+!This is a comment 
+
+	real:: a,b,result
+	
+	a= 12.0
+	b= 15.0
+	result  = a+b
+	print *, 'Total is', result
+	
+end program <name>
+
+
+Keywords
+	call
+	do
+	else
+	else if
+	end if 
+	go to
+	if
+	len
+	in
+	out
+	then 
+	while
+	use
+	real
+	exit
+	
+	...
+	
+Data types
+	integer
+	real 
+	complex
+	logical
+	character
+	
+	integer:: //kind , default value
+	real:: 
+	complex:: //(3.0, 5.0)  stored as 3.0+5.0i
+	character::	//stores string  // len
+	
+Variables
+	type-specifier :: variable_name
+	integer :: total  	
+	real :: average 
+	complex :: cx  
+	logical :: done 
+	character(len = 80) :: message ! a string of 80 characters
+	
+	total = 20000  
+	average = 1666.67   
+	done = .true.   
+	message = “A big Hello from Tutorials Point” 
+	cx = (3.0, 5.0) ! cx = 3.0 + 5.0i	
+	
+Constants
+	.true.
+	.false.
+	
+	"pra" " adfadr"Fe"
+	" afers'fl"
+	'adsfas"'
+	
+Operators
+	+
+	-
+	*
+	/	int/int = int		double/double = double
+	**	exponent
+	
+	==	.eq.
+	/=	.ne.	(not equal to)
+	>	.gt.	
+	<	.lt.
+	>=	.ge.
+	<=	.le.
+	
+	.and.
+	.or.
+	.not.
+	.eqv.
+	.neqv.
+	
+	PRECEDENCE ORDER
+		.not.
+		**
+		* /
+		+ -
+		<<= >>=
+		== /=
+		.and.
+		.or.
+		=
+		
+Control flow statement
+
+	if(<logical statement>) then
+		<statement>
+	end if
+	
+	
+	if(<logical statement>) then
+		<statement>
+	else
+		<statement>
+	end if
+	
+	
+	if(<logical statement>) then
+		<statement>
+	else if(<logical statement>) then
+		<statement>
+	else 
+		<statement>
+	end if
+	
+Looping statement
+	
+	do n = 1, 10			!n=  1 and n = 20 also goes inside
+	<statement>
+	end do
+	
+	do while(<logical exp>)
+		<statement>
+	end do
+	
+	!labels for nested label
+	
+	iloop: do i = 1, 10
+	jloop: do j = 1, 10
+	<statement>
+	end do jloop
+	end do iloop
+	
+Numbers
+	integer :: val
+	print*, huge(val)			! gives highest value that integer can hold
+	
+	integer(kind = 2):: shortval
+	integer(kind = 4)::longval
+	integer(kind=8)::verylongval
+	integer(kind=16)::ververylongval
+	integer::defval
+	
+	
+	real:: p,q,r
+	
+	print*,kind(var)		!gives which data type is var
+	
+
+Characters
+	print*,var1,var2,var3
+	
+	concatenate
+		var1=var2//var3//var4	
+		
+	character :: reply,sex
+	
+	len(string1) !return length of string
+	index(string1,sustring)	!0 when not found 
+	achar(int)	! converts integer to char
+	iachar(c)	!converts char to integer
+	trim(string)	!removes trailing zeros
+	
+
+String
+	character(len = 20) :: first_name, last_name
+	
+	concatenate
+		var1=var2//var3//var4
+	
+	var1(startIndex01 : endIndex01)		!substring extraction
+	
+
+Array
+
+
+	
+		
+	
+	

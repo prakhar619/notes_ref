@@ -1,0 +1,18 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{amsmath}
+\begin{document}
+We will use $Dir_L$ ($a_1,\ldots,a_L$) to denote the finite-dimensional Dirichlet distribution on the simplex $S_L$. Also,we will use $Mult_L(b_1, \ldots, b_L)$ to denote the multinomial distribution with number of trials equal to 1 and probability vector $(b_1,\ldots,b_L)$. We will form a K $\times$ V matrix $\beta$, whose $t^{th}$ row is the $t^{th}$ topic (how $\beta$ is formed will be described shortly). Thus, $\beta$ will consist of vectors $\beta_1, \ldots, \beta_K$, all lying in $S_V$. The LDA model is indexed by hyperparameters $\eta \in (0, \infty) $ and $\alpha \in (0, \infty)^K$. It is represented graphically in Figure 1, and described formally by the following hierarchical model:
+\begin{enumerate}
+\item $\beta_t \stackrel{iid}{\sim} Dir_V(\eta,\ldots,\eta), t = 1,\ldots, K$.
+\item $\theta_d \stackrel{iid}{\sim} Dir_K(\alpha),d = 1,...,D,$ and the $\theta_d's$ are independent of the$ \beta_t's$.
+\item Given $ \theta_1,\ldots,\theta_D,z_{di} \stackrel{iid}{\sim} Mult_K(\theta_d), i = 1,\ldots,n_d, d=1,\ldots,D,$ and the D matrices $ (z_{11},\ldots,z_{1n_1}),\ldots,(z_{D1},\ldots,z_{Dn_D})$ are independent.
+\item Given $\beta $ and the $ z_{di}'s$ ,$ the w_{di}'s$ are independently drawn from the row of $\beta$ indicated by $z_{di}, i = 1,\ldots,n_d, d=1,\ldots,D$.
+\end{enumerate}
+Now suppose that wwe have a method for constructing a Markov chain on $\psi$ whose invariant distribution is $\nu_{h,w}$ and which is ergodic. Two Markov chains which statisfy these criteria are discussed in later in this section. Let $h_*$ $\in$ H be fixed but arbitrary, and let $\psi_1, \psi_2, \ldots$ be an ergodic Markov chain with invariant distribution $\nu_{h_*,w}$. For any h $\in$ H, as n $ \rightarrow$ $ \infty$ we have
+\begin{align}
+\frac{1}{n} \sum_{i = 1} ^{n} \frac{\nu_h(\psi_i)}{\nu_{h_*}(\psi_i)} &\overset{a.s}{\rightarrow} \int \frac{\nu_h (\psi)}{\nu_{h_*}(\psi) }d\nu_{h_*,w}(\psi) \\
+ &= \frac{m(h)}{m(h_*)} \int \frac{ l_w (\psi) \nu_h (\psi) /m(h)}{l_w(\psi) \nu_{h_*} (\psi) / m(h_*)} d\nu_{h_*,w}(\psi) \\
+&= \frac{m(h)}{m(h_*)} \int \frac{  \nu_h (\psi) }{ \nu_{h_*} (\psi)} d\nu_{h_*,w}(\psi) \\
+&= \frac{m(h)}{m(h_*)} .
+\end{align}
+\end{document}

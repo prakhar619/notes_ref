@@ -1,0 +1,26 @@
+.Net Technology
+Templates
+
+Windows
+	Windows Forms App	(.Net core)
+	Windows Forms App	(.Net Framework)
+	UWP				(Universal Windows Platform)
+	WPF				(Window Presentation Foundation)	
+	Console App
+
+iOS
+
+Android
+
+macOs
+
+Linux
+
+Asp.net
+
+
+
+Cloud	(Azure)
+
+
+	

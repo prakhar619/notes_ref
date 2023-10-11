@@ -1,0 +1,417 @@
+CSS syntax
+
+	selector01 {property:value; property:value}
+	
+	
+
+
+selector:
+		html element
+			p,h1,h5{}
+		id selector   			 (id cannot start with number)
+		.class  
+			p.class01
+			class="class01 class02"
+		*{}	
+
+commenting  /*     */
+
+
+
+
+External style sheet
+	<link rel="stylesheet" type="css/text" href="path01" />
+Internal style sheet
+	<head>
+		<style>
+		</style>
+	</head>
+Inline style sheet
+	<p style="color:blue;text-align:center;"></p>
+
+inline >> external and internal
+
+
+CSS Properties
+	background
+		background-color: rgba ()
+		background-image: url("path01")
+		background-repeat: repeat-x, repeat-y, no-repeat, 
+		background-attachment: fixed, scroll
+		background-size: width01 height01, or single scale , % or px
+		background-position: right top, left top, right bottom...	( starting position of image)
+		background-clip				(painting area of background)
+		background-origin				(position of background image)
+		background-size:cover,   		(size of background image)
+		
+			
+	
+		
+	border
+		border-left
+		border-right
+		border-bottom
+		border-top
+			border-color
+			border-width : px, medium thick,   ( width: 2px 4px ;  (top bottom 2px left right 4px)
+	 		border-radius: px, em, cm, pt
+			border-style : dotted, dashed, solid, double, groove, ridge , inset, outset, none , hidden  (style: dotted dashed double solid;  mixed border)
+				border-top-style:
+				border-right-style:
+				border-left-style:
+				border-bottom-style:
+			
+			
+
+
+	margin    (collapse property)
+		margin-top: 2px 3px 4px  , auto, inherit(top 2px left right 3px bottom 4px)
+		margin-right
+		margin-bottom
+		margin-left
+
+
+			
+	padding
+		padding-top: 50px
+		padding-right
+		padding-bottom
+		padding-left
+
+ ______________________________________________
+|margin
+|        _____________________________________
+|       |border_____________________________
+|	  |    | padding
+|		 |
+|		 |			 ________________
+|		 |		      |width
+| 		 |			|
+|		 |			|	
+|
+|								(INCREASING WIDTH INC TOTAL AREA OF TAG)
+|								(PADDING + WIDTH  = TOTAL AREA OF TAG)
+
+	box-sizing: border-box     (keep width constant , no matter amount of padding)
+		
+	width: auto, px, cm , %, initial, inherit
+		max-width:
+		min-width:
+	heigth:
+		max-height:
+		min-height:
+
+
+
+	outline:      (does'nt affect total width of element)(overlap allowed)
+		_______________________________
+		|outline
+		|
+		|                   ___________________
+		|                  | border
+		|                  |
+		
+		outline-style: dotted,dashed, solid, double, groove, inset, outset, none, hidden
+		outline-color:
+		outline-width
+		outline-offset: px, cm ,em     (add space between border and outline)
+
+
+
+
+	text
+		color : rgba()                             (text color)
+		text-align:center, left, right, justify (every line has same width),
+			text-align-last: right, center, justify  (last line of text)
+			text-align-
+		direction: rtl, ltr    (float for text)
+		text-decoration: none 
+			text-decoration-line: overline, line-through, underline, overline underline
+			text-decoration-color:                     (set color of decorated line)
+			text-decoration-style: dotted, dashed,...
+			text-decoration-thickness:
+		text-transform: uppercase, lowercase, capitalize
+		text-indent: px,
+		letter-spacing:
+		line-height:
+		word-spacing:
+		white-spacing:
+		text-shadow:2px 2px 5px red    (5px blur)    ;text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+		
+
+		
+Generic Font Family	Examples of Font Names
+Serif		Times New Roman
+		Georgia
+		Garamond
+Sans-serif	Arial
+		Verdana
+		Helvetica
+Monospace	Courier New
+		Lucida Console
+		Monaco
+Cursive	Brush Script MT
+		Lucida Handwriting
+Fantasy	Copperplate
+		Papyrus
+
+Web safe fonts:
+Arial (sans-serif)
+Verdana (sans-serif)
+Helvetica (sans-serif)
+Tahoma (sans-serif)
+Trebuchet MS (sans-serif)
+Times New Roman (serif)
+Georgia (serif)
+Garamond (serif)
+Courier New (monospace)
+Brush Script MT (cursive)
+
+
+Georgia and Verdana
+Helvetica and Garamond
+Merriweather and open sans
+Ubuntu and lora
+Abril fatface and poppins
+cinxel and fauna one
+fjalla one and libre baskerville
+space mono and muli
+spectral adn rubik
+oswald and noto sans
+
+	
+		font-style : normal, italics, oblique
+		font-weight: normal , bold
+		font-variant: normal , small-caps
+		font-size: px, em, %, vw (responsive)
+		font-variant:    (displays in small caps fonts)
+
+
+	Links
+		color:
+		a:link { color: ; text-decoration: ;display: inline-block}   (unvisited links)                      (active must come after hover and visited and link must be before hover)
+		a:visited{color:}	 (visited links)
+		a:hover{color:}	 (hover over links)
+		a:active{}		 (when a link is clicked)
+		
+
+
+	Lists
+		list-style-type:circle, square, upper-roman, lower-alpha
+		list-style-image: url('path01')	                        (image as a bullet)		list-style-position: outside (bullet outside>> margin set), inside,
+		
+		ol{background:orangered}
+		ol li{background:light-red}
+
+
+
+	Tables                             
+		border: px solid;
+		width: % , 
+		border-collapse:collapse;
+		text-align:center,left, right
+		border-spacing:
+		caption-side:
+		empty-cell:					(to specify property of empty cell)
+		
+		
+		th{height: px, vertical-align: bottom, top, padding:, border-bottom:px solid red}
+		tr:hover{background-color:red}
+		tr:nth(even){background-color:grey}     (zebra stripping)
+		
+
+BLOCK-LEVEL Elements (takes all available space)
+<div>
+<h1> - <h6>
+<p>
+<form>
+<header>
+<footer>
+<section>
+
+INLINE Elements (takes only required space)
+<span>
+<a>
+<img>
+
+	div
+		overflow-x:auto                (scroll bar for table or code)
+		width:
+		max-width:
+		border:
+		margin:
+		height:
+
+	
+
+	display: none (remove element and its space),inline  (display item in horizontal line),block (to display inline elementss as block elements),inline-block (allows to set width and height also no breaking of line )
+			
+	visibility: hidden (removes elements but space remains)
+
+	overflow: visible(default), hidden(rest of content is hidden), scroll, auto (scroll when needed)
+		overflow-x:hidden
+		overflow-y:scroll
+
+	float:left, right, none, inherit	
+
+	clear: none, left(element is pushed below left floated elements),right( element is pushed below right floated elements), both, inherit
+	
+	
+	
+
+	position: static (default), relative(top: bottom: left: right:), fixed (not scrollable), absolute, sticky
+				position: -webkit-sticky;
+ 				position: sticky;
+  				top: 0;
+  				padding: 5px;
+ 				background-color: #cae8ca;
+  				border: 2px solid #4CAF50;
+	
+	box-sizing:border-box;  (fixes box sizes by managing padding)
+
+	
+
+
+	img
+		verticle-align:baseline, text-top, text-bottom, super,sub
+		position:
+		left:
+		right:
+		top:
+		bottom:
+		z-index:                 (overlap stack)
+
+
+
+Combinators
+ 	(descendant)    div p
+>	(child)   		div>p
++	(adjacent after)			div+p
+~	(after, every element)
+
+Pseudo-class
+ element-pseudo-class{}
+		a:hover
+		
+		p{display:none}
+		a:hover p{display:block}
+
+		p:first-child {}   (pseudo class)
+
+		p::first-line{}	(pseudo element)
+
+opacity: 0.0-1.0   (all subelement)
+		
+		
+
+
+CSS Selectors
+CSS Browser Support
+CSS Functions
+CSS Animatable
+CSS Aural
+CSS Web Safe Fonts
+CSS Units
+Px to Em Conversion
+CSS Colors
+CSS Default Values
+CSS Entities
+property
+
+		background-color				(background-color:rgba(255,99,71,0.7)
+		color
+		text-align
+		font-family
+		font-size
+		border					( border:2px solid Violet; )
+		background-image				(background-image:url("./../path01")
+		background-repeat				(background-repeat:repeat-x;)(value x,y,no repeat
+		background=postition			(right top;)
+		
+	
+		Flex-container
+					<div id="flex-div">
+						<div>1st column</div>
+						<div>2nd column</div>
+						<div>3rd column</div>
+
+					#flex-div{  display:flex;
+							flex-direction:column (vertically), column-reverse (vertically but from bottom to top), row, row-reverse
+							flex-wrap:wrap(resizing browser window will automatically pics all img seen), nowrap(not vertical adjustment), wrap-reverse (wrap but column last img shown first on resizing),
+							
+	
+							flex-flow:row wrap (short hand property for setting direction and wrap)
+
+
+							justify-content: center, flex-start, flex-end, space-around (horizontal align)
+							align-item: center; flex-start, flex-end, stretch(default), baseline (middle lines) (vertically align)
+							align-content:space-around,stretch , center, flex-start, flex-end, (similar to aligning item but aligns flex lines)
+						
+
+
+					 <div class="flex-div">
+						<div style="order:3">3</div>
+						<div style="order:2">2</div>
+						<div style="order:1">1</div>
+							
+							order:
+							flex: 0 0 200px   (not growable , not shrinkable, intial length)
+								flex-grow: 0(default) (how much item grow comparison to others)
+								flex-shrink:1(default)
+								flex-basis: (like grow but initial length)
+
+							align-self: (align items but individual) center, flex-start, flex-end,
+							
+
+							
+
+
+
+
+Cursor properties
+.alias {cursor: alias;}
+.all-scroll {cursor: all-scroll;}
+.auto {cursor: auto;}
+.cell {cursor: cell;}
+.context-menu {cursor: context-menu;}
+.col-resize {cursor: col-resize;}
+.copy {cursor: copy;}
+.crosshair {cursor: crosshair;}
+.default {cursor: default;}
+.e-resize {cursor: e-resize;}
+.ew-resize {cursor: ew-resize;}
+.grab {cursor: -webkit-grab; cursor: grab;}
+.grabbing {cursor: -webkit-grabbing; cursor: grabbing;}
+.help {cursor: help;}
+.move {cursor: move;}
+.n-resize {cursor: n-resize;}
+.ne-resize {cursor: ne-resize;}
+.nesw-resize {cursor: nesw-resize;}
+.ns-resize {cursor: ns-resize;}
+.nw-resize {cursor: nw-resize;}
+.nwse-resize {cursor: nwse-resize;}
+.no-drop {cursor: no-drop;}
+.none {cursor: none;}
+.not-allowed {cursor: not-allowed;}
+.pointer {cursor: pointer;}
+.progress {cursor: progress;}
+.row-resize {cursor: row-resize;}
+.s-resize {cursor: s-resize;}
+.se-resize {cursor: se-resize;}
+.sw-resize {cursor: sw-resize;}
+.text {cursor: text;}
+.url {cursor: url(myBall.cur),auto;}
+.w-resize {cursor: w-resize;}
+.wait {cursor: wait;}
+.zoom-in {cursor: zoom-in;}
+.zoom-out {cursor: zoom-out;}							
+
+							
+
+
+Bootsrap
+Online Css
+
+
+
+

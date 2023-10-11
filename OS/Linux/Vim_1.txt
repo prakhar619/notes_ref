@@ -1,0 +1,20 @@
+VIM CMDS
+
+	text editor 
+		nano
+			nano filename (create file ; ctrl + x to exit)
+		VIM
+			esc to change mode
+				x delete a character
+				X delete character in backspace mode
+				u undo	
+				ctrl + r redo
+				dd delete a line
+				yy copy a line
+				gg or [[ move to beginning of file
+				G or ]] move to end of a file
+				esc + :w save changes
+				esc + :wq save and quit
+				esc + :q! dont save and quit
+			i    	enter insert mode
+			insert	enter insert mode

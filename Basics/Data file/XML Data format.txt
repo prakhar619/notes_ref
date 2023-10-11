@@ -1,0 +1,31 @@
+XML Data format:
+
+<meta data/>										
+<root>											
+	<meta data/>									
+	<elem1 property1=value1 property2=value2 />					
+	<elem2 property1=value1 property2=value2 />
+	<elem3 property1=value1 property2=value2>
+		<subelem3_1 property1=value1 />
+		<subelem3_2 property2= value2 />
+	<elem4 property1=value1 property2=value2> Text Area </elem4>
+	<elem5 property1=value1 property2=value2>
+		<subelem5_1 property1= value1>Text</subelem4_1>
+	    </elem5>
+</root>
+
+
+<?xml p:v p:v>						<tag attrib: value attrib:value >
+<osm p:v p:v p:v>					root tag
+	<bounds p:v p:v p:v/>					child tag
+	<node p:v p:v>						child tag
+		<tag p:v p:v/>					child child tag
+		<tag p:v p:v/>
+		<tag p:v p:v> Hello </tag>		<tag>TExT<tag>
+	</node>
+</osm> 
+
+
+
+
+

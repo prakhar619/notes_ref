@@ -1,0 +1,220 @@
+32 bit =  4 byte  =  8 hexadecimal
+Register  --> 3 Types	Int,Float,Error
+Memory    --> 2 Types   Data,Instruction
+
+MIPS
+	Microprocessor without interlocked pipelined stages
+ 
+	RICS ISA
+	MIPS I,II,III,IV,V
+	MIPS 32/64 Release 6
+	
+	Design
+		Modular Architecture upto 4 coprocessors(CP0/1/2/3)
+		CP0 is System Control Coprocessor
+		CP1 is floating point unit optional
+			
+			Coprocessor
+				is a computer processor used to supplement the functions of primary processor.
+				floating point arithmatic
+				graphics
+				signal processing
+				string processing
+				cryptography
+				i/o interfacing
+				
+		
+	
+	MIPS I
+		load/store architecture
+		Register/Register architecture
+		
+		Registers
+		32 32bits registers
+			All these information are guidelines and not hardware implement
+			Follow norms for compactibility with other software
+			
+			$0								Hardwired to zero
+			$at								Reserved for assembler
+			$v0	$v1							return value for subroutine
+			$a0	$a1	$a2	$a3					args for subroutine
+			$t0	$t1	$t2	$t3	$t4	$t5	$t6	$t7	temporary register; caller saved register; meaning caller needs to store it somewhere if they need it after procedural call
+			$s0	$s1	$s2	$s3	$s4	$s5	$s6	$s7	saved value; callee saved register;callee duty to restore value of these register as previous
+			$t8	$t9							temporary
+			$k0	$k1							kernel use 
+			$gp								global pointer
+			$sp		29						stack pointer //for non leaf subroutine (stores $ra data)
+			$fp								frame pointer
+			$ra								return address // jr $ra
+
+			
+		PC	(Program Counter)
+		EPC	(Exception Program Counter)
+		Cause   (Exception type)
+		BadVAddr(Memory Addr at which AddressException occurred)
+		Status
+
+		HI
+		LO
+		
+		Instructions
+		32 bit instruction	
+			R	opcode(6)	rs(5)	rt(5)	shamt(5)	funct(6)
+			I	opcode(6)	rs(5)	rt(5)	immediate(16)
+			J	opcode(6)	address(26)
+			
+		Word
+		32 bit word
+		
+		Memory
+		Memory address are 32 bits wide
+		Memory is byte addressable (every byte(8bits) has a unique memory)
+				for integer: 32 bit (4 byte) increment memory address by 4
+				for character: 8 bit (1 byte) increment memory address by 1 
+		
+		CP0
+		Coprocessor
+			
+			4 Register
+				BadVAddr
+				Status
+				Cause
+				EPC
+		
+		
+		
+Instructions
+	
+	ALU
+		Arithmatic
+			add	$rd	$rs	$rt	value(rd) = value(rt)+value(rs)
+			sub	$rd	$rs	$rt	value(rd) = value(rt)-value(rs)
+			addu	$rd	$rs	$rt	value(rd) = value(rt)+value(rs) // same as add but no exception raised on overflow
+			addi	$rd	$rs	imme	value(rd) = value(rt)+value(imme)// for immediate to enter in decimal write directly; else for binary 0b10101 or 0x12eqr for hexadecimal
+			addiu	$rd	$rs	imme	value(rd) = value(rt)+value(imme)
+			mult	$rs	$rt
+			div	$rs	$rt		
+			mflo	$rd			//quotient
+			mfhi	$rd			//remainder
+			
+		Logical
+			and	
+			or
+			xor
+			andi
+			ori
+			xori
+		Shift
+			sll	$rd	$rs	h	value(rd) = value(rs << h)
+			srl	$rd	$rs	h	value(rd) = value(rs << h)
+			sra	$rd	$rs	h	value(rd) = value(rs << h)
+				
+	
+	CONTROL FLOW STATEMENT
+		Branch
+			beq	$rs	$rt	imme	//branch when equal
+			bne	$rs	$rt	imme	//branch when not equal
+			bgez	$rs	imme		// branch when greater than or equal to zero
+			bgtz	$rs	imme		// branch when greater than zero
+		JUMP
+			j	offset
+			jr	$ra			//branch to contents of $ra
+			jal	offset			//branch and store pc+4 to $ra
+			
+	
+	
+	MEMORY
+		lw	$rt	imme($rs)	so $rs contains address of memory which has 8bits of information. so lw actually spans 4bytes or 4 memory unit to get all 32 bits in $rt. // also if you have the correct memory address like 8hexadecimal no then write directly;
+		sw	$rt	imme($rs)
+		lb	$rt	imme($rs)	
+		sb	$rt	imme($rs)
+	
+	EXTENDED ASSEMBLER	
+		li	$rt	memory_address	//load immediate so directly loads value from memory into registers 
+		la	$rt	memory_address
+		mov
+		lui	$rt	memory_address_value	//load upper immediate
+	
+	SYSTEM CALL
+		
+		1	print integer		$a0
+		2	print float		$f12
+		3	print double		$f12
+		4	print string		$a0(here a0 stores the memory address of string)
+		5	read integer		$v0
+		6	read float		$f0
+		7	read double		$f0
+		8	read string		$a0(stores the address where string will be stored in memory) (each character occupies one byte)
+		9	memory allocation	$a0(no of bytes desired)	$v0(address block returned)
+		10	exit			
+		11	print character		$a0(integer)
+		12	read character		$v0
+		
+		$v0 			stores the system call decimal <load system call code>
+		$a0,$a1,$a2,$a3		load argument in these register
+		$f12			load floating point argument
+	
+	
+Memory Data
+	
+	<name> : .<type> <data>	
+	
+	x: .word 20		//here x acts as memory_address thus la $1, x (will load address thus will require lw later) or lw $1, x (direct)
+	y: .word 30	
+	
+	arr : .word 20, 10, 30, 50	//here arr will address of memory containing 20 therefore use offset
+	
+	string : .asciiz "Prompt"
+	
+	b : .byte 
+	f : .float
+	
+
+FLOATING POINT	
+Coprocessor 1
+	$f0 - $f31
+	1 sign bit 	8 exponential bit	23 mantissa bit
+	
+	add.s	$rd,$rs,$rt
+	sub.s	$rd,$rs,$rt
+	mul.s	$rd,$rs,$rt
+	div.s	$rd,$rs,$rt
+	abs.s	$rd,$rs
+	neg.s	$rd,$rs
+	
+	l.s	$f0,imme($rs)
+	s.s	$f0,imme($rs)
+	
+	mov.s	$f0,$f1
+	mfc1	$t1, $f2
+	mtc1	$t1, $f1
+	
+	cvt.w.s	(convert from single point to integer)	$f0, $f1
+	cvt.s.w	(convert from integer to single point)
+	
+	li.s
+	li.d
+	
+	c.eq.s $f2,$f1
+	c.le.s
+	c.lt.s
+	
+	bc1f label	(if code = 0 then jump)
+	bc1t label	(if code = 1 then jump)
+
+Exception handling
+	Cpu enters kernel mode during exceptions
+	CoProcessor 0 (cp0)
+		BadVAddr		(contains invalid memory caused by load,store,fetch)
+		Status			(interrupted mask and enable bits)
+		Cause			(contains type of exceptions and any pending bits)
+		EPC			(contains address of instructions when exception occured)
+		
+		Arithmatic overflow(unsigned to signed)
+		Store address exceptions(sw with any address)
+		Misaligned Load Address Exception(offset not of multiple of 4)
+		
+	
+	
+	
+	

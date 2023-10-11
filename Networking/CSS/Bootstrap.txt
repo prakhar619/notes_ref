@@ -1,0 +1,48 @@
+Bootstrap
+
+Others
+	Materialize
+	Foundation
+	Sementic
+
+.container+/tab/	or	<div class="container"></div>
+.container-fluid
+.container-md	(below md breakpoint act as fluid above it container)
+
+.row +/tab/
+.col*2 +/tab/
+
+.col-md-4	(means col of size of 4 col)
+
+
+or <div class="row">
+	<div class="col"></div>
+		</div>
+
+
+my-4
+mx-5
+
+Gutters
+gx-9
+gy-4
+
+
+Button		<button type="button" class=""></button>
+	btn
+	btn-primary
+	btn-outline-primary
+	btn-sm or lg 
+	
+
+
+Cards
+		  
+
+Classes
+	text-primary
+	bg-primary
+
+Unknown
+sass
+ 

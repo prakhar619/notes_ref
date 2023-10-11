@@ -1,0 +1,16 @@
+conda create --name projectName
+
+conda create -n projectName python=3.9
+
+conda create -n projectName scipy
+
+conda install -n already_project scipy=0.17.3
+
+conda create --name newProject --clone existingProject
+
+conda info --envs
+
+conda activate projectName
+conda deactivate projectName
+
+conda info --envs

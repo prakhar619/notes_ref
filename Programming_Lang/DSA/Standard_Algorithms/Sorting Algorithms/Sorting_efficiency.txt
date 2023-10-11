@@ -1,0 +1,101 @@
+Sorting Algo\Time		
+
+Bubble_sort
+Input array size:1  seconds taken:0
+Input array size:2  seconds taken:0
+Input array size:4  seconds taken:0
+Input array size:8  seconds taken:0
+Input array size:16  seconds taken:0
+Input array size:32  seconds taken:0
+Input array size:64  seconds taken:0
+Input array size:128  seconds taken:0
+Input array size:256  seconds taken:0
+Input array size:512  seconds taken:0.008
+Input array size:1024  seconds taken:0
+Input array size:2048  seconds taken:0.024
+Input array size:4096  seconds taken:0.048
+Input array size:8192  seconds taken:0.213
+Input array size:16384  seconds taken:0.804
+Input array size:32768  seconds taken:3.824
+Input array size:65536  seconds taken:18.499
+Input array size:131072  seconds taken:78.698
+
+Quick_Sort
+Input array size:1  seconds taken:0
+Input array size:2  seconds taken:0
+Input array size:4  seconds taken:0
+Input array size:8  seconds taken:0
+Input array size:16  seconds taken:0
+Input array size:32  seconds taken:0
+Input array size:64  seconds taken:0
+Input array size:128  seconds taken:0
+Input array size:256  seconds taken:0
+Input array size:512  seconds taken:0
+Input array size:1024  seconds taken:0
+Input array size:2048  seconds taken:0
+Input array size:4096  seconds taken:0.002
+Input array size:8192  seconds taken:0.003
+Input array size:16384  seconds taken:0.028
+Input array size:32768  seconds taken:0.014
+Input array size:65536  seconds taken:0.018
+Input array size:131072  seconds taken:0.04
+
+Merge_Sort
+Input array size:1  seconds taken:0
+Input array size:2  seconds taken:0
+Input array size:4  seconds taken:0
+Input array size:8  seconds taken:0
+Input array size:16  seconds taken:0
+Input array size:32  seconds taken:0
+Input array size:64  seconds taken:0
+Input array size:128  seconds taken:0
+Input array size:256  seconds taken:0
+Input array size:512  seconds taken:0
+Input array size:1024  seconds taken:0
+Input array size:2048  seconds taken:0.008
+Input array size:4096  seconds taken:0
+Input array size:8192  seconds taken:0.016
+Input array size:16384  seconds taken:0.016
+Input array size:32768  seconds taken:0.032
+Input array size:65536  seconds taken:0.056
+Input array size:131072  seconds taken:0.12
+
+Selection_sort
+Input array size:1  seconds taken:0
+Input array size:2  seconds taken:0
+Input array size:4  seconds taken:0
+Input array size:8  seconds taken:0
+Input array size:16  seconds taken:0
+Input array size:32  seconds taken:0
+Input array size:64  seconds taken:0
+Input array size:128  seconds taken:0
+Input array size:256  seconds taken:0
+Input array size:512  seconds taken:0
+Input array size:1024  seconds taken:0
+Input array size:2048  seconds taken:0.016
+Input array size:4096  seconds taken:0.034
+Input array size:8192  seconds taken:0.069
+Input array size:16384  seconds taken:0.326
+Input array size:32768  seconds taken:1.243
+Input array size:65536  seconds taken:5.096
+Input array size:131072  seconds taken:20.253
+
+Insertion_sort
+Input array size:1  seconds taken:0
+Input array size:2  seconds taken:0
+Input array size:4  seconds taken:0
+Input array size:8  seconds taken:0
+Input array size:16  seconds taken:0
+Input array size:32  seconds taken:0
+Input array size:64  seconds taken:0
+Input array size:128  seconds taken:0
+Input array size:256  seconds taken:0
+Input array size:512  seconds taken:0
+Input array size:1024  seconds taken:0
+Input array size:2048  seconds taken:0
+Input array size:4096  seconds taken:0.017
+Input array size:8192  seconds taken:0.039
+Input array size:16384  seconds taken:0.163
+Input array size:32768  seconds taken:0.667
+Input array size:65536  seconds taken:2.717
+Input array size:131072  seconds taken:10.815

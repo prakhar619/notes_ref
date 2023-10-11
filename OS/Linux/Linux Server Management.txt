@@ -1,0 +1,52 @@
+SSH
+	Secure SHell
+Cron
+iptables
+	Firewall
+rsyslog
+cups	
+	Common UNIX Print Service
+		GUI of cups (system-config-printer)
+		Printer drivers (foomatic, hpijs)
+
+Package Group/Package Collection	
+	Software Packages
+
+
+Types of Server
+	System Logging Server
+		rsyslog
+	Print Server
+		cups
+	Web Server
+		httpd (apache)
+	FTP server
+		vsftpd	(very secure ftp daemon)
+	Windows File Server
+		samba
+	NFS
+		Network File system
+		nfs-utils
+	Mail server
+		MTA (mail transport agent)
+		dovecot
+		sendmail
+		postfix
+	Directory Server
+		krb5-server
+		LDAP (openldap server)
+		NIS  (ypserv)
+	DNS Server
+		bind
+	Network Time Protocol Server
+		ntpd
+	SQL server
+		postgreSQL
+		
+	
+Unattended package install
+Limited use/functionality with no config change
+
+
+
+

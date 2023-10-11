@@ -1,0 +1,93 @@
+# Heading 
+## Subheading
+### Subsubheading
+###### sub6heading
+Paragraph
+To break line(<br> in html) end line with two or more spaces then enter   
+
+Extra line
+
+**bold text**
+*italics*
+***bold and italics***
+~~ strike through ~~
+== highlighted text ==
+~ subscript ~
+^ superscript ^
+
+
+A line
+
+-----------------------------
+
+
+
+-Unordered list item01
+-Unordered list item02
+	-nested unordered list item01a
+1.Ordered list item01
+2.Ordered list item02
+6.Ordered list item03
+
+Term01
+: Definition01
+Term02
+: Definition02
+: Definition022
+
+
+
+- item01
+- item02
+	para
+- item03
+
+
+-item01
+-item02
+	>highlights
+-item03
+
+
+
+[Hyperlink01](http://www.iitgoa.ac.in "Extra info as title")
+<prakhar.gupta@iitgoa.ac.in>
+
+![Alt text](path01.jpeg "Extra info as title")
+
+[![Alt text](path01.jpeg "Image as link")](url01)
+
+
+>Highlighted text
+>
+>Does not auto break
+>
+>>Nested highlighted text
+
+
+
+
+/*This will not create list.This prints- *Thsi wfasf
+/! or ' or * or - or {} or [] or <> or () or # or + or - or . or |
+
+
+
+
+
+| table header01 | col1| col2|
+| :---| :---:|---:|
+|row1|hello|bye|
+
+
+
+# heading01 {#id01}
+[Jump to heading01](#id01)
+
+
+
+-[x] checkbox01
+-[x] checkbox02
+-[ ] uncheckedbox03
+
+
+

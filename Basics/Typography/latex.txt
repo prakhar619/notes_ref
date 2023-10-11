@@ -1,0 +1,383 @@
+Latex
+letterpaper
+a4paper
+
+\usepackage{amsmath}  
+  
+	\begin{equation*}
+	%unnumbered equation
+	\end{equation*}
+
+	min_{below}{equation01} % below lies below min rather than as subscript
+	max
+	sum 
+
+	\operatorname{function01}(a,b)     %user defined function or operator
+
+	\begin{align*}      % no numbering or unnumbered align
+	asdfasdf &= asdfe \\
+	sdfg &= fffd
+	\end{align*}
+
+	\begin{multiline}
+	\end{multiline}
+
+	\eqref{eq:equation01}
+\usepackage{graphicx}
+
+
+\documentclass[12pt,letterpaper]{article}  %a4paper
+\begin{document}
+
+
+\title{First document}
+\thanks{texWord}
+\date{Feb 2022}
+\maketitle
+
+%comment01
+
+\textbf{Bold is here}
+or
+\textit{Italics is here}
+or
+\underline{underline text is here}
+or 
+\emph{emphasis}
+or
+\textbf{\itextit{\underline{All at once}}}
+
+
+\begin{itemize}  %unnumbered list
+\item
+\item
+\end{itemize}
+
+\begin{enumerate}  %numbered list
+\item
+\item
+\end{enumerate}
+
+\begin{equation}   %numbered equation    + no blank lines 
+\end{equation}
+
+\begin{math}
+\end{math}
+
+\[	%unnumbered equation
+\]
+
+$	%inline math mode
+$
+
+$ normal_{subscript} ^{superscript} $
+
+$frac{numerator}{denominator}$
+
+%text in math mode
+\textrm{text here}
+
+\begin{equation}
+
+%calculus
+\partial{f}
+\frac{d}{dt}
+
+\int_{0} ^{100}
+\oint
+
+\nabla   %maxwell delta
+
+\forall  %for all x
+\in		
+\notin
+\infty   %infinity 
+
+%set Theory
+\emptyset % phi empty set
+\cup
+\cap
+\times	%maxwell vector cross product multiplication
+\subset
+\supset
+\subseteq
+\supseteq
+\triangle
+
+%maths
+\div
+\leq
+\geq
+\cong
+\approx
+\equiv
+\sqrt
+\sum
+\product
+\cdot
+\cdots
+
+%greek alpha
+\alpha
+\beta
+\gamma
+\delta
+\epsilon
+\varepsilon
+\zeta
+\eta
+\theta
+\vartheta
+\iota
+\kappa
+\lambda
+\mu
+\nu
+\xi
+\pi
+\rho
+\sigma
+\tau
+\upsilon
+\phi
+\varphi
+\chi
+\psi
+\omega
+
+%arrow
+\leftarrow
+\rightarrow
+\leftrightarrow
+\uparrow
+\downarrow
+\Uparrow
+\mapsto
+\nearrow
+\searrow
+\nwarrow
+\leftharpoonup
+\leftharpoondown
+
+\end{equation}
+
+
+\overset{above01}{normal01}
+\underset{below01}{normal01}
+
+
+%graphics
+\userpackage{graphicx}
+\begin{figure}
+\centering
+\includegraphics[]{path01}
+\caption{captiontext01}
+\end{figure}
+\includegraphics[width=0.5\textwidth, angle=270,scale = 0.5]{path01}
+
+Quotes
+`hello'
+``hello''
+
+%spacing 
+\newpage
+\pagebreak    %no extra space at page end
+\\ %new para
+\\* %new line not para
+\linebreak
+\newline
+
+\hspace{12pt}  or 12cm or 12mm
+\vspace{2pt}
+
+\hfill  %right align
+\vfill  %bottom page align
+
+%mathmode spacing
+\! %-ve space (slight contraction)
+,  % slight extension
+: %more extension
+; %even more extension
+\ % wow extension
+\quad 
+\qquad 
+
+
+\\ % new line
+\ new para
+
+%begin section
+\tableofcontents   % generates itself the contents page based on visible\numbered sections and subsections
+
+\tableofcontents[hideallsubsections]
+\section{Name01}
+\subsection{name011}
+
+\section*{Name02}
+\subsection*{name022}
+
+\section{Introduction}
+\label{sec:intro}
+% ch:chapter  sec:section  subsec:subsection   fig:figure   tab:table  eq:equation   lst:code listing   itm:enumerated list item    alg:algorithm   app: appenddix
+\ref{sec:intro}
+
+
+JUmp to introduction here~\ref{sec:intro}
+
+\begin{abstract}
+\end{abstract}
+
+%table
+
+\hline	%horizontal line
+|    %vertical line
+
+begin{table}[h]
+\begin{tabular}{|l|r|r} % \begin{tabular}{llrrrl}
+\label{tab:table01}
+col01 & col02 & col03 \\
+\hline\\
+a & b & c \\ 
+\hline
+\end{tabular}
+\caption{\label{tab:table01} more text01}
+\end{table}
+
+
+
+\begin{align}
+\end{align}
+
+\begin{align}
+adsfasdfasdfasdf &= aefewrqwer
+asdfa &= asdf
+\end{align}
+
+
+
+%dots
+\ldots   % horizontal dots on line
+\cdots  %horizontal dots above line 
+\vdots  %vertical dots
+\ddots  %diagonal dots
+
+%special charactors
+\&                   	(ampersand)
+\%
+\$
+\#
+\_
+\{
+\}
+\textasciicircum    %exponential sign ^
+\textasciitilde     %~
+\textbackslash	  $ \
+
+
+citet{id01} show you can write text after using citet.
+citep{Jacobson1999Towards}
+\bibliography{nameofbibfile01}
+\bibliographystyle{plainnat}
+
+\end{document}
+
+
+
+
+
+
+
+
+\documentclass{beamer}
+
+usepackage{graphicx}
+usepackage{tabularx}
+
+\usetheme{Darmstadt}
+\usecolortheme{beetle}
+
+\title{slides and ppts and presentations}
+\author{YOU}
+\institute{}
+\date{datehere}
+
+\begin{document}
+
+\emph{italics text}
+\alert{ red text }
+\textbf{bold face}
+\textit{italics}
+\textcolor{red}{this text will be red now}
+\textcolor{green}{green text here}
+
+\begin{frame}
+\titlepage  %beamer's \maketitle
+\end{frame}
+
+\begin{frame}
+\frametitle{Presentations with beamer: Frames}
+\begin{itemize}
+\item Use \texttt{frametitle} to give the frame a title.
+\item Then add content to the frame.
+\item The source for this frame looks like ...
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\section{frame03}
+\tableofcontents[currentsection]   % generates outline and highlighs the current section
+
+\begin{frame}
+\begin{columns}
+\begin{column}{0.4\textwidth}
+\begin{itemize}
+\item Use the columns ...
+\item The argument ...
+\item See also the ...
+\end{itemize}
+\end{column}
+\begin{column}{0.6\textwidth}
+% second column
+\end{column}
+\end{columns}
+\end{frame}
+
+usepackage{graphicx}
+\begin{figure}
+\includegraphics[
+width=0.5\textwidth]{gerbil}
+\end{figure}
+
+\begin{block}{block01 name will be present}
+This is important.
+\end{block}
+\begin{alertblock}{red block01 name will be there in red}
+This is really important!
+\end{alertblock}
+
+
+%animation is frames  not like real animation. Just presenting one part of frame at a time.
+
+\pause
+\only
+\alt
+\uncover
+
+
+\begin{itemize}
+\item Can you feel the
+\pause \item anticipation?
+\end{itemize}
+
+
+%todo notes    leaving notes on presentation
+
+\todo{notetext01}
+\todo[color=blue!20]{note02text}
+
+%user-defined cmds
+\newcommand{\cmdname01}[1]{\todo[color=green!40]{#1}}
+
+
+
+

@@ -1,0 +1,14 @@
+#include <iostream>
+//an array of linked list
+int main()
+{
+	unordered_map<string,string> sample;
+	sample.insert({"hello","world"});
+	sample.insert({"ram","mnit"});
+	
+	unordered_map<string,string>::hasher fn = sample.hash_function();
+	
+	cout << fn("hello") << end;
+	
+	for(auto it = sample.begin();it!= sample.end(); it++)
+	cout << it->first << ":" << it->second << end;

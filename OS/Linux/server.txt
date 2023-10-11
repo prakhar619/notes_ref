@@ -1,0 +1,193 @@
+Types of Server:
+	System Logging Server
+		rsyslog
+	Print Server
+		cups
+			Common Unix Printing Service
+			Printer drivers and GUI interface
+	Web Server
+		httpd
+	FTP Server
+		vsftpd
+			Very Secure FTP daemon
+	NFS
+		Network File System
+		nfs-utils
+	Window File Server
+		samba
+	Mail Server
+		sendmail, postfix, exim, dovecot
+	Directory Server
+		kerberos (krb5-server)
+		NIS (ypserv)
+	DNS Server
+		bind
+	Network Time Protocol Server
+		ntpd
+	SQL Server
+		postgresql
+	
+	
+Configure a server
+	.conf files
+
+Default configuration
+	unattended install/download
+	minimal functionality without config
+
+systemd and system V init
+	facilities for managing services
+	
+
+daemon processes:
+	runs as users and groups rather than root
+	service config: /etc/sysconfig dir
+	most services run as daemon processes
+	.d type processes
+	
+Linux Processes
+	1.batch
+		process queue
+		not related to cmd line
+	2.interactive
+		processes interactively executed by user using cmd line
+	3.daemon
+		
+init process:
+	starts when system boots up and stops when system shuts down
+	
+Not all process uses daemon:
+	xinetd superserver
+	
+
+Managing Remote Access with secure shell
+	ssh	(telnet or rlogin or rsh)
+	scp and rsync	(rcp)
+	sftp
+	
+
+yum list installed | grep ssh
+sudo apt-get install openssh-server
+
+Openssh package for ssh cmds:
+	1 package for server
+	1 package for client
+	1 openssh package
+	
+ssh service status
+	fedora: systemctl status sshd.service
+	rhel: chkconfig --list sshd
+	ubuntu: status ssh
+	
+
+start ssh
+	rhel: sevice sshd start
+	fedora: systemctl start sshd.service
+	ubuntu: service ssh start
+	
+start ssh on boot:
+	RHEL: chkconfig sshd on
+	Fedora: systemctl enable sshd.service
+	Ubuntu: update-rc.d ssh defaults
+(daemon process is created for this service)	
+
+Configuring
+	/etc/ssh/sshd_config
+		PermitRootLogin no
+	
+**modify netfilter/iptables firewall to allow ssh to access port 22.
+**use tcp wrappers with ssh service
+
+Ssh Client:
+	ssh command to connect
+	scp and rsync to copy data
+	sftp to provide ftp like interface for easy getting and putting files
+	
+	ssh liveruser@10.162.2.2
+	ssh liveuser@10.21.31.2 "cat file.txt"
+	ssh -X liveuser@22323.423423 system-config-date
+	exit
+	new file added on connection
+		~/.ssh/known_hosts
+		contains public key of remote + ip address
+	
+scp vs rsync
+	scp copies all data
+	rsync copies new data only [smart] with flg ofcourse
+	
+	
+SSH key-based passwordless authentication:
+	create public key, private key
+	guard private key; send public key to useraccount
+	
+	
+ssh-keygen	cmd to generate rsa key pair
+	id_rsa	private key
+	id_rsa_pub	public key
+ssh-copy-id -i ~/.ssh/id_rsa.pub liveuser@12.1.2.1
+
+
+rsyslog service (rsyslogd daemon)
+	/var/log dir (most files here are maintained by rsyslog)
+	system logging daemon
+	/etc/rsyslog.conf or /etc/rsyslog.d/rsyslog.conf
+		$ModLoad	loads module
+			# modules are disabled
+			$ modules are active
+		
+	/var/log/messages
+		5 main parts
+			date and time
+			name of computer
+			program service
+			pid enclosed in []
+			actual msg
+			
+Setting up and using loghost with rsyslogd
+Edit server computer: /etc/rsyslog.conf
+	@loghost_user for directing to other computer rsyslog
+	/var/message for directing to other file
+Loghost side
+	/etc/sysconfig/rsyslog
+		$ModLoad imudp.so
+		$UDPServerRun 514
+		$ModLoad imtcp.so
+		$InputTCPServerRun 514	
+			port 514 is used
+logwatch with rsyslog
+	/etc/logwatch/conf/logwatch.conf
+		MailTo=chris@example.com
+		
+		default gather log msg set in 
+			/usr/share/logwatch/default.conf
+			
+			
+SAR
+	System Activity Reporter
+	sysstat service
+	cat /etc/cron.d/sysstat
+		timeinterval for data gathering
+		where data is gathered
+	var/log/sa/sa??
+	var/log/sa/sar??	?? means current day
+	
+	sar -u | less		-u means cpu usage
+	sar -d | less		-d means disk activity
+	sar -n DEV 5 2		live data every 5 sec and repeated twice
+	
+DF
+	System space
+	df
+	df -h		//readable form of df
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+		

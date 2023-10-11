@@ -1,0 +1,73 @@
+Command Syntax
+	$ls -at	means ls -a -t
+	$ls --help means help whole itself is argument/flg
+		-v means verbose meaning very descriptive explanation
+		
+Commands 
+	cmds are themselves executable files; made using compiling c,python,bash script
+		for bash use chmod +x bashfile.sh will give executable file
+		
+	Aliases means cmd along with flags and argument replaced by shorted word
+		$type ls	gives alias related info
+		alias p='pwd';ls -CF'
+		unalias		to remove alias
+			CONFIGURING SHELL ENV
+				vim $HOME/.bashrc
+					add your alias
+				source $HOME/.bashrc to make it available imme
+		
+	 &	at end of cmd to run cmd in background; output is still poped up; use redirection /dev/null
+	 at	schedule cmd execution; check pending cmd; pipe any cmd into at to schedule
+	 
+Getting info about cmds
+	1)	echo $PATH
+	2)	cmd --help | less
+	3)	info cmd
+	4)	man cmd
+	
+Locating commands
+	absolute path where command is located	/bin/date
+	well known directories and add those dir to shell's PATH env variable
+		$PATH consists of list of dir that are checked to locate cmd
+			echo $PATH where dir are separated by :
+			/bin
+			/usr/bin
+			/usr/local/bin
+			/sbin
+			/usr/sbin
+			/usr/local/sbin
+		$type -a ls
+			gives alias as well as all location of cmd
+	unlike others os, PATH always used for locating cmds and current dir is not used unless relative or absolute path is provided
+	
+Terminal
+	reset				(reset terminal)
+	history <num> and !		(history to get already run cmd history)(use !<num> to run already ran cmd)
+	!!
+	exit
+			
+Shell Scripting
+	equivalent to batch files in MS-DOS
+	chmod +x filename to create executable or -x 
+		
+
+			
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -1,0 +1,161 @@
+# create delete search countLine compress open display copy move locate
+
+Cmd		
+		seq 1 5 40 
+		date
+		man <cmd>
+		echo $0				(to get active shell)
+		echo $SHELL			(to get default shell)
+		chsh -s /path    		( change shell)
+		whoami				(to get current usr)
+		
+		sudo apt install name01
+		aptname01 --version
+		
+	file navigation
+		pwd				(to get current path)
+		tree /home
+		ls
+			ls --help
+			ls -a			(list all folders and files along with hidden files and folders)
+			ls -all
+			ls -A			
+			ls -h	
+			ls -t    		( sort by time)
+			ls -S		 	( sort by size largest first)
+			ls -s	 		( allocated size of each file)
+			ls -r	  		( reverse order while sorting)
+			ls folder1
+			ls folder1/folder12/folder123
+			ls -alS    		(total no of content + long form + all hidden files)
+			ls file*
+			ls *.txt
+			ls f??e
+			ls [abc]*[ef]      	(prints files and folder with name ae af be bf ce cf)
+			ls [a-g]		(prints files and folder with name a b c d e f g)
+			ls | sort    	       	(to sort folder and display them)
+			ls | less		(best way to view big file)
+			ls -al
+				d means dir else - ;d for dir; l for symbolic link; b for block device; c for character device; s for socket; p for pipe
+				user,grp,other read=4,write=2,execute=1;
+				s instead of x (in usr or grp)(means can execute a file but cant own the process) eg mount cmd
+				t atlast to dir means all urs can add file but cant delete file //stick bit
+
+		touch
+			touch file01 file02             ( create files)
+			touch file{01,02,03}             (file01 file02 file03 file04)
+			touch file{1,2,3}-{4,5,6}        (file1-4 file1-5 file1-6 file2-4 file2-5 file2-6  ...)
+			touch file{a..z}{1..10}          (filea1 filea2 filea3 filea4 filea5 filea6 ...
+			touch file[A-Z].txt
+		tree
+			tree recursive path01
+		cd
+			cd folder1
+			cd ..
+			cd ../../..
+			cd ./
+			cd ./folder1
+			cd folder1
+			cd folder1/folder12/folder123
+			cd /       				(root dir)
+		
+		cat
+			cat file01    (to view contents of file01)
+			cat file1   				( create a txt file or display content of existing txt file )
+			cat > file1 				(overwrite files)
+			cat file01 file02 > file03 		(merge two file)
+			cat >> file02  				(add text to existing file)
+			cat file01 | sort    (to sort lines of txt files)
+		less      (reader/viewer)
+			h    (displays name)
+			G    (goes to the bottom of the content)
+			g    (goes to the top of the content)
+			/word01  (search for word)
+				n displays the next occurrence
+				q quit the search instance
+			j    (goes down by one line)
+			k    (goes up by one line)
+		wc
+			wc file01   ( newline, words, bytecount )
+			wc     -c (bytes)  -m (character counts) -l(print newline counts) -w(print word counts)
+		
+		head
+			head file01   (prints topp 10 lines of file)
+			head -4 file01 (prints top 4 lines of a file)
+		tail
+			tail file01 ( prints last 10 lines)
+			tail file01 -3 (prints last 3lines )
+			head file01 -5 | tail -1 (print 5th line of txt file)
+		find
+			find -name file1/folder1    (searches in current folders as well as sub folders)
+			find -name *.txt/*.jpeg/*.png
+			find file01   (searches only in current folder)
+			find
+			find kali/Desktop -type filetype
+			find ./folder01 -type filetype -perm 775 -user name -mtime modifieddate
+		
+		
+		&&     (add 2 cmds into one)
+		
+		mkdir folder01	folder02		( create folders)
+		
+		rmdir folder01 			(delete empty folder)
+		
+		rm 
+			rm file01
+			rm -r folder01 (deletes folder)
+			rm -R folder01   
+			rmdir folder01   (deletes empty folder)
+			rm -rf files01   ( deletes permanetly)   
+			rm *.txt         ( deletes all files with .txt extensions) 
+		
+		cp
+			cp file01 file02	(file02 can be a non existing file or already existing file)
+			cp file01 folder1
+		
+		mv 
+			mv file01 file02
+			mv file01 folder01
+			mv file01 newfilename01
+			mv file* folder02
+		
+		file 
+			file file01			(to get which type of file or dir is file01)
+			
+		
+		locate filename/foldername
+
+		chmod
+			chmod 777 file01		(4 for read, 2 for write, 1 for exe)(owner group other)
+			chmod 421 folder01	
+			chmod ugo-x file01		(u owner, g group, o others, a all)(+, -)(x execute, w write, r read)
+			chmod u+x file01
+			chmod go+rwx file01
+			chmod uo-r file01
+			
+		umask 
+			umask				(gives 0002 ; ignore first zero; 777 - 002 gives 775 means rwx_rwx_r-x for dir
+							(666 - 002 gives 664 means rw-_rw-_r-- for file
+							(umask give default file access parameter
+							( bashrc to change it
+		
+		chown	
+				chown revai:revai /filepath01	(change ownership)
+
+		grep
+			grep -w 'word' file01.txt     (or use "")(prints the lines which has that word present)
+			grep -iw 'word' file01.txt         (same as w)
+		
+		tar               (archiving a file)
+			tar -cvf file.tar file01       (creating a achive file name file.tar with contents of file1)
+			tar -tvf file.tar 		(view files in achieve)
+			tar -xvf file.tar file02  	(extract)
+			tar -rvf file.tar file03   	(add file to existing archieve)
+
+		gzip
+			gzip file01		`(zip/compress a achieve file)
+			gunzip file01.tar	 (unzip/decompress a compressed file)
+	
+			su user02
+			su -l 
+

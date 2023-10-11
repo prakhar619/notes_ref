@@ -1,0 +1,67 @@
+<!DOCTYPE html5>
+<html>
+	<head>
+		<meta lang="en-us">
+		<title> Form Submission </title>
+		<link rel="stylesheet" href="./StudentForm_style.css" />
+	<head>
+	<body>
+		<h1> Student Details </h1>
+		<div>
+		<form action="./formUpload" method="Post">
+		<table>
+			<tr>
+				<td>Roll No.</td>
+				<td><input type="text" name="roll_no" size="20" maxlength="10"/></td>
+				<td>Application No.</td>
+				<td><input type="text" name="app_no" size="20" maxlength="15" /></td>
+			</tr>
+			<tr>
+				<td>Cadidate's Name</td>
+				<td><input type="text" name="username" size="20" maxlength ="30" /></td>
+				<td>Father's Name</td>
+				<td><input type="text" name="father_name" size="20" maxlength="30"/></td>
+			</tr>
+			<tr>
+				<td>Gender</td>
+				<td>
+					<select name="gender">
+					<option value="male">Male</option>
+					<option value="female">Female</option>
+					<option value="others">Others</option>
+					</td>
+				<td>Date of Birth</td>
+				<td><input type="text" name="father_name" size="20" maxlength="30"/></td>
+			</tr>
+			<tr>
+				<td>Category</td>
+				<td>
+					<select name="category">
+					<option value="gen">General</option>
+					<option value="obc">OBC</option>
+					<option value="stsc">ST/SC</option>
+					</td>
+				<td>State of Eligibility</td>
+				<td>
+					<select name="state">
+					<option value="Andhra_Pradesh">Andhra Pradesh</option>
+					<option value="Delhi">Delhi</option>
+					<option value="Tamil_Nadu">Tamil Nadu</option>
+					</td>
+				
+			</tr>
+			<tr>
+				<td>Person with Disability</td>
+				<td><input type="radio" name="pwd" value="yes"/>Yes
+				<input type="radio" name="pwd" value="no" checked="checked"/>No</td>
+				<td>Scribe required</td>
+				<td>Not Required</td>
+			</tr>
+		</table>
+		<p> Upload Profile Pic: <input type="file" value="pic" name="Upload Profile Pic" /></p>
+		<input type="submit" value="Submit" />
+		</form>
+		<div>
+	<body>
+</html>
+				

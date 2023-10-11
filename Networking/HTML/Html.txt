@@ -1,0 +1,276 @@
+	<!doctype html>    <!--comment1-->   <time datetime="2022-01-20">20th January 2022</time>
+	<html lang="en">
+		<head>
+			<title></title>
+			<style>
+				.class01{}
+				h1{background-color:azure;}
+			</style>
+		</head>
+		<body bgcolor="red" //or// bgcolor="RGB(0-255,0-225,0-255)" //(0 is the strongest )or// bgcolor="#hexdecimal" //(2 digits for rgb)(0-9A-F)   background="./path01" //adds image to background// text="#000000" //set color of text// link="#fdffdf" //color of link// vlink="#asdff" //color of visited link// alink="#sdfgsd">
+			<h1></h1>
+			<h6></h6>
+			<p></p>
+			<p>text01 <br> breaked </p>
+			<hr>
+			<h2 style="font-family:'Times New Roman', Times, serif; font-size:200% //or// font-size:20% ;color:#52ffff; text-align:center; background-color:azure; height:20%; width:50% ; border:2% #efrdf; padding:1% ; margin:40% ; text-decoration:underline; background-image:url('./../path01');">HEllo after a break with a line</h2>
+			
+			
+			//does not break at end of tag//
+			<b>bold text</b>
+       		<em>emphasized text</em>
+        		<i>italic text</i>
+        		<small>smaller text</small>
+        		<strong>important text</strong>
+        		<p>E<sub>1</sub>=mc<sup>2</sup></p>
+        		<ins>inserted text</ins>
+       	 	<del>deleted text</del>
+        		<mark>marked text</mark>
+			<p><abbr title="hyper text markup language">HTML</abbr></p>
+						
+
+
+
+
+			<a href="link01" target="_blank"></a>    //target="_blank" (new window or tab) or "_self" (same tab) or "_parent" or "top"  
+			<a  href="./../pics_shop/download.png"  style="background-color: red; color:white;padding:3% ; text-align:center; width:20%">Button</a>
+			<a href="#id01">Jump</a>
+			<h4 id="id01">Jump to here</h4>
+
+			<a class="class01"></a>
+
+
+			<img src="./path01" alt="alternative text01" width="70%" height="50%" style="float:right;">
+		
+			
+		
+			<table cellpadding="1" border="2" cellspacing="3" style="width:75%;border-radius:20px 20px 20px 20px">
+            <thead>                       //thead or tfoot or tbody//
+            <tr>
+                <th>
+                    1
+                </th>
+                <th>
+                    123
+                </th>
+                <th>
+                    12345
+                </th>
+
+            </tr>
+            <tr>
+                <td rowspan="3">1234567</td>
+                <td>123456789</td>
+                <td>12345678901</td>
+
+            </tr>
+            </thead>
+          <tfoot>
+            <tr>
+                <td colspan="2">hello</td>
+                <td>world</td>
+                <td >hw</td>
+            </tr>
+          </tfoot>
+        </table>
+		
+
+	  <ul type="square">	//type="circle" or "square" or "disk"//
+            <li>1 </li>
+            <li>123</li>
+            <li>12345</li>
+        </ul>
+			
+
+	  <ol start="23" type="A">    //type="a" or "A" or "i" or "I" or "1"//
+            <li>1</li>
+            <li>123</li>
+            <li>12345</li>
+        </ol>
+
+	   <dl>
+            <dt>Python</dt>
+            <dd>computer language</dd>
+            <dt>Html</dt>
+            <dd>Markup language</dd>
+        </dl>
+		
+
+
+
+	<a href="mailto:asdf@gmail.com">Mail us</a>
+
+
+
+	<!--hello comments here-->
+
+	<address>
+		Revai Ackreman, New World, Germany
+	</address>
+
+	<p> Email :<a href = "mailto: prakhar619lm10@gmail.com"> prakhar619lm10@gmail.com </a> </p>
+	
+
+	<form action="url01" method="post" novalidate></form>
+
+	<form>
+        <p> Name :<input type="text" name="username" placeholder="Name" size="25" maxlength="50"/></p>
+        <p> Email :<input type= "email" name="email" placeholder="Email" size="25"></p>
+        <p> <input type="checkbox" name = "subscribtion" checked="checked" />Subscribe for newsletter and update </p>
+        <p> <input type= "submit" name= "subscribtion" value= "Submit" />
+        <hr>
+            <p>Comments</p>
+        <textarea name = "comments" cols="20" row="5">Enter comments
+        </textarea>
+        </form>
+
+
+	<form action = "www.main.com" method ="post" >
+   		 <p>Username</p>
+    			<input type="text" name= "username" size = "20" maxlength="30" placeholder="Here" />
+		 <p>Password</p>
+			<input type="password" name="password" size="20" maxlength="100" placeholder="here" />
+		<p>Comments</p>
+			<textarea name="comments" cols = "30" row = "30" placeholder="write your commments"></textarea>
+		<p>checkbox</p>
+			<input type="checkbox" name="Product" value="trays" />
+			<input type= "checkbox" name= "Products" value = "Tubs" />
+			<input type= "radio" name = "material" value = "HDPE" checked = "checked" />
+			<input type = "radio" name = "material" value = "LDPE" />
+			<input type = "radio" name = "material" value = "Asbestos" />
+			<input type = "radio" name = "material" value = "Glass" />
+		<select name = "items">
+			<option value = "broom">broom</option>
+			<option value = "dustbin">kudedan</option>
+		</select>
+	</form>
+
+	<input type="button">
+	<input type="checkbox">
+	<input type="color">
+	<input type="date">
+	<input type="datetime-local">
+	<input type="email">
+	<input type="file">
+	<input type="hidden">
+	<input type="image">
+	<input type="month">
+	<input type="number">
+	<input type="password"><
+	<input type="radio">
+	<input type="range">
+	<input type="reset">
+	<input type="search">
+	<input type="submit">
+	<input type="tel">
+	<input type="text">
+	<input type="time">
+	<input type="url">
+	<input type="week">
+
+
+	<button onclick = "">Button </button>
+
+	readonly   (<input type="text" value="name" readonly>
+	disabled
+	size
+	maxlength  (character)
+	min		(value range)
+	max
+	multiple
+	placeholder
+	required
+	step       (step="3"     legal no. -3,0,3,6)
+	autofocus
+	list                          <input list="browsers">
+  						<datalist id="browsers">
+   						<option value="Internet Explorer">
+    						<option value="Firefox">
+    						<option value="Chrome">
+    						<option value="Opera">
+    						<option value="Safari">
+ 						</datalist>
+	autocomplete="on"
+	formenctype=""	
+	formmethod="post"
+	formtarget="_black"
+	formnovalidate="formnovalidate"		
+	
+
+	<i></i>     (icon)
+
+
+
+	<iframe src="url" title="description"></iframe>
+	
+MP4	video/mp4
+WebM	video/webm
+Ogg	video/ogg
+
+	<video autoplay muted controls>
+		<source src="url01" type="video/mp4">
+		<source src="url02" type="video/ogg">
+		Your browser does not support video
+	</video>
+
+Browser	MP3	WAV	OGG
+Edge/IE	YES	YES*	YES*
+Chrome	YES	YES	YES
+Firefox	YES	YES	YES
+Safari	YES	YES	NO
+Opera		YES	YES	YES	
+
+File Format	Media Type
+MP3	audio/mpeg
+OGG	audio/ogg
+WAV	audio/wav
+
+	<audio controls autoplay muted>
+		<source src="url02" type="audio/ogg">
+		Your  browser does not support audio element
+	</audio>
+
+Stucture
+	<header>
+	<nav style="postion:fixed; width:100% ; padding-top:20px ; ">
+	<main>
+		<article>
+		<section>
+		
+	<aside>
+	<footer>
+
+html element non-css property
+onclick
+onhover
+ondblclick
+
+
+
+<header> - Defines a header for a document or a section
+<nav> - Defines a set of navigation links
+<section> - Defines a section in a document
+<article> - Defines an independent, self-contained content
+<aside> - Defines content aside from the content (like a sidebar)
+<footer> - Defines a footer for a document or a section
+<details> - Defines additional details that the user can open and close on demand
+<summary> - Defines a heading for the <details> element
+
+
+
+<head>
+<meta charset="utf-8">
+<html lang="en-US">
+<meta name="keywords" content="HTML, CSS, JavaScript">
+<meta name="description" content="Free Web tutorials">
+<meta name="author" content="John Doe">
+
+<meta http-equiv="refresh" content="30">                   (refreshes page every 30 sec)
+<meta name="viewport" content="width=device-width, initial-scale=1.0">   (for every devices)
+
+<link rel="icon" href="favicon.ico" type="path01">
+<link rel="stylesheet" href="path02">
+<script src="path.js" defer></script>
+
+<title></title>
+</head>

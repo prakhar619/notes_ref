@@ -1,0 +1,208 @@
+Networking
+ip
+	internet protocol
+	public vs private
+	network address vs host address
+	subnet andd subnetting
+	ipv4
+		4 octet
+		each octet range: 0-255
+	ipv4 vs ipv6
+        32bit vs 128bit
+	provided by isp
+mac address
+	media access control
+	12 characters
+	":" after every 2 character
+	present on motherboard 
+	during manufactoring
+	first 6 digit represents company
+	last 6 digit unique
+subnet
+ping
+	icmp
+		internet control message protocol
+ARP
+	Address resolution protocol
+	ARP request
+	ARP reply
+DHCP
+	dynamic host configuration protocol
+	DHCP server gives ip to device on a network (if ip has not been manually taken)
+	4 msg in total
+	2 from device ( DHCP discover and DHCP request)
+	2 from server ( DHCP offer and DHCP ACK)
+hardware needed
+	topology
+		star - server
+		bus- backbone
+		ring- single direction
+	lan
+	switch vs hub
+	router
+internet
+	DNS
+		domain name system
+		max length 253 characters
+		top level domain (TLD)
+				generic top level domain (gTLD)	
+					.com
+					.edu
+					.org
+					.gov
+				country code top level domain (ccTLD)
+					.ca
+					.in
+					.co.uk
+				.online
+				.club
+				.website
+				.biz
+		second level domain
+				name
+				63 characters only
+				a-z-0-9 and hypens (no hypen start or end hyphen nor consecutive hyphen)
+		sub domain
+	recursive dns server
+		provided by isp (default)
+		pathway
+			device	(LOCAL CACHE)
+			dns recursive server	(POPULAR SITES)
+			root dns server	(IDENTIFIES WHICH SERVER WOULD HAVE THIS TLD SITES like .com)
+			authoritative dns server	(where actual address is stored; replies directly to recursive dns server; replies with time limit for time on local cache (TTL- time to live))
+	record server
+		CNAME
+		TXT
+		A
+		AAAA
+		MX	
+Various Protocol at socket lvl for communication:
+	http
+	https
+	websocket
+	ftp
+	
+http
+	hyper text transfer protocol
+	tim berners-lee
+	rules for communicating with web servers
+	rules/methods
+		GET         to get info from web server
+		POST	    to post/submit data for creation of new record
+		PUT         to update already existing record
+		DELETE	    to delete a record or info
+	request and response
+		request
+			GET / HTTP/1.1                              http protocol version and get method
+			Host: tryhackme.com			    website ( web server can host multiple site so website name is important)
+			User-Agent: Mozilla/5.0 Firefox/87.0	    our brower version and application
+			Referer: https://tryhackme.com/		    page that referred us to this one	
+								    space for confirming request ending	
+				or
+			GET / HTTP/1.1
+
+		response
+			HTTP/1.1 200 OK				http protocol version that server is using and http status code						
+			Server: nginx/1.15.8			web server software and version number
+			Date: Fri, 09 Apr 2021 13:34:03 GMT	current date time and time zone of webserver
+			Content-Type: text/html			what sort of information is being sent
+			Content-Length: 98			content length for confirming any missing data
+								space for confirming response ending
+			<html>
+			<head>
+			    <title>TryHackMe</title>
+			</head>
+			<body>
+			    Welcome To TryHackMe.com
+			</body>
+			</html>
+
+
+WebSocket
+	request
+		GET /chat HTTP/1.1
+		Host: server.example.com
+		Upgrade: websocket
+		Connection: Upgrade
+		Sec-WebSocket-Key: x3JJHMbDL1EzLkh9GBhXDw==
+		Sec-WebSocket-Protocol: chat, superchat
+		Sec-WebSocket-Version: 13
+		Origin: http://example.com
+	
+	response
+		HTTP/1.1 101 Switching Protocols
+		Upgrade: websocket
+		Connection: Upgrade
+		Sec-WebSocket-Accept: HSmrc0sMlYUkAGmm5OPpG2HaGWk=
+		Sec-WebSocket-Protocol: chat
+
+
+https 
+	hyper text transfer protocol secure
+	encryption + stops impersonation of web server
+	
+URL
+	uniform resource locator
+	scheme://user@hostdomain:port/path?querystring#task
+	scheme
+		http
+		https
+		ftp (file transfer protocol)
+	user
+	host domain
+		ip address of the server
+	port
+		http 80
+		https 443
+		range 0-65535
+	path
+		file location of the resource
+	query string
+		extra bits of information that is sent to the requested path
+	fragment
+		
+http status code
+	100-199 - Information Response	These are sent to tell the client the first part of their request has been accepted and they should continue sending the rest of their request. These codes are no longer very common.
+	200-299 - Success	This range of status codes is used to tell the client their request was successful.
+	300-399 - Redirection	These are used to redirect the client's request to another resource. This can be either to a different webpage or a different website altogether.
+	400-499 - Client Errors	Used to inform the client that there was an error with their request.
+	500-599 - Server Errors	This is reserved for errors happening on the server-side and usually indicate quite a major problem with the server handling the request.
+
+	
+	200 - OK	The request was completed successfully.
+	201 - Created	A resource has been created (for example a new user or new blog post).
+	301 - Permanent Redirect	This redirects the client's browser to a new webpage or tells search engines that the page has moved somewhere else and to look there instead.
+	302 - Temporary Redirect	Similar to the above permanent redirect, but as the name suggests, this is only a temporary change and it may change again in the near future.
+	400 - Bad Request	This tells the browser that something was either wrong or missing in their request. This could sometimes be used if the web server resource that is being requested expected a certain parameter that the client didn't send.
+	401 - Not Authorised	You are not currently allowed to view this resource until you have authorised with the web application, most commonly with a username and password.
+	403 - Forbidden	You do not have permission to view this resource whether you are logged in or not.
+	405 - Method Not Allowed	The resource does not allow this method request, for example, you send a GET request to the resource /create-account when it was expecting a POST request instead.
+	404 - Page Not Found	The page/resource you requested does not exist.
+	500 - Internal Service Error	The server has encountered some kind of error with your request that it doesn't know how to handle properly.
+	503 - Service Unavailable	This server cannot handle your request as it's either overloaded or down for maintenance.
+
+http headers
+	additional bits of data you can send to the web server when making requests
+	common request header
+		host                   website name on the server/ also there is default website on each webserver
+		user-agent             your browser software and version number
+		content-length		confirm missing data
+		accept-encoding		which type of compression method the browser support for smaller data transmission
+		cookie			data sent to the server to help remember your information
+	common response header
+		set-cookie  		info to store which gets sent back to the web server on each request
+		cache-control		how long to store the content of the response in the browser's cache before it requests it again
+		content-type  		type of data is being sent  html css javascript pdf video images etc
+		content-encoding  	method has been used to compress data to make it smaller
+		
+cookies
+	Cookies can be used for many purposes but are most commonly used for website authentication. The cookie value won't usually be a clear-text string where you can see the password, but a token (unique secret code that isn't easily humanly guessable).
+	
+	request header
+		name = adam
+	response 
+		Set-Cookie: name=adam
+	request 
+		Cookie: name=adam
+	response
+		welcomeeeeee

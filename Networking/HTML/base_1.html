@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Practice JS</title>
+    </head>
+    <body>
+        <script>
+            var k = 10; //global variable
+            samfunction(1,2);
+            document.write("Again Global variable k:"+k+"</br>");
+            document.write("This is sample text"+"</br>");
+        
+            if(k === 20)
+            {
+                document.write("inside if </br>");
+            }
+            if(k < 20)
+            {
+                document.write("inside if"+"</br>");
+            }
+            else if(k > 20)
+            {
+                document.write("inside else if"+"</br>");
+            }
+            else
+            {
+                document.write("inside else"+"</br>");
+            }
+
+            //String Interpolation for variable injection in string
+                //use ` and not '
+                //use ${expr}
+            for(var i = 0; i < k; i++)
+            {
+                document.write(`Loop,i: ${i} </br>`);
+            }
+
+            //Array         Any syntax error lets only this part unrunnable
+            var ar = new Array(10);
+            ar[0] = 1;
+            ar[1] = "String!";
+            document.write("Ar[0]"+ar[0]+"</br>");
+            document.write("Ar[1]:"+ar[1]+"</br>");
+
+            function samfunction(i,j)
+            {
+                var l = 20; //local variable
+                document.write("Inside function:"+i+" "+j+" "+l+"</br>");
+                document.write("Global variable without this keyword k:"+k+"</br>");    //JS hoisting
+                document.write("Global variable with this keyword k:"+this.k+"</br>");    //JS hoisting
+                var k = 30;
+                document.write("Local variable k:"+k+"</br>");
+            }
+
+            
+            var m = 10;
+            var m_s = '10';
+            if(m == m_s)
+            {
+                document.write(" == give string 10 and var 10 as same");
+            }
+            else
+            {
+                document.write(" == gives string 10 and int 10 as different");
+            }
+
+            if(m === m_s)
+            {
+                document.write(" === give string 10 and var 10 as same");
+            }
+            else
+            {
+                document.write(" === gives string 10 and int 10 as different");
+            }
+            document.close();
+        </script>
+    </body>
+</html>

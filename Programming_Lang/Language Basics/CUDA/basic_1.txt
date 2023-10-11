@@ -1,0 +1,10 @@
+CUDA (Compute Unified Device Architecture)
+
+OpenGL (Open Graphics Library)
+    Api to achieve hardware accelerated rendering using gpu
+
+Vulkan 
+    Successor of openGL
+
+OpenCL (Open Computing Language)
+

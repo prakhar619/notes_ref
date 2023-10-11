@@ -1,0 +1,26 @@
+A graph can be represented in multiple fashion.
+	matrix (adjacency matrix)[File]
+	list (adjacency list)[File]
+	Diagram [RAM][Paper]
+	any other non standard highly optimised way[File]
+
+Graph Traversals:
+	Diagram Model:
+		BFS(Breath first search) [discover and explore]  Vertex Based Technique. Shortest path in graph. Queue data Structure. Slower than dfs. 
+		DFS(Depth first search)  [discover and explore]  Edge Based Technique. Stack data structure. 
+		
+
+Graph is always associated with some standard functions.
+	Shortest Distance b/w nodes
+		Bellmanford
+		Djisktra's
+		FloydWarshall
+		Johnson's
+	Min Spanning
+		Kruskal
+		Prim
+	Maximum Flow
+		Ford-Fulkerson
+		Edmonds-Karp
+		Push Relabel
+		Relabel to front

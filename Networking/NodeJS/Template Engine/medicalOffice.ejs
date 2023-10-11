@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>      
+    <head>  
+        <meta charset="utf-8">  
+        <title>Medical Form</title>     
+    </head>     
+       <body>       
+        <h3>Indian Institute of Technology Goa</h3>
+        <h4>Medical Office</h4>
+
+<ol>
+<%# ObjArray is the array of object; forEach applies on array to give each elem one by one into the input function as argument; %>
+<% ObjArray.forEach((Obj) => {%>
+  <li> 
+  <form action="/medUpload" method="put" >
+            <fieldset>
+            	<label>Application No: <input name="application_id" type=number value="<%=Obj.application_id%>" readonly size="20" maxlength="40" > </label><br>
+                <label>Name of the Student: <%=Obj.name%> </label><br>
+                <label>Roll Number: <%=Obj.roll%> </label><br>
+                <label>Academic Program: <%=Obj.branch%> </label>       
+            </fieldset> 
+            <fieldset>              
+                <label>Reason for Leave : <%=Obj.reason%></label><br>
+                <label>Period of Leave: </label><br>
+                <label>Number of days: <%=Obj.days%> </label>
+            </fieldset> 
+            <fieldset>  
+                <label>Phone No: <%=Obj.phone%> </label><br>
+                <label>Email: <%=Obj.email%> </label><br>
+            </fieldset>
+            <label>Approve: <input name="medical_approval" type="checkbox" value="1" ></label><br>
+            <label>Reject: <input name="medical_reject" type="checkbox" value="1" ></label><br>
+             <label> <input  type="submit"  ></label>
+             </form>
+  </li>
+    <% }); %>
+    </ol>
+         
+       </body>
+</html>

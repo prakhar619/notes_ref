@@ -1,0 +1,43 @@
+DESKTOP
+	NetworkManager runs by defaults managing network interfaces.
+SERVER
+ENTERPRISES
+	DHCP, DNS
+	
+Desktop
+	NetworkManager:
+		DHCP to get ip address on network
+		Subnet mask
+		Lease time
+		DNS server
+		Default gateway
+		
+	dns server entries
+		/etc/resolv.conf
+		
+ifconfig
+route
+traceroute
+hostname		//to see host name assigned to local system 	revai.iitgoa.ac.in
+dnsdomainname		//to see domain portion of hostname		iitgoa.ac.in
+nslookup
+
+Proxy:
+	certain request only like http, https and ftp
+	SOCKS can provide proxy for different protocol
+	Either proxy at connection or browser.
+	Proxy port: 3128
+	
+
+service NetworkManager stop
+service network restart
+
+GUI configuration : system-config-network	for rhel and fedora
+
+/etc/sysconfig/network-scripts		RHEL
+/etc/netplans/*.yaml			Ubuntu
+
+	PEERDNS = no	//DHCP does not affect dns config
+	
+/etc/hosts			Before dns; this file was used; still works
+/etc/resolv.conf		dns server ip

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>      
+    <head>  
+        <meta charset="utf-8">  
+        <title>Form</title>     
+    </head>     
+       <body>       
+        <h3>Indian Institute of Technology Goa</h3>
+        <h5>Leave Application Form for Btech Student</h5>
+        <p>(This is form is required to be submitted prior leaving the station/hostel and well in advance for administative approvals, a minimum of 5 working days in all cases, other than in medical reason or emergency cases.)</p>
+        <form action="/formUpload" method="post" style="text-align:center;">
+            <fieldset>
+                <label>Name of the Student: <input name="name" type ="name_box" size="20" maxlength="40" ></label><br>
+                <label>Roll Number: <input name="roll" type ="name_box" size="20" maxlength="20" ></label><br>
+                <label>Academic Program: <select name="branch" >
+                                                <option value="CSE">Computer Science and Engineering</option>
+                                                <option value="EE">Electrical Engineering</option>
+                                                <option value="MNC">Mathematics and Computing</option>
+                                                <option value="ME">Mechanical Engineering</option>
+                </select></label>       
+            </fieldset> 
+            <fieldset>              
+                <label>Reason for Leave: <textarea name="reason" type="text"rows="3" cols="30"></textarea></label><br>
+                <label>Medical Leave: <input name="medical_request" type="checkbox" value="1" ></label><br>
+                <label>Period of Leave: From:<input name="start_date" type="date"> Till:<input name="end_date" type="date"></label><br>
+                <label>Number of days: <input name="days" type="number" step="1" value="1" ></label>
+            </fieldset> 
+            <fieldset>  
+                <label>Phone No: <input name="phone" type="name_box" size="10" maxlength="10"></label><br>
+              <label>Email: <input name="email" type="name_box" size="30" maxlength="50"></label><br>
+            </fieldset>
+            <p> I declare and undertake that I have read and abided by all the rules and regulations laid down in the UG manual with regards to the leave. I shall be held solely responsible for my academic performance, exams, attendance in the class and other circumstances that arise out of my leave.</p>
+            <p> CAPTHA HERE</p>
+            <label> <input  type="submit"  ></label>
+        </form
+       </body>
+</html>

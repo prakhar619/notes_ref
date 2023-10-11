@@ -1,0 +1,14 @@
+Git
+	git clone url01    (to create local copy of repo)
+	git status	   (to get status of repo)
+	git remote -v	   (to check if remote origin is already setup)
+	git add file01	   (to add file to local copy)
+		git add .   (adds all files)
+	git commit -m "txt"	   (to commit file)
+	git push
+	git pull origin main		(to refresh the local repo)(type this cmd after entering repo folder)
+	git branch --show-current 	(to show all local branches of repo/ current branch will be starred)[git rev-parse --abbrev-ref HEAD][git log --oneline --decorate --graph --all]
+
+	cat ~/.gitconfig
+
+		                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           

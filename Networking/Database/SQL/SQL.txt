@@ -1,0 +1,197 @@
+MySql Client Program
+    Case Insensitive language
+    free-format input; collectes input lines till ; is encountered
+    ; is normally required at end of query except sometimes
+    'YYYY-MM-DD' timedate format required
+
+    Help/Full Command List
+        mysql --help
+
+    Connecting to server
+        mysql -h host -u user -p (you will be asked for password; you can provide password in cmd itself -h host -u user -ppassword )
+            mysql -u user -p (if logging on same machine ignore host)
+        QUIT
+            (quit to disconnect)(semicolon omitted)
+
+Prompt Info
+    mysql>  ready for new query
+    ->  waiting for next line of multiple line query
+    '>  waiting for next line; waiting for completion of string that began with '
+    ">  waiting for next line; waiting for completion of string that began with "
+    `>  waiting for next line; waiting for completion of identifier that began with `
+    /*> waiting for next line; waiting for completion of comment that began with /*
+
+
+    #if '> then '/c means you closed ' then cancelled the earlier query
+
+COLUMN PROPERTIES
+    PRIMARY										#for each row to be identified this column cannot contain same value for two different row
+    NOT NULLl									#column must have a value
+    UNIQUE										#same as primary key only that many column in same table can be unique
+    DEFAULT										#default valueee
+
+UNION keyword
+    combine 2 SELECT operation
+        SELECT col1 from tabTest1 UNION SELECT col2 from tabTest2
+
+LAST_INSERT_ID()
+    last auto_increment value
+
+Database
+    SHOW DATABASES;
+    SELECT DATABASE();          (to see which database u are workin on)
+    USE dbTest1;
+    CREATE DATABASE dbTest1;
+    DROP DATABASE IF EXIST dbTest1;
+
+    Multiple Table
+        Select tabTest1.col1, TIMESTAMPDIFF(YEAR,birth,date) AS age, remark FROM tabTest1 INNER JOIN tabTest2 ON tabTest1.col1 = tabTest2.col1 where tabTest2.col2 = 'f';
+            FROM joins 2 tables 
+            ON helps in matching record in each table
+            INNER JOIN permits rows in either table to appear
+Table 
+    SHOW TABLES;
+    DESCRIBE tabTest1;          (or DESC tabTest1)
+        NULL column header signifies whether col can hold NULL value or not
+        Key indicates whether column is indexed or not
+        Extra indicates extra Info
+
+    CREATE TABLE IF NOT EXISTS tabTest1 (colname1 <datatype>, colname2 <datatype> PRIMARY);
+    CREATE TABLE tabTest1 (colname1 <datatype> DEFAULT 0 NOT NULL AUTO_INCREMENT, colname2 <datatype> DEFAULT '' NOT NULL, PRIMARY KEY (col1,col2));
+    LOAD DATA LOCAL INFILE '/path/pet.txt' INTO TABLE tabTest1;         (loading txt file in sql database; for NULL use /N in txt file)
+        LOAD DATA LOCAL INFILE '/path/pet.txt' INTO TABLE tabTest1 LINES TERMINATES BY '\r\n';  (for windows)
+    INSERT INTO tabTest1 VALUES ('name1','value','date',NULL,12);       (string and date are quoted string)
+    INSERT INTO tabTest1 (col2,col3) VALUES ('value','date');
+
+    SELECT <what to select> FROM <which table> WHERE <condition>;
+    SELECT * FROM  tabTest1;
+    SELECT * FROM tabTest1 where col1 = 'mark';
+    SELECT * FROM tabTest1 where (birth >= '1998-1-1' AND sex = 'f') OR sex = 'm';
+    SELECT col1,col2 FROM tabTest1;
+    SELECT DISTINCT col1 FROM tabTest1;     (distinct output; no repeated value)
+    SELECT col1,col2 FROM tabTest1 ORDER BY col1,col2 DESC  (sorting; first priorty col1 then descending col2)
+        (case insensitive for char)
+        (forced case sensitive ORDER BY BINARY col1)
+    SELECT * FROM tabTest1 WHERE col1 BETWEEN 10 AND 20
+    
+
+    DELETE FROM tabTest1;   (empty the table)
+    DELETE FROM tabTest1 WHERE col1 = value;
+    DROP TABLE tabTest1
+
+    MYSQL EXTRA FUNCTIONS
+        SELECT col1,col2,TIMESTAMPDIFF(YEAR,col2,CURDATE()) as year_diff
+        YEAR(<date>),MONTH(<date>),DAYOFMONTH().MONTH()             (year,month,day extraction from date)
+        DATE_ADD(<date>,INTERVAL 1 MONTH)
+        MOD(<value>,<base>)
+        MAX(<colname>)
+            SELECT col1,col2,col3 FROM tabTest1 WHERE col1 = (SELECT MAX(col1) FROM tabTest1);          (row with max col1 value)
+            SELECT col1,MAX(col2) AS price FROM tabTest1 GROUP BY col1,ORDER BY col1;
+        
+    Examples
+        SELECT name,birth,death,TIMESTAMPDIFF(YEAR,birth,death) AS age FROM pet WHERE death IS NOT NULL ORDER BY age;
+
+Alter Table
+    ALTER TABLE tabTest1 ADD col1 <datatype>
+    ALTER TABLE DROP col1;
+    ALTER TABLE tabTest1 ADD PRIMARY KEY (col1,col2);
+    ALTER TABLE tabTest1 ADD INDEX [name] (col1,col2);
+    UPDATE tabTest1 SET col1 = value, col2 = value WHERE col1 = value1;
+    ALTER TABLE tabTest1 AUTO_INCREMENT = 100;
+
+Row 
+    SELECT COUNT(*) FROM tabTest1;                         (no of rows in table)
+    SELECT col1,COUNT(*) FROM tabTest1 GROUP BY col1;     (each col1 item count)
+    SELECT col1,col2,COUNT(*) FROM tabTest1 GROUP BY col1,col2;
+
+    INSERT INTO tabTest1 VALUES (1,"A",True,"1996-12-01"),(2,"B",True,"1998-11-12");
+
+
+
+Col 
+    NULL   
+        0 is not same as NULL
+        False
+        0 also means false
+        2 Operators
+            IS NULL
+                0 IS NULL => 0
+            IS NOT NULL
+
+Pattern Matching
+    = or <> not used
+    use LIKE or NOT LIKE
+        use LIKE only when you want to match entirity of value; LIKE "_x_" will not match wowxw
+        SELECT col1 where name LIKE '%b'
+    _ for single character
+    % for arbitary character no (0 or more characters)
+
+    EXTENDED PATTERN MATCHING
+        use RLIKE (or REGEXP) or NOT RLIKE (NOT REGEXP)
+            extended pattern matching succeeds when if pattern matches anywhere in value being tested
+        * match zero or more instance of thing preceding it
+        ^ to match the letter succeeding it at start
+            ^b will match beam,boom
+        $ to match the letter preceding it at end   
+            fy$    
+        
+        [...] any char
+        [a-z],[abc],[0-9]
+
+
+User Defined Variables
+    SELECT @min_price:= MIN(price), @max_price = MAX(price) FROM tabTest1;
+
+Foreign Keys
+
+    CREATE TABLE parent (
+        id INT NOT NULL,
+            PRIMARY KEY (id)
+    ) ENGINE=INNODB;
+
+    CREATE TABLE child (
+        id INT,
+        parent_id INT,
+            INDEX par_ind (parent_id),
+            FOREIGN KEY (parent_id)
+                REFERENCES parent(id)
+                ON UPDATE RESTRICT          (or CASCADE)
+                ON DELETE RESTRICT          (or CASCADE)
+    )ENGINE=INNODB;
+
+        
+        
+Datatypes
+String	(size is in no of chars)
+	CHAR(<size 0-255 DEFAULT=1>)	Fixed Length where size is no of char
+	VARCHAR(<size 0-65535>)			Variable Length where size is no of char
+	BINARY(<size DEFAULT=1>)		same as CHAR(), stores Binary byte string
+	TINYTEXT						255 chars
+	TEXT(size)						max of 65535 chars
+	ENUM(val1,val2,val3)			upto 65535 values
+
+Numeric Data Type			(extra attribute: UNSIGNED and ZEROFILL)
+	BIT(<size 1-64 DEFAULT=1>)			
+	TINYINT(<size 0-255>)			Size is display width; 1Byte			
+	BOOL							Zero is false
+	BOOLEAN							Same as BOOL
+	SMALLINT(<size 0-255)			Size is display width; 2Byte
+	INT(<size 0-255>)				4Byte
+	INTEGER(<size>)					Same as INT
+	BIGINT(<size>)
+	FLOAT(<size>,d)					Size is total no of digits; no of digits after decimal is d	
+	FLOAT(<p 0-24 float; 25-53 double)				
+	DOUBLE(size,d)					Size is total no of digits; no of digits after decimal is d
+	DOUBLE PRECISION(<size>,d)		
+	DECIMAL(<size>,d)				No of digits in size (0-65 DEFAULT=30);no of digits after decimal is d (0-30 DEFAULT=0)
+	DEC(<size>,d)					Same as DECIMAL
+
+Date and Time
+	DATE				yyyy-mm-dd
+	DATETIME(fsp)		yyyy-mm-dd hh:mm:ss  default current_timestamp
+	TIMESTAMP(fsp)		yyyy-mm-dd hh:mm:ss
+	TIME(fsp)			hh:mm:ss
+	YEAR				a four digit no
+
+
+

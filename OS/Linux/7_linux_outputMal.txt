@@ -1,0 +1,44 @@
+
+	grep
+		(general regular expression parser)
+		searches file for particular pattern of char and prints all lines containing that pattern
+		grep -i "UnIx" file.txt		//-i is flg for case insensitive search
+	
+	awk
+		searches file for pattern and prints all lines containing that pattern
+		can split lines into fields using $1,$2,$3,$4	$0 represent whole line
+		can modify output by adding line counter
+		
+	sed 
+		(stream editor)
+			replacing char/ removing lines/ replacing one pattern of char
+			$sed -n '/home/p' /etc/passwd	//prints any line containing home
+			$sed 's/Mac/Linux/g' somefile.txt > file.txt	//mac replaced with linux
+		manipulate file without opening them
+		replace	 	sed 's/word_1/replace_1' file.txt
+				sed 's/word_1/replace_1/2' file.txt	#second occurance replaced only
+							/g 	for global replacement
+							
+				sed 's/word_1//g;s/word_2//g'	#delete word1 and word2
+				
+	cut 
+		cut -f6 means 6th field (delimiter colon)
+				$ grep /home /etc/passwd | cut -d':' -f6 -
+				
+	tr 
+		(translate or delete characters (tr)
+		echo "HELO aeEorWOrld" | tr [A-Z] [a-z]		all upper case to lower case
+						
+	less
+		pipe into less for exellent display for big file; page like display
+		
+	sort 
+		to sort output
+	
+	locate
+	
+	find
+		find is better tool and its gives various ways to search
+		
+	nroff and troff
+	set UID and set GID

@@ -1,0 +1,18 @@
+ip and related info
+
+Arin			(North American)
+https://search.arin.net/rdap/?query=14.139.106.150&searchFilter=ipaddr
+
+Apnic
+	Asia-pacific
+
+
+whois www.google.com
+nslookup www.google.com
+dig www.google.com
+
+Phishing
+	Trying to pretend to be orginal site or email or phone call to get sensitive info.
+
+Telnet vs ssh 
+

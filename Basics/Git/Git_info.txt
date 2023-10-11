@@ -1,0 +1,33 @@
+Git
+	DVCS
+		Distributed Version Control
+		Each user/collaborator has full history in local system.
+	Snapshots based System
+		Different from Delta Based Version Control where only changes are stored
+		Kind of like storing file but not actuallyq
+	3 Stages
+		Commited
+		Staged
+		Modified
+	.git Repository
+		All versions
+	Working Dir
+		Current version
+	Transfer Protocols:
+		https 	(https://)
+		ssh	(git://) or (user@server:path)
+	Lifecycle of status of your files
+		Untracked
+			Files which are not being tracked (usually new file;)
+			Files which are not present last snapshot and not in staging area
+			directly switched to staged status after saving
+		Unmodified
+			File same as last snapshot;
+			Commited Files
+		Modified
+			File which is already present in last snapshot but editted
+		Staged
+			New added file or Modified file staged; 
+
+	
+	

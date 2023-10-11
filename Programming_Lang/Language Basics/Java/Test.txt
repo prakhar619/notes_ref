@@ -1,0 +1,2 @@
+This variation wraps the code that opens and accesses the file within a single try block.
+This file is closed by the finally block.

@@ -1,0 +1,164 @@
+Bash
+    Special variables		(present in ./bashrc file)
+	$0	scripts name
+	$1	1st argument
+	$2	2nd argument
+	$#	prints no of arguments
+	$?	exit status of last cmd (0means no error else error)
+	$@ 	all argument in one	(iterating through arguments)
+	$SHELL 		current shell
+	$PS1		shell prompt name info	// present in ~/.bashrc
+		$PS2,$PS3,$PS4
+	$USER		current user
+	$HOME		location of home dir of user
+	$TMOUT		time for inactivity before bash automatically exits (sleep type cmd)(seconds)
+	$PATH		list of dir to check for cmd executable file
+		PATH=$PATH:/getstuff/bin ; export PATH
+		cmd are searched in order present in file
+	
+	declare
+		use this cmd to get all environment variable along with their values
+	YOUR OWN SHELL ENV VARIABLE
+		M=/work/time/files/info/memos ; export M	./bashrc
+
+	All types of Brackets
+		(<shell cmd>)		execute subshell and return exit code(not cmd output)
+		$(<cmd>)		execute subshell and return output of executed cmd// "$()"; COMMAND SUBSTITUTION
+		((	))		arithmetic operation bracket; however no output; use variable without $
+		$((	))		arithemtic operation bracket with output; therefore assignment easy; integral arithmetic strickly
+		[	]		truthiness
+		[[	]]		nahhhhhh too difficult
+		{	}		expansion
+			echo "I am"{human,living,person,dead}
+		${	}		shell variable value and their manipulation; string slicing,uppercase conversion, pattern manipulation(replace,cut)
+			${1:-world}	
+		<			output redirection to stream or file; not good for passing ouput of one cmd to other cmds
+		<<			multiline string; magic word before and after word
+		>>			appending to a file
+		|			output piping; good for passing output of one cmd to other cmds
+		""			interpolated string; $,``,! have special meaning; $var will represent their values
+			echo "$0"		(prints value of variable that is script name)
+		''			normal string; all symbol have same meaning
+			echo 'Hello $0'		(prints Hello $0)
+		$(<cmd>)$?		when you are concern with exit code of cmd and not rather with output of cmd itself
+			
+		
+	var01=1/2+2-4
+	echo $var01     (prints 1/2+2-4)
+	var01=((1/2))
+	echo $var01     (prints 0.5)
+		use let for arithmetic variables
+	
+	READING USER INPUT
+		read -p "Input one integer, one string , one char" int_var str_var char_var
+		
+Arithmetic operation
+			let cmd to get integer input
+			bc and `expr` and $(()) and (()) to operate
+			last cmd gives random num b/w 0 and 10	
+				both let and expr are particular about spacing	//let insists no space b/w operand and operator
+										//expr insists whitespace b/w operand and operator
+										//bc is cool but does floating point arithmetic	
+						
+
+
+	ls *.{jpeg,jpg}
+	echo {0,1}{0,1}            (prints 00 01 11 10)
+	rm file[0-9][0-9][0-9]     (removes file000 file 001 file002 ...)
+	
+	
+	Assigning
+		var01=10   (not var01 = 10)
+		(( var01 = 20 ))
+		var01=$var02
+		unset var01 (null value assignment)
+		
+		Array
+			var01="1 2 4"    (not var01=1 2 4)
+				var01[0]=1
+				var01[10]=2
+			var01=(1 3 4 5)
+			var01=("23" "12 12" "w32 ")
+			var02=$var01   	      (only zeroth element is assigned)
+			var02=("$val01[@]")   (assign the whole array)
+	
+		
+	Printing
+		echo "$var01"
+		echo $var01
+		echo ${var01}		
+
+		echo ${var01[0]}
+		echo $var01        (prints zeroth or [0] element)
+		echo ${var[@]}     (prints all the array values)
+		echo ${var[*]}	   (prints all the array values)
+		
+	
+	Statements
+
+		if [          ] ; then
+		elif [        ] ; then
+		else
+		fi
+					 
+		case "var" in 
+			result1)
+			{
+			};;
+			result2)
+			{
+			};;		
+			*)
+			{
+			};;
+			esac
+			
+		for num in 0 1 4 5 6
+		do
+		done
+		
+		while <condiction>
+		do
+		done
+		
+		until <condiction>
+		do 
+		done
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	Basic Operations 
+		var01="i'm a dog person"
+		echo ${var01/dog/cat}             (replaces 1st appearence of dog with cat)
+		echo ${var01//dog/cat}		  (replaces all dog with cat)
+		echo $var01			  (var01 values remain same)
+		echo ${var01/dog}   		  (deletes dogs)
+		
+
+
+
+		echo $(#array01)		  (no of characters in zeroth element of array)
+		echo $(#array01[0])		  (no of characters in zeroth element of arrry)
+		echo $(#array01[@])		  (no of elements in array)
+		
+
+
+		string01="hello"		  
+		echo ${string01:1:4}		  (prints the sliced string)
+		echo ${string01:4:1}		  (prints oll)
+		
+		array01=(a b c d e)
+		echo ${array01[@]:3:2}		  (prints d)

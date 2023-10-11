@@ -1,0 +1,93 @@
+JS INFORMATION
+
+Scripting Language
+Node compiler
+
+Input and Output (and Networking, storage, graphics)
+    Responsibility of host env
+
+Javascript Standard
+    ES
+	    ES Modules
+	    ECMAScript
+	    Official Format of JS
+	    import and export
+        .mjs
+            ES6 in 2015
+            ES2016 and so on...
+    CommonJS
+	    require and module.exports
+        .js
+
+JS Hoisting
+    automatically declare variable and initialise it with undefine
+    causes more problem to me than solves it
+
+ASI 
+    Automatic Semicolon Insertion
+
+TDZ
+    Temporal dead zone
+    
+Data types:
+    String
+    Number
+    Boolean 
+        true    
+        false
+    null
+    Object 
+    Function 
+
+Automatic Casting
+    number+string => string
+
+Explicit Casting
+    parseInt()      string->int         //if no is float then roundoff
+    parseFloat()    string->float
+
+Operators 
+    Arithmetic
+        +   overloaded for string
+        -
+        *
+        /
+    Comparison 
+        ==  
+        !=
+        >
+        <
+        <=
+        >=
+    
+HTML objects
+    Window Object 
+        window.methodName or self.methodName or methodName
+            window.propertyName
+                window.location.href = "http://www.google.com";
+            window.methodName([args])
+                var winOb = window.open("google.html","def","HEIGHT=200,WIDTH=300");
+                winOb.close();
+
+    Document Object
+        document.propertyName
+            document.forms[0] or document.formName      //formName is name assigned in attribute
+            document.title
+        document.methodName([args])
+            document.write()        //erases all previously rendered output
+            document.close()        //always close document.write() at last
+
+
+
+Strict Mode and Sloppy Mode 
+    'use strict'
+    ESM default strict mode
+
+Server Data Post 
+    name="userid"   value="revai ackreman"
+    name="age"      value="12"
+    name="school"   value="nil"
+
+    Server will recieve data as:=
+        userid=revai+ackreman&age=12&school=nil
+

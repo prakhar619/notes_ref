@@ -1,0 +1,109 @@
+Fontssss
+
+
+San Serif    vs     Serif
+(not leg)
+ 
+no legs		legs 
+easier to see	comparitively difficult to see
+
+
+Anatomy of Typeface
+
+Ascender line
+capline 
+median
+baseline
+descender line
+
+kerning
+leading	  (base line - base line)
+typesize      (descender line - cap line)
+
+cap height  ( baseline - cap line)
+x height    ( baseline -small cap height)
+
+ascender
+descender
+serif
+counter
+swash
+
+Famous Typefaces
+
+1) Helvetica
+invoices/receipts
+large x height
+most common
+san serif
+
+2) Calibri
+san serif
+rounder
+more character than Helvetica
+
+3) Futura
+San serif
+Ultramodern 
+futuristic
+futuristic movies poster
+thriller movies poster
+
+4) Garamond
+Serif
+classic
+typeface for book
+17th century frace
+
+5) Times new roman
+jounalism
+publishing
+solid 
+bold than garamond
+
+6)Arial
+San serif
+IBM
+similar to Helvetica
+less formal than helvetica
+
+7) cambria
+more condensed than TNR
+serif
+business printing
+
+8) Verdana
+san serif
+alternative for helvetica for larger screen
+large set width and character spacing
+
+9)Rockwell
+serif
+banners and posters
+bold
+big
+
+10)Franklin gothic
+san serif
+heavy
+billboard
+banner
+headline
+bold
+
+11)Bodoni
+serif
+magazines
+
+12)Frutiger
+Official font for govt bills and currency
+colleges and university
+
+
+
+
+
+ 
+
+
+

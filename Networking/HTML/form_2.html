@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Practice JS</title>
+    </head>
+    <body>
+        <p>Sample Form and Form Properties</p>
+        <form   action="http://url"     action="mailto:abcd@gmail.com"  method="get"    method="post">
+            <fieldset>
+                <legend>Text boxes</legend>
+                <label>NameBox: <input      name="name"         type="text"     id="name_box"   value="Placeholder"    size="20"    maxlength="40"  readonly >                          </label>   <!--each form elem require label; widen clickable area; screen reader; implicit label--> 
+                <label>TextBox: <textarea   name="feedback"                     id="feedback1"                         rows="5"     cols="20"               >PlaceHolder</textarea>     </label>
+                <label>PassBox: <input      name="pin"          type="password" id="pin_box"    value="Placeholder"    size="20"    maxlength="40"  required >                          </label>   <!--each form elem require label; widen clickable area; screen reader; implicit label--> 
+                <label>EmailBox:<input      name="email"        type="email"    id="emID">                                                                                              </label>
+                <label>URLBox:  <input      name="url"          type="url"      id="url1">                                                                                              </label>
+                <label>PhoneBox:<input      name="phone"        type="tel"      id="mob"                                                            autofocus>                          </label>
+                <label>NumbrBox:<input      name="quantity"     type="number"   id="number"     value="10"              step="0.1" min="0" max="11">                                    </label>
+                <label>Calender:<input      name="start"        type="date"     id="start_date"                          min="01-01-2001" max="01-01-2030"required>                     </label>
+                <label>Slider:  <input      name="vol_slider"   type="range"    id="slider"     value="50"              min="0" max="100" step="5">                                     </label>
+                <label>ColorPick<input      name="color_grp"    type="color"    id="colour">                                                                                            </label>
+                <label>HiddenBox<input      name="revai"        type="hidden"   id="213"        value="adfn230">                                                                        </label>       
+                
+            </fieldset>
+            <fieldset>
+                <legend>Boxes</legend>
+                <label>Radio1:   <input      name="delivery"    type="radio"    id="am"     value ="am"             checked >       </label>
+                <label>Radio2:   <input      name="delivery"    type="radio"    id="pm"     value ="pm"                     >       </label>
+                <label>Checked1: <input      name="drink"       type="checkbox" id="cappa"  value ="cappuccino"     checked >       </label>
+                <label>Checked2: <input      name="drink"       type="checkbox" id="DARK"   value ="darkcoffe"              >       </label>
+            </fieldset>                         
+            <fieldset>                       
+                <legend>DropBoxes</legend>   
+                <label>NormalDrop<select     name="topping"                     id="topping"    multiple size="2">
+                                                                                <option     value="choco">Chocolate </option>
+                                                                                <option     value="vanila">Vanila   </option>
+                                 </select></label>
+                <label>DataList  <input      name="user"        list="user_"    id="userr">
+                                 <datalist                                   id="user_choose">
+                                                                                <option     value="student">Student </option>
+                                                                                <option     value="admin">Administrator</option>
+                                                                                <option     value="faculty">Faculty </option>
+            
+                                </datalist></label>
+            </fieldset>
+            <fieldset>
+                <legend>Buttons</legend>
+                <label>         <input   name="submit_data"     type="submit"   id="button_sub" value="ButtonName">         </label>
+                <label>         <input   name="button"          type="button"   id="but"        value="ButtonName">         </label>
+                <label>         <button  name="button_off">                                     ButtonName</button>         </label>
+                <label>         <input   name="resetbut"        type="reset"                    value="ButtonName">         </label>
+            </fieldset>
+        </form>
+    </body>
+</html>

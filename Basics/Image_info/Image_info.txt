@@ -1,0 +1,157 @@
+Image
+
+Vector 
+Raster
+
+
+Raster Image:
+Properties:
+
+Pixel:
+	Grayscale			8bit pixel 	(8*1)
+	Black and White	1bit pixel	(2*1)
+	RGB				24bit pixel	(8*3)	(0-256)
+	RGBA				32bit pixel	(8*4)
+	CYAN
+
+Size of Image:
+	Pixel Count: Width, Length
+	Physical Size: Width, Length
+
+Pixel Dimension (no of pixel) (matters on web)	(size of image)
+
+Resolution				(do not matter on web)
+	PPI	(pixel per inch)
+	DPI	(dots per inch)(for printers)
+	
+
+Operations:
+
+	Color Conversion (RGB to gray or vice versa)
+	Image Restoration
+	Color IMage processing
+	Wavelets and multi-resolution processing
+	image compression
+	morphological processing
+	segmentation procedure
+	representation and description
+	object detection and recognition.
+	Noise detection
+	Denoising technique
+	Blur
+	Merge
+		Overlay
+		Side to Side
+	Cropping
+	Adding text
+	Adding Shapes (lines, rectangle)
+	Enhancing
+		Brightness
+		Contrast
+		Sharpness
+		Color
+	
+Standard:
+
+EXIF
+
+	exchangeable image file format
+	
+	image
+		jpeg	compressed image
+		tif	uncompressed image
+	riff wav	audio files
+			linear PCM or ITU-T G.711 μ-law PCM for uncompressed audio
+			IMA-ADPCM for compressed audio data
+
+	does not support jpeg 2000 and gif encoding
+
+
+	Image metrics 
+		pixel dimension
+		resolution
+		colorspace
+		filesize
+
+
+
+The metadata tags defined in the Exif standard cover a broad spectrum:
+
+1.	Camera settings: This includes static information such as the camera model and make, and information that varies with each image such as orientation (rotation), aperture, shutter speed, focal length, metering mode, and ISO speed information.
+	Other info
+
+		File format
+		Exposure Program
+		Exposure Time
+		Face INfo length
+		face info offset
+		face detected
+		flash action
+		flash level
+		flash mode
+		focal length
+		focus mode
+		full image size
+		hdr setting
+		hdr
+		high noise iso reduction
+		image stabilization
+		intellignet auto
+		jpeg qualitu
+		lateral chromatic aberrration
+		lens specs
+		lens zoom position
+
+
+2.	Image metrics: Pixel dimensions, resolution, colorspace, and filesize
+3.	Date and time information. Digital cameras will record the current date and time and save this in the metadata.
+4.	Location information
+5.	A thumbnail for previewing the picture on the camera's LCD screen, in file managers, or in photo manipulation software.
+6.	Descriptions
+7.	Copyright information.
+
+
+
+Software libraries, such as libexif[7] for C and Adobe XMP Toolkit[8] or Exiv2[9] for C++, Metadata Extractor[10] for Java, PIL/Pillow for Python, LEADTOOLS or ExifTool[11] for Perl, parse Exif data from files and read/write Exif tag values.
+
+
+Image encodings:
+
+JPEG	Joint Photographic Expert Group
+
+TIFF	Tagged Image File Format
+
+PNG	Portable Network Graphics
+
+SVG 
+
+PDFp
+
+
+
+
+JPEG:
+
+	Joint Photographic Expert Group
+
+	multiple file format
+		.jpg
+		.jpeg
+		.jpe
+		.jif
+		.jfi
+		.jfif
+		
+
+	lossy compression
+	(includes lossless coding mode but not supported by devices)
+	typically 10:1 compression
+	
+	1992 introduced
+	most widely used image compression
+
+	Compression
+		DCT	(discrete cosine transform)
+
+
+

@@ -1,0 +1,238 @@
+Fortran Program Flowchart
+
+Program Name
+Declaration of variables
+Assignment Statement
+Execution Statement
+End Statement
+
+fortran90 and fortran95 CASE INSENSITIVE
+Program reading from top to bottom , left to right
+
+Print and Read 
+	print*,variable1,"Name1",variable2
+	read*,input1,input2,input3
+
+Name of Program Rules:
+	It can be 31 characters long
+	The first character must be a letter.
+	The other characters may be letter or digit or underscore(_)
+	
+Name of Identifier or variables
+	It can be 31 characters long
+	any combination of letter or digit
+	First character must be a letter
+	"_" is a character (rest special character not allowed)
+	
+Keyword
+	integer
+
+Constant:	Entity that does not change its value during execution of program	(pros of using constant: debugging)
+	integer, parameter::x = 500
+	real,parameter::pi = 3.1415926
+	Types
+		integer constant
+			must have atleast one digit
+			must be written without decimal point
+			may have + or - sign (default +)
+		real constant
+			must have atleast one digit
+			must be written with decimal point(1 is invalid while 1.0 is valid)
+			may have either + or - sign (default +)
+			not fraction
+			exponent mantissa notation
+				1.56e-10	(mantissa e exponent)
+				mantissa must have one digit		
+				may have a sign
+				e or E
+				exponent must be an integer and must have one digit atleast
+		
+		
+Data Types
+	integer
+		32bit
+		+2147483647 to -2147483648	(2^31)
+		
+	real
+		32bit
+		7 digit for mantissa
+		exponent ( -38 <-> 38 )
+		
+	double precision 
+		or real(kind = 2)	2byte
+		15 digit for mantissa
+		exponent (+-310)
+		
+	complex
+		complex variables have 2 parts
+			real
+			imaginary
+			
+Operations
+	Arithmatic
+		+,-,*,/,**	(no increment operator)
+			Also ( k * - m) is illegal	(use parentheses)
+			Also ( k ** -m) is illegal  	(use parentheses)
+			*,/ same priorty therefore left to right
+			** have highest priorty
+			
+			integer/integer = integer	(integer division)
+		
+			a**2 => a*a	For exponent is integer
+			a**2.0 => e^(2.0*ln a)	For exponent is real	(gives rounding error)(if a is negative gives error ln a invalid)
+			
+			5x^4 + 3x^3 + 2x^2 + x + 10		4+,9*
+			(((5x + 3)x + 2)x + 1)x + 10		4+,4*
+			
+		
+		ROUNDING Problems of real no
+			Information lost which is significant later
+			large1+small1 = large1
+			(large1+small1)-large1 = 0 (but ans should be small1)
+			Lecture 5
+			
+	Assignment
+		=	(assignment)(not logical)
+		
+
+Intrinsic Functions
+	function_name1(expression1)
+	function_name1(function_name2(expression))
+	
+	Integer2real
+		real(x)
+	
+	Real2integer
+		NINT(x)		!nearest integer
+		INT(x)		!truncates decimal value
+		
+	Absolute
+		ABS(x)		!real variable x
+		IABS(x)		!integer variable x
+		
+	Remainder
+		AMOD(x1,x2)		!x1/x2 remainder 	x1,x2 real
+		MOD(x1,x2)		!x2 cannot be 0		!x1,x2 integer
+		
+	SignTransfer
+		SIGN(x1,x2)		!x1,x2 real		sign of (x2) |x1|
+		ISIGN(x1,x2)		!x1,x2 integer	
+			
+	Positive Difference
+		DIM(x1,x2)			!x2 - min(x1,x2)
+		IDIM(x1,x2)
+		
+	Mathematical Functions 
+	
+		e^x		exp(x)			(x needs to be real)
+		ln(x)		log(x)
+		log10(x)	log10(x)		(x needs to be positive)
+		x^(1/2)		sqrt(x)			(x needs to be positive)
+		sin(x)		sin(x)			(x needs to be real)(x is in radians)
+		cos(x)		cos(x)			(x needs to be real)(x is in radians)
+		sinh(x)		sinh(x)
+		cosh(x)		cosh(x)
+		sin-1(x)	asin(x)			(-pi/2 <x<pi/2)
+		cos-1(x)	acos(x)			(-pi/2 <x<pi/2)
+		tan-1(x)	atan(x)
+		
+		*Priorty during execution:
+		*first function then operations
+		*first argument of function then function
+		
+Condictional Statements
+	
+	
+	if(<logical statment>) <block statement>
+     x-----------------------------------x	
+	
+	if(<logical statement>) then
+		<if block>
+	else
+		<else block>
+	endif
+	
+     x-----------------------------------x
+	
+	if(<logical statement>) then
+		<if block>
+	endif
+	if(<logical expression>) then
+		<if block>
+	elseif(<logical expression>) then 
+		<block>
+	else
+		<block>
+	endif
+	
+	
+ 
+	
+	
+	logical statements:
+		.eq.	==
+		.gt.	>
+		.lt.	<
+		.ge.	>=
+		.le.	<=
+		.ne.	/=
+		.and.
+		.or.
+		
+	Legal statement
+		(a+b/c) < (c+d+f)
+		
+		
+Loops 
+	Infinite Loop:
+	
+		do
+			<block>
+		end do
+		
+	EXIT:
+		do
+			if(<logical statement>) exit
+		end do
+		
+	Count controlled "do" Loop:
+		do count = initial value, final value, increment !(optional increment)
+			<block>
+		end do
+		
+				#count integer variable
+				#final value = integer variable/number/expression
+				#increment default value  = 1
+				#no of iterations = (final value - initial value + increment)/increment
+				#all indices must be integer
+	
+OOPs 
+FUNTIONS
+				
+
+		 
+	
+			
+	
+		
+		
+		
+		
+		
+	
+		
+			
+			
+			
+			
+			
+
+		
+		
+		
+			
+		
+		
+	
+	
+

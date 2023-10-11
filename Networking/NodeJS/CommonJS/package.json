@@ -1,0 +1,12 @@
+{
+  "name": "nodejs_base",
+  "version": "1.0.0",
+  "type":"commonjs",
+  "description": "\"Learning basic js for nodejs",
+  "main": "\"index.js\"",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "\"Prakhar Gupta\"",
+  "license": "ISC"
+}

@@ -1,0 +1,39 @@
+Configuration Setting View Cmds
+	git config --list --show-origin
+	git config --list
+	git config user.name
+
+Help/Man
+	git help <verb>
+	git <verb> --help
+	man git-<verb>
+	git <verb> -h
+		less verboseq
+q
+Configuration Setting Edit Cmds
+	git config --global user.name "Name"
+	git config --global user.email example@example.com
+	git config --global core.editor "C:/Program Files/vscode.exe"
+	git config --global init.defaultBranch main
+
+Repository
+	git init
+		Already created dir(non version control dir); applying version control
+		creates a dir .git (repository)
+		no file added in version control
+	git add *
+	git commit -m 'Initial project version'
+		Adding all the files to the version control already created
+
+	git clone <url>
+		Clone already existing project
+		git clone http://github.com/myfolder_server => will create a dir with name myfolder_server
+		git clone <url> workstation_foldName
+		
+	
+Status
+	git status
+
+Editing Repo
+	git add file1.txt
+	

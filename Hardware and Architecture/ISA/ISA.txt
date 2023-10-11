@@ -1,0 +1,39 @@
+High lvl language
+	Portable
+
+Assembly lvl language
+	Specific to hardware
+
+Assembly Language ---Assembler--->Executable code(machine code)
+	
+Assembly Language
+	ARMv8
+	MIPS
+
+John Von Neumann
+	Instructions are fetched from RAM
+	
+RICS vs CISC
+RICS
+	Reduced instruction set computer
+	Offset the need to process more information by increasing speed of each instruction.
+	Instruction Pipeline
+	16 or 32
+	MIPs architecture
+	ARM architectures
+	
+CISC
+	Complex Instructionn set computer
+	cover the gap b/w RICS and high lvl lang and also encoding more dense instruction
+	mainframe computers
+	x86
+	
+Endianness
+Little endian architecture vs big endian
+	
+	little
+		least significant byte of word at biggest memory location
+	big
+		most significant byte of word at smallest memory location
+		
+		

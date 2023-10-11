@@ -1,0 +1,127 @@
+ISA
+	Instruction Set Architecture
+	ARMv7	(MIPS)
+	Intel x86
+	ARMv8
+	
+	Stored-Program concepts
+	
+	Operands
+		word 
+		32 32bits register
+		
+	Memory Operand
+		array and structure
+		memory address needed
+		
+		Memory is large single dimensional array with address acting as index.
+		
+		load and store to access memory
+		
+		#MIPS alignment restriction
+		All word address must start at addres that are multiple of 4.
+		
+		Spilling Register:
+		The process of putting less commonly used variables into memory is called spilling register.
+		
+		Sign Extension:
+		The function of signed load is to copy the sign repaeatedly to fill the rest of register is called sign extension.
+		
+		lb: load byte. Treats no as signed and extends the sign o fill the rest of 24 bits.
+		lbu: load byte unsigned
+		
+		Assembly language ----Assembler----> Machine Language
+		
+		0	17	18	9	0	32 	Each segment of instruction is called a field.
+		6bits	5bits	5bits	5bits	5bits	6bits
+		Last and first segment tells which operation to perform.
+		
+		Second and third segment gives the register.
+		
+		000000 100001 10010 000000 100000
+		
+		Mips instruction are 32bits
+		
+		opcode	rs	rt	rd	shamt	funct
+		
+		why different R,I,J ?
+		
+		I type Instruction:	(load and store)
+		or I format
+		opcode	rs	rt	constant
+		6bits	5bits	5bits	16bits
+		
+		
+		Instructions are represented as numbers.
+		Programs are stored in memory to be read or written just like number.
+		
+		Stored-Program
+		
+		Logical Operations
+		shift left	sll
+		shift right	srl
+		and		and , andi
+		or 		or, ori
+		not		nor
+		
+		shamt(offset or immediate)
+		rs = 0
+		
+		
+		xor
+		
+		Condictional Statement
+		beq
+		bne
+		slt
+		slti
+		sltu
+		sltiu
+		
+		
+		j Exit
+		
+		Loops
+		
+		
+		Basic blocks
+			a sequence of instructions without branches and without branch target or branch labels.
+			
+		
+		
+		Procedure or function or subroutine
+		jal
+		jr	jump register
+		
+		$a0-3
+		$v0-3
+		$ra	return address
+		
+		caller: programs that instigates a procedure and provides necessary parameter values
+		calle:: procedure that executes a series of stored instruction
+		
+		Program counter:
+		Register containing the address of instruction in program
+		
+		Pc+4 because 32 bits instruction bit version
+		
+		Spilling register data structure : STACK
+		Stack pointer: $sp 29register, where next procedure is present;
+		
+		Stack grows from higher address to lower address.
+		stack pointer shrink when popping.
+		
+		$t0-9 temporary register not preserved for callee
+		$s0-7 saved register that must be preserved on a procedure call, (if used, callee saves and restore them)
+		
+		Procedures that do not call each other are called leaf procedures.
+		 	
+		
+		
+		
+		
+		
+		                                                                                                                                                                                                                                                      
+		
+		
+		

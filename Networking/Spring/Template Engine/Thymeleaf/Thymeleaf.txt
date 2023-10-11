@@ -1,0 +1,55 @@
+Thymeleaf   
+    6 kinds of Template
+        2 Markup Template Mode
+            HTML
+            XML
+        3 Textual Template Mode
+            TEXT
+            JS
+            CSS
+        No-op Template Mode
+            RAW
+    
+Attribute
+    th:text 
+    th:utext
+    th:attr 
+    th:value 
+    th:attrappend 
+    th:each 
+    th:if
+    th:unless
+    th:switch and th:case
+
+Standard Expression
+    #{} Message(i18n) Expression
+        .properties files
+    ${} Variable Expression
+                            ${variable}
+                            PREDEFINED variable
+                                #ctx
+                                #vars
+                                #locale
+                                #httpServletRequest
+                                #httpSession
+                                #dates
+                                #calendars
+                                #numbers
+                                #strings
+                                #objects
+                                #bools
+                                #arrays
+                                #lists
+                                #sets 
+
+                                        th:text="${obj.prop}"
+                                        th:each="book : ${books}"
+    *{} Selection Expression
+                                        th:object="${obj}"
+                                            th:text="*{prop}"
+    @{} Link Expression
+                                        th:href="@{/css/index}"
+                                        th:src="@{/images/img.png}
+    ~{} Fragment Expression
+
+

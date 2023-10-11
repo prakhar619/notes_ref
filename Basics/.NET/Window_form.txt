@@ -1,0 +1,61 @@
+Windows Form App
+
+form.cs
+form.designer.cs
+form.cs[Designer]
+
+Toolbox
+	Common Controls
+		Button
+		Text Box
+		List
+		Labels
+		Check Box
+		Radio Buttons
+		Picture Box
+	
+	Containers
+		TableLayoutPanel
+	Dialogs
+		OpenFileDialog
+		colorDialog
+	Component
+		Timer
+		
+
+Properties
+	Properties
+		Appearance
+			Text
+			Dock
+			Title
+			Size
+		Design
+			Name
+		Behaviour
+			Filter
+		
+	Event
+		
+
+
+
+Coding Part
+
+textbox01.Text					string
+list01.Items.Contains(<text>)		boolean
+string.IsNullorEmpty(<text>)		boolean
+list01.Items.Add(<text>)	
+label01.Text
+
+pictureBox01.
+			BackColor
+			Load(<file>)
+			SizeMode
+
+colorDialog.
+			color
+checkbox01.
+		checked	(boolean)
+this.Close()
+	

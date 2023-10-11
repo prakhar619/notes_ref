@@ -1,0 +1,27 @@
+//incomplete
+
+Primitive data types:
+
+Integer				4bytes		-2147483648	-2147483647
+Character			1byte		-128		127			or 	0	255
+Boolean				
+Floating point			4byte		-3.4*10^38	3.4*10^38	
+Double Floating point		8byte		-1.7*10^108	1.7*10^308	
+valueless or void		
+wide character		
+
+Datatype Modifiers
+
+signed
+unsigned
+short
+long
+
+short int		2bytes		-32768			32767
+unsigned int		4bytes		0			4.29e9
+unsigned short int	2bytes		0			65535
+long int		4bytes		-214747483648		2147483647		//no use of long
+unsigned long int	4bytes		0			4.29e9
+
+long long int		8bytes		-9.2e18			9.2e18
+

@@ -1,0 +1,67 @@
+Linux OS IMP Folder and Processes and hardware related
+
+	Important files and folders
+	
+	.     (current dir)
+	..	( parent dir)
+	
+	./home/usrName/
+	
+			.bash_history			(to get last 500 cmd typed)
+			.bash_logout			(bash file executed when user logout)ba
+			.bashrc				(
+	
+	./etc/
+			group			(group information;sudoers)
+			passwd       		(user ids groupids of all usrs)
+			shells			(all available shells)
+			shadow       		(password for users; hashed password; $1$ means md5; $2a$ blowfist; $2y$ blowfish; $5$ sha256; $6$ sha512; $y$ yescrypt)
+			NetworkManager		(dir about networks and passwords)
+	./usr/
+			
+			bin			(all linux cmds)
+			x86_64-w64-mingw32	(ming files)
+					
+				
+				
+	Processes
+		each process is associated with processID, usr account, group account
+		/proc dir contains process file; name of file is same as their processID; file contains imp process information
+	
+		ps  		(snapshot of background process; user process only)
+			ps u	(better and more descriptive)
+				(tty points which terminal)
+				(stat means status; r means running; s means sleeping; + means associated with foregound operation)
+				
+		top 		(to know all process, system as well as user processes)
+				(virt means memory allocated)
+				{res means memory actually used)
+			ctrl + z(suspend current ongoing process for terminal to accept cmds)
+		jobs  		(to see background processes)
+		fg   		(to start background process in foreground)
+			fg %jobID
+		bg 
+			bg %jobID 	(continue job in background)
+					(does not work on cmds; %n job number; %abc job started by cmd abc; %?abc job started by cmd containing abs; %-- previous jobs
+			bg %jobID > /dev/null	(pop till comes; direct to null)
+		disown 		(jobs continues even after we close terminal)
+			disown %jobID
+			
+		kill jobId
+		kill processId		(default sigterm)
+		kill -9 proccessId	(sigkill)
+			sigkill  ultimate way of killing a process		(signal 9)
+			sigterm  attempt to kill/ gentle way of killing a process (signal 15)
+			
+		killall (sigterm)
+			flags
+				-e    (find exact match for the process name)
+				-I    ( ignore case when find process name)
+				-i   ( ask addition confirmation)
+				-u   ( kill process owned by specific user)
+				-v   (report back whether process has been killed or not)
+
+	
+	hardware
+		
+		lshw -C network

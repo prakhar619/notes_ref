@@ -1,0 +1,53 @@
+a = b (mod n)		asserts that a and b have same remainder when divided by n
+a = kn + b
+a-b is divisible by n
+
+Basic Properties
+	a = a mod n
+	a = b mod n if b = a mod n
+	a = b mod n and b = c mod n then a = c mod n
+	
+	a + k = b + k mod n
+	ak = bk mod n
+	
+	a1 = b1 mod n	a2 = b2 mod n
+		a1+a2 = b1+b2 mod n
+		a1-a2 = b1-b2 mod n
+		a1*a2 = b1*b2 mod n
+	
+	a^k = b^k mod n (non negative k)
+	
+	if c = d mod phi(n) then a^c = b^d mod n provided a is coprime with n	// phi(n) is ETF (eulers totient function)
+	
+	
+	INVERSE
+	Modular Multiplicative inverse
+	a*a^-1 = 1 mod n
+	
+	if a = b mod n then a^-1 = b^-1 mod n
+	
+	To solve x = a^-1 mod n
+		Bezout's Equation using extended euclidean algorithm
+	
+Advanced Properties
+	
+		Fermat's little Theorem
+			a^(p-1) = 1 mod p  where p is prime and does not divide a
+		Euler's Theorem
+			a^(phi(n)) = 1 mod n where phi(n) is ETF; a and n are coprime
+		
+		Wilson's Theorem
+			(p-1)! = -1 mod p
+		Chinese remainder Theorem
+			
+			
+Congruence Classes
+
+
+Montgomery reduction
+
+		
+	
+		
+		
+

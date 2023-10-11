@@ -1,0 +1,51 @@
+Linux Internet CMDS
+
+	Server/internet	
+		
+		ssh user@ipaddrserver
+
+		scp     (secure copy)
+			scp user@serverip:~/file01 ./		(from server to pc)
+			scp file01 user@serverip:~/       	(from pc to server)
+ 	
+ 	
+ 	Linux networking
+
+		ifconfig
+			eno1,lo,wlo1
+			ipv4,ipv6,netmask,mtu
+		
+		iwconfig
+			wlo1
+			wifi protocol, essid, freq, ap mac, signal str, signal quality
+			nic mode
+		
+		iwlist wlo1 scan
+			deep info iwconfig
+
+
+	traceroute
+		traceroute google.com
+			info like
+			hostname
+			size of packets
+			max no of hops required
+			ip address of user
+		traceroute -n google.com	(if * then packet not recieved)
+
+	ping	
+		packet internet groper
+		ping -c 40 google.com (40 times packet is sent)
+
+	netstat
+		show all open socket (Dgram: udp; Stream: tcp) and tables
+		netstat 
+		netstat -s
+		netstat -p	(program and respective open socket)
+		netstat -r	(shows routing table)
+
+	host
+		server/s ip
+		host google.com
+	
+	

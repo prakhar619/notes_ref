@@ -1,0 +1,44 @@
+Base Conversion
+Base b Addition, Subtraction, Multiplication, Division
+UnderRoot
+Fibonacci Series
+Catalan No
+Matrix Multiplication
+Pattern
+Sorting Data
+Sorting Priorty list
+csv file Handler
+Palindrome
+Prime No
+Factorial
+Herons
+
+
+linear search
+binary search
+
+generating subsets
+
+modular math
+solving polynomials
+ 
+prime and factors
+
+polygon area
+complex no
+distance function
+
+linked list
+
+
+
+
+
+
+
+
+
+
+
+
+all subset in 2d matrix
