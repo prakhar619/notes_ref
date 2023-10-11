@@ -1,0 +1,123 @@
+Any language can be interpreted or compiled.
+Aspects of Programming Language:
+	High LvL 	or 	Low LvL
+	Interpreted 	or 	Compiled
+	General Purpose or 	Domain Specific Purpose
+	Strong/strict type or 	Weak type
+	TypeSafe 	or 	TypeUnsafe type
+	CallbyName 	or 	CallbyValue 			or 	CallbyRef
+	Lazy 		or 	Strict
+	
+Functional Languages List:
+	Lisp and Family		(cLisp, objLisp, ...)
+	Haskell
+	ML and Family		(meta Language)(caml,F#)
+	Erlang			
+	Scala
+	Mirarela
+	
+	
+	
+Haskell
+	High LvL
+	Compiled
+	General Purpose
+	Pure Functional						//no state change //keeps pure and impure data separated //even printing changes state
+		No side effects; pure maths
+		Inside very small core with lambda function only
+	Statically Typed/Strongly Typed
+		All data types are defined; unlike var in js
+	Type Inference						//no need of declaring data types
+	CallbyName
+	Lazy
+	Concurrent
+	TypeSafe
+		
+		
+
+
+ghc	
+	Glasgow Haskell Compiler
+	Compiler + Interpreter
+	ghci file.hs
+	GHCi Commands
+		:reload				to reload the file
+		:r 				to reload the file
+		:set editor <editorName>	to use edit cmd
+		:edit				to edit script/file
+		:quit				to quit
+		:?				to see all name
+		
+		
+Keywords
+	case 
+	class
+	data
+	default
+	deriving
+	do
+	else foreign
+	if
+	import 
+	in
+	infix
+	infixl
+	infixr
+	instance
+	let
+	module
+	newtype
+	of 
+	then
+	type
+	where
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
