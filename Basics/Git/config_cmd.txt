@@ -217,14 +217,32 @@ Branching
 			current branch(HEAD) + branch_name
 			commit before merging
 
+		git rebase branch_name
+			in branch is currentBranch; => will be deleted
+			branch_name is onto branch; => new node (commit node) added on it;
+
+		git rebase ontoBranchName inBranchName
+			proper rebase
+			
+		git rebase --onto branch_name in_branch_name start_branch_name
+			in_branch is in branch but not whole diff; but starting after common ancestor of start_branch_name and in_branch_name
+
 		git branch --move new_branch_name old_branch_name
 			local change
+
+		git push <alias> new_branch_name
+			to push a branch to remote
 
 		git push --set-upstream <alias>  new_branch_name
 			to push a branch to remote
 
 		git push origin --delete branch_name
 			to delete a branch on remote
+
+		git checkout --track origin/branch_name	
+			to set up tracking  branch
+	
+
 
 Remotes
 	git remote
@@ -246,7 +264,6 @@ Remotes
 	git remote show <alias name>
 		shows remote branches
 
-
 	git fetch <alias name>			(origin)
 		fetches all info on other servers as branches
 		naming of branches: alias_name/master
@@ -257,10 +274,9 @@ Remotes
 
 	git push <alias_name> <branch_name>
 		pushing branch to the remote server; main will merge with remote/main
-
 	
-
-	
+	git checkout --track origin/branch_name	
+		to set up tracking  branch
 
 GIT TAG
 	git tag

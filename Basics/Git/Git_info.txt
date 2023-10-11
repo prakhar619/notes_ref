@@ -1,21 +1,29 @@
 Git
+
 	DVCS
 		Distributed Version Control
 		Each user/collaborator has full history in local system.
+
 	Snapshots based System
 		Different from Delta Based Version Control where only changes are stored
-		Kind of like storing file but not actuallyq
+		Kind of like storing file but not actually
+
 	3 Stages
 		Commited
 		Staged
 		Modified
+
 	.git Repository
 		All versions
+
 	Working Dir
 		Current version
+
 	Transfer Protocols:
 		https 	(https://)
 		ssh	(git://) or (user@server:path)
+		git
+
 	Lifecycle of status of your files
 		Untracked
 			Files which are not being tracked (usually new file;)
@@ -28,9 +36,11 @@ Git
 			File which is already present in last snapshot but editted
 		Staged
 			New added file or Modified file staged; 
+
 	Blobs
 		version of file
-		3 blobs (each 3 version)(each version itself can contain multiple files)
+		3 blobs (3 blob means 3 files)
+
 	Git Repository Objects
 		Commit List
 			Commit node 
@@ -39,6 +49,7 @@ Git
 					Blob 
 					Blob 
 		HEAD pointer
+
 	Git merging	
 		FastForward 
 			No divergent working
@@ -51,6 +62,26 @@ Git
 			Different line 
 			merge commit (A new commit is done)
 			merge commit has more than one parent;
+
+	Branching Workflows
+		Long Running branches
+		Topic branches	
+		Remote branches	
+			local ref; cant be moved
+			Tracking Branches: automatically creates and edit remote branches
+	
+	Merging vs Rebase
+		Rebase: in branch1 onto branch2 => branch2 + branch1' (where branch2->branch1') 		#branch1 is deleted
+		reach common ancestor => save diff for each comment till reach branch1 => change current branch to branch2 => apply all those diff to get new commit (branch1') => delete branch1
+			usually after rebase fast forward merge;
+		History is lost as branch is deleted;
+
+	Server Protocol for Remote	
+		Local Protocol
+		https 
+		ssh 
+		git 
+		
 
 
 
