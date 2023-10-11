@@ -28,6 +28,18 @@ Git
 			File which is already present in last snapshot but editted
 		Staged
 			New added file or Modified file staged; 
+	Blobs
+		version of file
+		3 blobs (each 3 version)(each version itself can contain multiple files)
+	Git Repository Objects
+		Commit List
+			Commit node 
+				Tree node 
+					Blob 
+					Blob 
+					Blob 
+		HEAD pointer
+
 
 	
 	

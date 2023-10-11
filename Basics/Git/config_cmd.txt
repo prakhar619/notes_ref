@@ -34,6 +34,7 @@ Repository
 		git clone <url> workstation_foldName
 	
 		implicitly links the name "origin" to cloned server 
+		also fetches the origin remote repo
 		
 	
 Status
@@ -64,7 +65,7 @@ History
 		recent is shown first
 		format:
 		#########################################################
-			checksum (Head->branch)
+			checksum  Branch_info
 			Author
 			Timestamp
 			
@@ -160,7 +161,36 @@ Editing Local Repo
 				git rm oldname.txt
 				git add newname.txt
 
-	
+Branching Name:
+		Each Repo
+			HEAD ptr
+				what my repo is currently pointing at;
+				changes when we change branch using checkout cmd 
+			Main ptr 
+				keeps track of the main branch of repo 
+				doesnt change
+
+		Example:
+			HEAD->main, origin/main, origin/HEAD
+			means current repo is pointing at main
+			there is another ptr origin/main which in origin repo is pointing to main branch
+			there is another ptr origin/head which in origin repo is pointing to origin current branch
+
+Branching
+		git branch <branch_name>
+			to create a new branch
+			local workstation Branching
+			doesnt switch to new branch implicitly
+
+		git log or git log --oneline --decorate
+			gives all the current Branching (pointers)
+
+		git checkout <branch_name>
+			to switch to a new branch
+		
+		
+
+
 Remotes
 	git remote
 		to see which remote server have you configured 
@@ -170,8 +200,53 @@ Remotes
 		fetch and push remote servers
 	
 	git remote add <alias name> <url>
+		add remote server apart from origin to fetch and push
+
+	git remote rename <old_alias> <new_alias>
+		changes remote server name
+
+	git remote remove <alias>
+		removes remote
+
+	
+
+	git remote show <alias name>
+		shows remote branches
 
 
+	git fetch <alias name>			(origin)
+		fetches all info on other servers as branches
+		naming of branches: alias_name/master
+		no merging
+
+	git pull
+		git fetch+ git merge
+
+	git push <alias_name> <branch_name>
+		pushing branch to the remote server; main will merge with remote/main
+
+	
+
+	
+
+GIT TAG
+	git tag
+	git tag -l "v1.*"		(--list)
+	git tag -a v1.2 -m "tagging msg"
+	git show v1.3
+	git push origin --tags
+	git tag -d <tagname>
+	git push <alias> :refs/tags/<tagname>
+	git push origin --delete <tagname>
+	git checkout v2.0
+	
+	
+GIT SHORTCUT (actual aliases)
+	git config --global alias.ci commit
+		git ci = git commit
+	
+	
+					
 			
 	
 	
