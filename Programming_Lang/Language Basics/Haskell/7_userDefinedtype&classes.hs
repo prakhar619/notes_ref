@@ -133,8 +133,36 @@ instance Show Traffic where
  show Blue = "blue Light"
  show Error = "COde 69"
 
-	
---Functor TypeClass
+
+--Functor Typeclass
+--functors is a just a typeclass
+--it does not take all types/datatypes; only one which has only one argument in type contructor; and also it takes non concrete typeclasses only;
+--like all typeclass it has operator/function named fmap;
+--f is non concrete type class but a type contructor which takes one argument only;
+--fmap does not have default implementation
+class Functor101 f where
+	fmap101 :: (a->b)-> f a-> f b
+
+instance Functor101 [] where
+ fmap101 = map
+
+data Maybe1 a = Nothing1 | Just1 a deriving (Show)
+instance Functor101 Maybe1 where
+ fmap101 f (Just1 x) = Just1 (f x)
+ fmap101 f Nothing1 = Nothing1
+
+--directly use fmap: fmap (*10) (Just 10) => Just 100
+
+--using fmap for class with 2 type args
+data Either1 a b = Left a | Right b deriving (Show)
+--Either1 a takes only one type parameter; 
+--(b->c)->Either a b->Either a c; same as (Either a) b or (Either a) c
+-- #####################help definitely needed
+instance Functor101 (Either1 a) where
+ fmap f (Right x) = Right (f x)
+ fmap f (Left x) = Left x 
+
+
 
 
 
