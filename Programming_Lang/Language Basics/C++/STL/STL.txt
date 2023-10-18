@@ -1,0 +1,116 @@
+STL 
+    Containers
+        vector                      one dimensional resizable array
+        deque                       double ended queue
+        forward_list                singly linked list
+        list                        doubly linked list 
+
+        map                         associative array 
+        set                         set 
+        unordered_map               hashed associative array 
+        unordered_set               hashed set 
+
+        queue                       Queue 
+        stack                       Stack 
+
+        array                       One dimension fixed-size array 
+        bitset                      Array of bool    
+
+    Associated Containers
+        multimap
+        multiset
+        queue 
+    
+    Utilities
+        utility
+        tuple
+        type_traits
+        typeindex
+        functional 
+        memory 
+        scoped_allocator 
+        ratio
+        chrono 
+        ctime 
+        iterator
+    
+    Algorithm 
+        algorithm 
+        cstdlib 
+
+    Diagnostics
+        exception
+        stdexcept 
+        cassert 
+        cerrrno
+        system_error
+
+    String and Characters 
+        string 
+        cctype 
+        cwctype
+        cstring 
+        cwchar 
+        cstdlib 
+        cuchar 
+        regex
+
+    Input / Output
+        iosfwd 
+        iostream
+        ios 
+        streambuf 
+        istream 
+        ostream 
+        iomanip
+        sstream 
+        cctype 
+        fstream
+        cstdio
+        cwchar 
+
+    Localization 
+        locale
+        clocale
+        codecvt 
+
+    Language support 
+        limits
+        climits
+        cfloat
+        cstdint
+        new 
+        typeinfo
+        exception 
+        initializer_list 
+        cstddef
+        cstdarg 
+        csetjmp
+        cstdlib 
+        ctime 
+        csignal
+
+    Numerics
+        complex
+        valarray
+        numeric 
+        cmath 
+        cstdlib 
+        random
+
+    Concurrency 
+        atomic 
+        condition_variable 
+        future
+        mutex
+        thread 
+
+
+Library Supported Language features
+    new
+    initializer_list
+    typeinfo
+    iterator
+ 
+    
+    

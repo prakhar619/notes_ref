@@ -46,4 +46,5 @@ Struct in C++
     supports access modifiers
     pointers as well as references are allowed
     sizeof operator for struct is 1
+    struct is just public class
     
