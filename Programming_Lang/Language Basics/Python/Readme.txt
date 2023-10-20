@@ -7,6 +7,7 @@ Python Introduction
     Python provides readable code
     dynamically typed; (keeps track of types instead of requiring declaration)
     Strongly Typed;    
+    LEGB Scope (Not block scope) (local,enclosing,global,built in)
 
 Execution:
         source code -compiled-> bytecode(.pyc) -interpreter-> executable
