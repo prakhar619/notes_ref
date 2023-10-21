@@ -1,10 +1,11 @@
-//string A, string B -----> string C (SCS)
+//string A, string B -------------> string C (LCS)
 // uses lcs
-// Time Complexity : O(m*n)
+// Time Complexity: O(m*n)
 // Space Complexity: O(m*n)
 
 
-#include<string.h>
+
+#include<string>
 using namespace std;
 int dp[100][100];
 int max(int a,int b)
@@ -24,7 +25,7 @@ int lcs(string A, string B, int len_A, int len_B)
 	return dp[len_A][len_B] = max(lcs(A,B,len_A,len_B-1),lcs(A,B,len_A-1,len_B));
 }
 
-string scs_string(string A,string B)
+string lcs_string(string A,string B)
 {
     int max_index = max(A.size(),B.size());
     for(int i = 0; i< max_index ; i++)
@@ -43,22 +44,10 @@ string scs_string(string A,string B)
 			j--;
 		}
 		else if(dp[i-1][j] > dp[i][j-1])
-		{
-			C = A[i-1] + C;
-			i--;
-		}
+		i--;
 		else
-		{
-			C = B[j-1] + C;
-			j--;
-		}
+		j--;
 	}
-	if(i > 0)
-		for(;i >0; i--)
-		C = A[i-1]+C;
-	if(j > 0)
-		for(;j >0; j--)
-		C = B[j-1]+C;
-	
 	return C;
 }
+	

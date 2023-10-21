@@ -24,6 +24,9 @@
 		Whole process is kind of Discovering->FindingMin->Finalising->Discover->...
 		This discovering can be from Max to a new edge or Finding a new smaller edge.
 */
+#include <iostream>
+using namespace std;
+
 #define INT_MAX 2100000000
 #define V 9
 int minDistance(int distance[], int sptset[])

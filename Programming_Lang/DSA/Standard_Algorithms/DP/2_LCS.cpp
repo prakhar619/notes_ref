@@ -1,10 +1,13 @@
 //string A, string B, int len(A), int len(B)  ----------> length of longest common subsequence (int)
-//Subsequence vs substring:  AABBCDE	Subsequence: ABCE 	Substring: BCDE  
+//Subsequence vs substring:  AABBCDE	Subsequence: ABCE 	Substring: BCDE 
+ 
+// Input: S1 = “AGGTAB”, S2 = “GXTXAYB”
+// Output: 4 (GTAB)
 
 //Brute Force
 // TIme Complexity: O(2^N)
 // Space Complexity: O(1)
-#include<string.h>
+#include<string>
 using namespace std;
 int max(int a,int b)
 {

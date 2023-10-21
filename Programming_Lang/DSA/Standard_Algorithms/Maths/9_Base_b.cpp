@@ -2,10 +2,33 @@
 #include <vector>
 #include <string>
 using namespace std;
+/*Base Converion and Manipulation
+Like (55)10 in ()2  [Decimal to Binary]
+Generalising the base convertion to any finite base 
+*/
 
 /*
- mod function, positiveNo_basechange, vector_add, negativeNo_basechange, operator+, operator-, operator*, operator/, operator++ , ++operator, printv, print
- base_b(int), base_b(),
+Private:
+	Data Member:
+		vector<int> x
+	Function Member:
+		int mod(divident,divisor)
+		vector<int> positiveNo_basechange(int number,int base)
+		vector_add(vector<int> num1, vector<int> num2, int base, int carry)
+		vector<int> negativeNo_basechange(int n, int base)
+Public:
+	Constructor:
+		base_b()
+		base_b(int num)
+	Function Member:
+		base_b<int b> operator+(base_b<int b>obj), 
+		base_b<int b> operator-, 
+		base_b<int b> operator*, 
+		base_b<int b> operator/, 
+		base_b<int b> operator++ , 
+		base_b<int b> ++operator, 
+		printv()
+		print()
 */
 
 template<int B> class base_b
@@ -72,11 +95,12 @@ template<int B> class base_b
 		}
 		return add;
 	}	
+
+	// b's complement
 	// int(decimal no with minus sign), int (base) -> 32 element vector (base b no)
 	// uses positive_basechange()
 	/* -45  ->  45  -- base_b  --> 12:23 -- 1's complement --> 32:19 -- 2's complement --> 32:20 --> appending sign bits
 	*/
-	
 	vector<int> negativeNo_basechange(int n, int b)
 	{
 		vector<int> complement;

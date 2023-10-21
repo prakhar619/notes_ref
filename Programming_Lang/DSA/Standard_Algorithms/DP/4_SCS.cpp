@@ -1,11 +1,14 @@
 //string A, string B ------------> length of shortest common supersequence (int)
+// Input:   str1 = "AGGTAB",  str2 = "GXTXAYB"
+// Output:  9 (AGXGTXAYB)
+
 // uses lcs(longest common subsequence)
 // Time Complexity: O(m*n)
 // Space Complexity: O(m*n)
 /*
 len(A) + len(B) - lcs(A,B)
 */
-#include<string.h>
+#include<string>
 using namespace std;
 int dp[100][100];
 int max(int a,int b)

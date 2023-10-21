@@ -1,5 +1,0 @@
-empty
-
-brute force
-
-fft

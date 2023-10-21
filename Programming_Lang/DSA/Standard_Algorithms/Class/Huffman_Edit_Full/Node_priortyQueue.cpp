@@ -11,20 +11,20 @@
 //Time Complexity:
 //CLASS FUNCTION
 //	push(value , priorty)					O(log N)
-//	pop(index)						O(log N)
-//	int empty()						O(1)
-//	node* peek()						O(1)
+//	pop(index)								O(log N)
+//	int empty()								O(1)
+//	node* peek()							O(1)
 
 //CLASS MAIN FUNCTION
-//*	asc_prortyQ_heap()					O(1)
+//*	asc_prortyQ_heap()									O(1)
 //*	asc_priortyQ_heap(value array, priorty array , len)	O(N)
-//	print()							O(N)
+//	print()												O(N)
 
 //CLASS MAIN FUNCTIONS
 //	min_heapify(value array, priorty array, len)		O(log N)
 //	build_min_heapify(value array, priorty array, len)	O(N)
-//	insert(value,priorty)					O(log N)
-//	upchain_min_heapify					O(log N)
+//	insert(value,priorty)								O(log N)
+//	upchain_min_heapify									O(log N)
 
 #include <string>
 #include <iostream>
@@ -44,7 +44,7 @@ class node
 		c = "";
 		left = NULL;
 		right = NULL;
-		leaf = 0;
+		leaf = 1;
 	}
 	node(int f,node* left, node* right )
 	{

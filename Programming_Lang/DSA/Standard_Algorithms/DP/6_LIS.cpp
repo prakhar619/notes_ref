@@ -1,3 +1,6 @@
+// int ar[] , int ar_size ----------> Longest Increasing Subsequence (int)
+// Input: arr[] = {50, 3, 10, 7, 40, 80}
+// Output: 4
 
 /* 
 L(i) = 1 + max( L(j) )	where  0<j<1 and ar[j] < ar[i]

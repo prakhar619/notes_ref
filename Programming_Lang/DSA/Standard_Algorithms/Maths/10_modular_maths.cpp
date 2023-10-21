@@ -1,6 +1,29 @@
 #include <iostream>
 #include <utility>
 using namespace std;
+
+/*
+Private:
+	Data Member:
+		int mod_eq
+	Function Member:
+		pair<int,int> divide(int divident,int divisor)
+		int extended_euclid_gcd(int a,int b,int* x,int* y)
+		int inverse_mod(int inverted,int base)
+Public:
+	Constructor:
+		ModN()
+		ModN(int num)
+	Function Member:
+		ModN<M> operator+ ( ModN<M> b)
+		ModN<M> operator- (ModN<M> b)
+		ModN<M> operator* (ModN<M> b)
+		ModN<M> operator/ (ModN<M> b)
+		ModN<M> operator++ ()
+		ModN<M> operator* (int)
+		ModN<M>findInverse(ModN<M> b)
+		printv()
+*/
 template <int M> class ModN
 {
 	private:
