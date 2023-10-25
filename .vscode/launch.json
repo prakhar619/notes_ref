@@ -4,7 +4,20 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-
+        {
+            "type": "java",
+            "name": "Solution",
+            "request": "launch",
+            "mainClass": "Solution",
+            "projectName": "notes_ref_99bbf762"
+        },
+        {
+            "type": "java",
+            "name": "appstart_11/Solution",
+            "request": "launch",
+            "mainClass": "appstart_11/Solution",
+            "projectName": "notes_ref_99bbf762"
+        },
         {
             "type": "module",
             "request": "launch",

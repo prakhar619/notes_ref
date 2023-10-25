@@ -45,6 +45,8 @@ public class Array_2
 			for(int y: x)
 			{}
 		}
+
+		System.out.println(arr1.length);
 		
 		
 		
