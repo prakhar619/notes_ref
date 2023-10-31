@@ -1,0 +1,7 @@
+Linear Algebra
+    Matrix Theory
+    Vector Theory
+    
+
+?Dimensionality reduction
+singular value Decomposition (SVD)

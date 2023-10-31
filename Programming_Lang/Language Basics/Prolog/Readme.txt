@@ -1,0 +1,58 @@
+Prolog
+    Language that is useful for doing symbolic and logic based computation
+    Declarative
+    swipl compiler
+
+Components:
+    Terms
+        Constant
+            Identifiers (starting char = lowercase char & != _)
+            Numbers     (1100 )
+            String      ('Hello')
+        Variables   (starting char = uppercase or _)
+            can take any Component as value (const or predicate or anything else)
+        Structures  ( <identifier>(<term1>,<term2>,<term3>)  )                       ( date(1,may, 1900+83-1) )
+            List
+    Predicate   ( <identifier>(<term1>,<term2>,<term3>)  )                          syntactically similar to structure
+    Facts       ( <identifier>(<term1>,<term2>,<term3>). )
+    Rules       ( predicateH:- predicate1,predicate2,predicate3. )
+    Query       ( predicate1,predicate2,predicate3. )                                sequence of predicates
+
+
+swipl   
+    [filenameWithoutextension]
+        use ' ' to use with extension
+    consult(<filenameWithoutextension).
+        use' ' to use with extension 
+    pwd
+    chdir('<path>')
+
+
+Operating/Solving Queries
+    Queries replace or delete(replace with empty) -> No query left=>(original query binding or true) else Query left=>false
+
+    Match with Fact or RuleHead
+        Then Replace
+            for Fact-> empty Query
+            for RuleHead-> RuleBody
+    if No Match then Backtract or Return false
+
+
+
+Matching Conditions(Unification):
+    same Predicate name
+    same arity of Predicate
+    argument matching:
+        if all constant => identical => matching                                                            (elephant(a)        elephant(a))
+        if one or more bound variable => bound variable value identical => matching                         (X=a,elephant(X)    elephant(a))
+        if one or more unbound variable =>bind the unbound variable 
+
+Replacing:
+    When unified
+        Rule body is put in front of remaining query.
+        then recursive solve again:
+            if SOlved rturn true
+            else Backtrack (undo all changes to variable binding that you did earlier)
+        return false;
+        
+        
