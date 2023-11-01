@@ -7,8 +7,6 @@ main = do
             main
 reverseWords::String->String
 reverseWords = unwords.map reverse.words 
--- ##############################################
---reverseWords st = unwords (map reverse (words st))
 
 --reverseWords take a String
 --right association therefore map f  where f is reverse.words where words take String -> [String]

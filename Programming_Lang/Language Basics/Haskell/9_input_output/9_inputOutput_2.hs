@@ -27,7 +27,7 @@ main = do
 -- also all the input is taken at once; Like this main should have inputtype <char><string> => aHello World
 --getChar returns IO a and not a; a is pure whereas IO a is not pure
 -- return is not like imperative return; code is still executed after return
---  <- this is a binding operator: IO a -> a
+--  <- this is a binding operator: IO a -> a (converting IO (impure) type to pure type)
 -- using binding on putStrLn does nothing except giving unit/empty tuple
 -- use binding on any except last statement of do (for implicit binding of main to that statement)
 -- last expression of do should be an expression(IO)

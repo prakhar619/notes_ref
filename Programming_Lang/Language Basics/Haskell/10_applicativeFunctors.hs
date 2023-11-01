@@ -27,9 +27,10 @@ fmap (*2) (+3) = \x->(* 2 (+ 3 x))
 
 3. Rules of Functors: Functor Law
  i) id function over a functor should give back same functor; fmap id action = action
+    (fmap id = id)
  ii)Composing 2 functions then mapping over functor should be same as mapping 1st function then 2nd function over functor; fmap (f.g) = fmap f.fmap g or fmap (f.g) F =  fmap f (fmap g F)
+    (fmap (g.h) = fmap g.fmap h)
 --}
-
 
 {--
 Applicative Functors:
@@ -53,11 +54,15 @@ pure (+) <*> Just 10 <*> Just 20  = Just 30
 (++) <$> getLine <*> getLine      = <$> is just infix for fmap [fmap f a = f <$> a] 
                                         (++) <$> getLine => IO (String->String)
                                          <*> getLine => IO String
-
-Applicative Laws
+  
  i) pure f <*> x = fmap f x
     f is normal function; x is a datatype(Just a); first pure f then <*> 
 
+Applicative Laws
+i) pure id <*> x = x
+ii) pure (g x) = pure g <*> pure x
+iii) x <*> pure y = pure (\g->g y) <*> x
+iv) x <*> (y <*> z) = (pure (.) <*> x <*> y) <*> z
 
 instance Applicative [] where
  pure x = [x] 
