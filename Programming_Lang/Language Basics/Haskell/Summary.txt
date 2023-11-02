@@ -1,0 +1,83 @@
+data Bool = True | False
+(datatype)   (values)
+
+Basic DataTypes:
+    Bool
+    Char
+    String
+    Int 
+    Integer 
+    Float
+    Double
+    
+Basic Classes:
+
+Eq:
+    class Eq a where 
+    (==)::a->a->Bool 
+    (/=)::a->a->Bool
+
+Ord:
+    class Eq a => Ord a where 
+     (<),(<=),(>),(>=),min,max 
+
+Show:
+    class Show a where 
+     show::a->String 
+
+Read:
+    class Read a where 
+     read::String->a
+Num:
+    class Num a where 
+     (+),(-),(*),(negate),(abs),(signum)
+
+Functor:
+    class Functor f where
+     fmap::(a->b)->f a->f b
+    
+    instance Functor Maybe where 
+     fmap f (Just a) = Just (f a)
+     fmap f Nothing = Nothing 
+
+    instance Functor (Either a) where 
+     fmap f (Right b) = Right (f b)
+     fmap f (Left a) = Left a
+
+Applicative Functor:
+    class (Functor f) => MyApplicative f where
+     pure:: a-> f a
+     ( <*> ) :: f(a-> b) -> f a -> f b
+
+Monads:
+    class Applicative m => Monad m where
+     return :: a-> m a
+     (>>=):: m a->(a-> m b) -> m b                   (this bind operator is similar to left arrow bind <- which is not an operator)
+     (>>) :: m a-> m b-> m b
+     x >> y = x >>= \_ -> y
+     fail :: String -> m a
+     fail msg = error msg
+
+
+:type
+length [a]
+[a] ++ [a]
+a == a 
+a < a 
+read "123"::Int 
+div Int Int 
+Double / Double 
+head [a]
+tail[a] 
+take n [a] 
+drop n [a] 
+product [a]
+init [a] 
+[a] !! n 
+map f [a]
+filter f [a]
+foldr f v [a]
+foldl f v [a] 
+f.g 
+$ f x 
+seq a b 

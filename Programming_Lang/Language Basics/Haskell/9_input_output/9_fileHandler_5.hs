@@ -6,7 +6,7 @@ import Data.Char
 import System.IO
 --openFile::FilePath(type synonym for string) -> IOMode->IO Handle              ; data IOMOde = ReadMode | WriteMode | AppendMode | ReadWriteMode
 --hGetContents::IO Handle->String
---hClose:: Handle-> IO ()
+--hClose:: IO Handle-> IO ()
 --hGetLine,hPutStr,hPutStrLn,hGetChar
 --readFile:: FilePath->IO String
 --writeFile:: FilePath->String->IO ()

@@ -154,13 +154,13 @@ instance Functor101 Maybe1 where
 --directly use fmap: fmap (*10) (Just 10) => Just 100
 
 --using fmap for class with 2 type args
-data Either1 a b = Left a | Right b deriving (Show)
+data Either1 a b = Left101 a | Right101 b deriving (Show)
 --Either1 a takes only one type parameter; 
 --(b->c)->Either a b->Either a c; same as (Either a) b or (Either a) c
 -- #####################help definitely needed
 instance Functor101 (Either1 a) where
- fmap f (Right x) = Right (f x)
- fmap f (Left x) = Left x 
+ fmap101 f (Right101 x) = Right101 (f x)
+ fmap101 f (Left101 x) = Left101 x
 
 
 
