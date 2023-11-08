@@ -1,1 +1,0 @@
-%prolog tut2

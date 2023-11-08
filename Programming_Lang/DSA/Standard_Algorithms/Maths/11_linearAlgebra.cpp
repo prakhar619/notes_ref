@@ -1,6 +1,29 @@
 #include <vector>
 #include <iostream>
 using namespace std;
+
+/* Matrix Class
+Data:
+    vector<vector<T>> A
+Constructor:
+    Matrix()
+    Matrix(int)
+    Matrix(int,int)
+Matrix Properties:
+    getRowCount()
+    getColCount()
+    isSqrMatrix()
+    order()
+Matrix Data Manipulate:
+    T& ()(int,int)
+Matrix Function:
+    getIdentity(int)
+Matrix Helper:
+    print()
+Matrix Manipulation
+    Matrix +(Matrix)
+
+*/
 template<typename T>
 class Matrix{
     
@@ -49,7 +72,7 @@ class Matrix{
     {
         return A[0].size();
     }
-    bool isSquareMatrix()
+    bool isSqrMatrix()
     {
         return (getRowCount == getColCount) ?  true : false;
     }
@@ -103,6 +126,15 @@ class Matrix{
 
 };
 
+template<typename T>
+class Homogenous : public Matrix<T>
+{
+    Matrix<T> translationMatrix(vector<T> t)
+    {
+
+    }
+};
+
 int main()
 {
     Matrix<int> I;
@@ -123,5 +155,4 @@ int main()
     obj2.print();
     return 1;
 
-    
 }

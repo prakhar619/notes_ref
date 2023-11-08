@@ -1,6 +1,7 @@
 Prolog
     Language that is useful for doing symbolic and logic based computation
     Declarative
+        meaning implementingg the solution to problem to a problem, instead of specifying how to achieve the goal
     swipl compiler
 
 Components:
@@ -31,13 +32,11 @@ swipl
 Operating/Solving Queries
     Queries replace or delete(replace with empty) -> No query left=>(original query binding or true) else Query left=>false
 
-    Match with Fact or RuleHead
+    Match 1st predicate of query with Fact or RuleHead
         Then Replace
             for Fact-> empty Query
             for RuleHead-> RuleBody
     if No Match then Backtract or Return false
-
-
 
 Matching Conditions(Unification):
     same Predicate name
@@ -47,6 +46,16 @@ Matching Conditions(Unification):
         if one or more bound variable => bound variable value identical => matching                         (X=a,elephant(X)    elephant(a))
         if one or more unbound variable =>bind the unbound variable 
 
+        _ is an unbound variable which cannot be bounded (exception)
+        can be binded with any term.
+
+    Example:        (try these by directly giving these query to swipl).
+        p(X,2,2) = p(1,Y,X).
+            false.
+        f(a,g(X,Y)) = f(X,Z), Z=g(W,h(X)).
+            true.
+        
+
 Replacing:
     When unified
         Rule body is put in front of remaining query.
@@ -54,5 +63,20 @@ Replacing:
             if SOlved rturn true
             else Backtrack (undo all changes to variable binding that you did earlier)
         return false;
+
+Representation
+    predicate01/1   (this predicate takes 1 argument as input)
+
+Style:
+blond(X):-
+ father(Father,X),
+ blond(Father),
+ mother(Mother,X),
+ blond(Mother).
+
+ Operator Precedence:
+    Precedence No (0-1200)
+    Lower precedence no => stronger binding.
+    precedence of term is 0
         
         
