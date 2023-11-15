@@ -29,6 +29,12 @@ swipl
         use' ' to use with extension 
     pwd
     chdir('<path>')
+    make.
+        to reload file.
+    ["filename.pro"]
+        to load file.
+    ["filename"]
+        to load .pl file
 
 
 Operating/Solving Queries

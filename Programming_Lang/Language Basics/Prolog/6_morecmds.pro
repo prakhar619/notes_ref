@@ -1,5 +1,5 @@
 %Manipulating Facts, Rules.
-    % assert(term)
+    % assert(term)              (adds the given rule)
     % retract(term)             (removes first unifying term)
     % retractrtall(term)        (removes all unifying term)
     % assertz(term)             (add term at last rather than at beginning).
