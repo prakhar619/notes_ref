@@ -1,9 +1,25 @@
+%Manipulating Facts, Rules.
+    % assert(term)
+    % retract(term)             (removes first unifying term)
+    % retractrtall(term)        (removes all unifying term)
+    % assertz(term)             (add term at last rather than at beginning).
+    
+
+
 %BUILT IN predicates
     %cannot appear as principal functor in fact or rule head.
 
 % EQUALITY = (X,Y) same as X=Y
     bigger(elephant,dog).
     is_bigger(X,Y):- bigger(Z,A), Z=X, A=Y.
+
+    %building and executing predicates on go
+    test(X,Y):- G = [X,Y], G.
+        % X is predicate and Y is values
+        % G calls X(Y).
+    % in general G= [p,x1,x2,x3,...]
+    %   p(x1,x2,x3,...)
+
 
 % consule/1
     %consult('basic.pl').
@@ -47,7 +63,7 @@
 
 %Relation
 % is-operator is not needed
-    %   >, <, <=, >=, =:=, =\=
+    %   >, <, =<, >=, =:=, =\=
         % = is like matching(unification operator)
         % =:= is the mathematical equality.
     

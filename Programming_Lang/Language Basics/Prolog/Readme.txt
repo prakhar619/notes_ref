@@ -3,6 +3,8 @@ Prolog
     Declarative
         meaning implementingg the solution to problem to a problem, instead of specifying how to achieve the goal
     swipl compiler
+    .pl or .pro extension   
+        .pl conflicts with perl file extension.
 
 Components:
     Terms
@@ -80,3 +82,8 @@ blond(X):-
     precedence of term is 0
         
         
+SWIPL may not print full list when list is more than 9-10 element
+    use the following cmd to print all list element.
+        set_prolog_flag(answer_write_options,[max_depth(0)]).
+
+Always while writing prolog code (on pen and paper) run one iterater at least.

@@ -4,8 +4,13 @@
 1. Java doesnt support multiple inheritance
 2. But we can implement multiple interface on same class using commas
 */
+interface I 
+{
+	public void function1();
+	public void function2();
+}
 
-abstract class box	//superclass	
+abstract class box implements I 	//superclass	
 {
 	private double width;
 	private double height;
@@ -44,9 +49,13 @@ abstract class box	//superclass
 	// when you want the structure in superclass but functionality(different fucntionality) in subclasses
 	abstract double area();		//add abstract keyword in class name declaration also
 	
+	public void function1()
+	{
+		System.out.println("OSSS");
+	}
 }
 
-class boxWeight extends box{		//extended to include weight
+class boxWeight   extends box {		//extended to include weight
 	double weight;
 	boxWeight(double w,double h,double d,double m)
 	{
@@ -76,6 +85,11 @@ class boxWeight extends box{		//extended to include weight
 	double area()
 	{
 		return volumn()/weight;
+	}
+
+	public void function2()
+	{
+		System.out.println("FUNCTION2");
 	}
 }
 	 

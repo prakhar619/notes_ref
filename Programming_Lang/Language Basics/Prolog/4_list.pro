@@ -22,7 +22,6 @@ index([Head|NewList],M,Val):-
 concat_list([],List,List).
 concat_list([Head | List1],List2, [Head| List3]):-
     concat_list(List1,List2,List3).
-
 /* Try the following query:
 1. concat_list([1,2,3],[d,e,f],X).              concats list1 and list2
 2. concat_list([1,2,3],[d,e,f],[1,2]).          return false
@@ -30,6 +29,18 @@ concat_list([Head | List1],List2, [Head| List3]):-
 4. concat_list(X,Y,[1,2,3,d,e,f])               returns all possible permutation of X, Y
 
 */
+male(john).
+male(kleif).
+
+extract(_,[],[]).
+extract(cond,[X|Others],[X|Rest]):-
+    Condition = [cond,X],
+    Condition,
+    extract(cond, Others, Rest).
+extract(cond,[X|Others],Rest):-
+    Condition = [cond,X],
+    \+ Condition,
+    extract(cond,Others,Rest).
 
 
 

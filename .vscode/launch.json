@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "appstart_11/inheritance_4",
+            "request": "launch",
+            "mainClass": "appstart_11/inheritance_4",
+            "projectName": "notes_ref_99bbf762"
+        },
+        {
+            "type": "java",
             "name": "Solution",
             "request": "launch",
             "mainClass": "Solution",
