@@ -1,0 +1,13 @@
+Modulo Properties (IDENTITIES)
+	(a mod n) mod n = a mod n
+	n^x mod n = 0
+	[(-a mod n)+(a mod n)] mod n = 0
+	(a+b) mod n = (a mod n + b mod n) mod n
+	ab mod n = ((a mod n)*(b mod n)) mod n
+	a/b mod n = [(a mod n)*(b^-1 mod n)] mod n
+
+	Inverse Mod
+		a*x = 1 mod m or x = a^(-1) mod m
+			Solution only if a and m are coprime
+			
+	

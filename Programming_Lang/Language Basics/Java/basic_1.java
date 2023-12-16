@@ -1,5 +1,5 @@
 //Basics:
-/** Unlike other language where programs are directly compiled to assembly lvl lang
+/** Unlike other language where programs are directly compiled to machine lvl lang
 Java is compiled by Java compiler(JAVAC) to BYTECODE.
 BYTECODE is highly optimised and ready shared(portable).
 Then Java Virtual Machine (JVM) present in JRE (Java Runtime Environment) interprets it to assembly lvl lang.
@@ -10,14 +10,23 @@ When JIT is part of JVM some part to code is directly compiled to assembly lvl. 
 be interpreted. All this will be finally managed by JVM on interpretation.
 */
 
-import java.io.*;
-//Name of main class should match file name;
+//Name of main class should match file name if class is declared public;
 public class basic_1 {
-//Each class should have a main function
+//Each class can have a main function
     public static void main(String[] args)
     {
         System.out.println("Hello World");
+		print_();
+		basic_1 x = new basic_1();
+		x.xxx();
+		String d = "Vibesh";
+		System.out.println(d.charAt(0) );
+
     }
+	public int xxx (){
+		System.out.println("bb");
+		return 1;
+	}
     public static void print_()
     {
     	System.out.print("New ");

@@ -153,7 +153,6 @@ class genMethod
 
 
 //GENERIC INTERFACES
-
 interface min<T> 
 {
     T min();

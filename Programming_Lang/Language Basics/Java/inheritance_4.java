@@ -10,6 +10,8 @@ interface I
 	public void function2();
 }
 
+//abstract class cannot be made instance object
+//abstract class also without implementing a interface.
 abstract class box implements I 	//superclass	
 {
 	private double width;

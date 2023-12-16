@@ -4,7 +4,7 @@
 //	polymorphism	(overloading, overriding, interfaces, abstract)
 
 
-public class struct
+class struct
 {
 	int x;
 	int y;
@@ -51,8 +51,8 @@ public class oops_3
 	
 	public void class_asObjects(struct varr)
 	{
-		x = struct.x;
-		y = struct.y;
+		x = varr.x;
+		y = varr.y;
 	}
 	
 	private void access_private()
@@ -115,34 +115,40 @@ class superclass{
 class subclass extends superclass {
 	//now we can access superclass without creating object when we create object for subclass
 	//also no object creation for using i
+	void subfunction()
+	{
 	System.out.println("i value is "+i);
 	}
-
-
-
+}
 //INTERFACES
 /* A class implement multiple interface
 Interfaces can have data variable using final or static
+Implicitly public interface
 */
-
-public interface funStruct
+interface funStruct
 {
-	int function_1(int x, int y, int z);
-	double function_2(double x, double y, double z);
+	//all methods are public and abstract implicitly in interface
+	//method can be either abstract,static,default
+	int func1(int x, int y,int z);
+	double func2(double x, double y,double z);
+
+	//use default keyword for default implementation of method
 	
-	final int i = 10;
-	static int y = 20;
+	//Instance variable are not allowed in interface
+	//all variables are public,static,final implicitly.
+	 int i = 10;
+	 int y = 20;
 }
 
-public interface_class implements funStruct //client (kind of subclass)	//public interface_class implements funcStruct,funStruct2,funcStruct3
+class interface_class implements funStruct //client (kind of subclass)	//public interface_class implements funcStruct,funStruct2,funcStruct3
 {
-	public int function_1(int x,int y,int z)
+	public int func1(int x,int y,int z)
 	{
 		System.out.println("Function 1 accessed");
 		return x+y+z;
 	}
 	
-	public double function_2(double x, double y,double z)
+	public double func2(double x, double y,double z)
 	{
 		System.out.println("Function 2 accessed");
 		return x*y*z;
@@ -154,7 +160,7 @@ public interface_class implements funStruct //client (kind of subclass)	//public
 	}
 }
 
-public class main_interface 
+ class main_interface 
 {
 	void main_in()
 	{
@@ -162,13 +168,6 @@ public class main_interface
 	interface_class obj1 = new interface_class();	// client_name obj = new client_name;	can access non interface function
 	//access function using .
 	}
-}
-
-		
-abstract public main1_interface implement funStruct
-{
-	//when we dont want to fully implement interface
-	
 }
 
 
@@ -186,13 +185,16 @@ class parent
 
 class client_ implements parent.funStructt
 {
-	int functionn_1(int x)
-	return x*x;
-	int functionn_2(int y)
-	return -y;
+	//here public is important because although in inteface its not written, its implicit there.
+	//whereas in class we need to explicitly state public
+	//different access specifier means different function therefore visibility error for hiding
+	public int functionn_1(int x)
+	{return x*x;}
+	public int functionn_2(int y)
+	{return -y;}
 }
 
-class main_interface
+class main_interface_2
 {
 	void main_in()
 	{

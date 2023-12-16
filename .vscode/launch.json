@@ -6,6 +6,48 @@
     "configurations": [
         {
             "type": "java",
+            "name": "generic_14",
+            "request": "launch",
+            "mainClass": "generic_14",
+            "projectName": "notes_ref_99bbf762"
+        },
+        {
+            "type": "java",
+            "name": "oops_3",
+            "request": "launch",
+            "mainClass": "oops_3",
+            "projectName": "notes_ref_99bbf762"
+        },
+        {
+            "type": "java",
+            "name": "Array_2",
+            "request": "launch",
+            "mainClass": "Array_2",
+            "projectName": "notes_ref_99bbf762"
+        },
+        {
+            "type": "java",
+            "name": "basic_1",
+            "request": "launch",
+            "mainClass": "basic_1",
+            "projectName": "notes_ref_99bbf762"
+        },
+        {
+            "type": "java",
+            "name": "app_start_1/basic_1",
+            "request": "launch",
+            "mainClass": "app_start_1/basic_1",
+            "projectName": "notes_ref_99bbf762"
+        },
+        {
+            "type": "java",
+            "name": "app_start_1/enumeration_9",
+            "request": "launch",
+            "mainClass": "app_start_1/enumeration_9",
+            "projectName": "notes_ref_99bbf762"
+        },
+        {
+            "type": "java",
             "name": "appstart_11/inheritance_4",
             "request": "launch",
             "mainClass": "appstart_11/inheritance_4",
