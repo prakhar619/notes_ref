@@ -1,0 +1,10 @@
+Instrumenting your code means logging events of interest
+
+Debug
+    development
+Trace
+    development and runtime
+
+TraceListeners
+
+Only activated during debugging session

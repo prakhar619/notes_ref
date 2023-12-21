@@ -1,0 +1,38 @@
+OOPs Principles are:
+    1. Encapsulation            (combination of data and actions)
+    2. Composition              (what obj is made of)
+    3. Aggregation              (how 2 obj can interact)
+    4. Inheritance              (reuse of base class)
+    5. Abstraction              (capturing core ideas and ignoring specifics)
+    6. Polymorphism             (allowing derived class to override action)
+
+Terms
+Assembly
+Type
+
+Access Modifiers:
+    1. private                  (implicit for member)(accessible for same class only)
+    2. internal                 (implicit for class)(accessible within the assembly only)
+    3. protected                
+    4. public                   
+    5. internal protected
+    6. private protected
+
+
+/* Members:
+ *      Fields
+ *          Constant
+ *          Read-only
+ *          Event
+ *      Method
+ *          Constructor
+ *          Deconstruct
+ *          Functions
+ *          Property
+ *          Indexers
+ *          Operator
+ */
+
+ class 
+ record
+ 

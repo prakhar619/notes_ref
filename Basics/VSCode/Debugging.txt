@@ -1,0 +1,42 @@
+--Debugging in VS and VS code
+
+BreakPoints
+    Conditions
+    Hits
+LogPoints
+
+Start Debugging session
+
+Locals (window)
+    All local variables and their values
+Watch  ()
+    To set reminder or notice for specific variable or expression (evaluated expression is given)
+Call Stack
+    Function call
+Debug Console
+    or Immediate Window
+    Interrogate the program
+
+
+Debugging toolbar
+    VS  
+        Standard toolbar
+            Continue
+            Hot Reload                              (same compiled file but new execution started)(Edit and Continue: Edit while running)
+        Debug toolbar
+            Break All
+            Stop
+            Restart                                 (file compiled again and execution started again)
+            Show next
+            Step into                               (step into the function)
+            Step over                               (function executed in one go)
+            Step out
+            Show Threads in Source
+    
+    VSCode
+        Continue
+        Step over
+        Step into
+        Step out
+        Restart
+        Stop

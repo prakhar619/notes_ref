@@ -1,0 +1,14 @@
+Testing
+    Unit Testing                (smallest piece of code)
+    Integration                 (combination of unit)
+    System                      (full code)
+    Performance                 (performance)
+    Load                        (performance under specific load)
+    user Acceptance             (user feedback)
+
+xUnit vs NUnit
+
+Testing Components
+    Arrange                     (initialising input and output)
+    Act                         (calling the function)
+    Assert                      (testing function output with expected output)
