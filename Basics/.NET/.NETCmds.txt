@@ -1,0 +1,6 @@
+dotnet new list
+dotnet --info
+dotnet publish -c Release -r win-x64 --self-Contained
+dotnet publish  -p:PublishTrimmed=True
+dotnet publish -p:PublishTrimmed=True -p:TrimMode=Link
+Runtime Identifier

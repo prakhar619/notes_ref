@@ -34,5 +34,35 @@ Access Modifiers:
  */
 
  class 
+    ref type
  record
+    ref type
+ struct
+    value type
+ interfaces
+
+MEMORY MANAGEMENT
+ Stack
+    Faster (L1 or L2 cache)
+    Limited
+    value type
+Heap
+    Unlimited
+    ref type
+
+Compare (=) is done with stack memory only
+
+
+Value vs Ref type
+Value type : 
+    Stack  
+    Cannot be NULL (except if Nullable<T>)
+
+Ref Type :
+    Heap
+    Can be NULL  (except if blocked in project setting)
+
+
+
+
  

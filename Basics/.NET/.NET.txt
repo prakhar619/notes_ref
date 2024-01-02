@@ -22,5 +22,64 @@ Asp.net
 
 Cloud	(Azure)
 
+Components of .Net
+	BCL (base class Library)(CoreFX)
+	Language Compilers (c#->IL (Intermediate Language))
+	CLR (Common Language Runtime)(IL->Machine Code)(CoreCLR)
 
-	
+.Net Standard vs .Net Core (or .Net) vs .Net Framework
+
+.Net Standard
+	defines set of API	(theoretical)
+	not an implementation
+	Only class library projects
+	Only one Standard Library for all .NET implementation
+		BCL 
+			.Net Core BCL
+			.Net FrameWork BCL
+			Mono BCL	(Xamarin)
+
+.Net Framework
+	implementation of .Net
+	1st implementation
+	only Windows
+
+.Net Core	
+	implementation of .Net
+	latest
+	linux, windows, mac support
+
+Xamarin
+	iOS
+	android
+	mac os
+
+
+.Net Core 3.1 -> .NET 5 (Support most of Core and Framework)
+No need of .Net Standard
+
+namespace vs Assembly vs Packages vs Framework
+
+	Assembly	
+		.dll
+			compiled as class library
+		.exe 
+			compiled as application
+
+	A single assembly can contain many namespace and a namespace can be defined in many assemblies.
+	Package defines API. Each Package defines a single Assembly.
+	Framework groups Packages
+
+Microsoft .NET project SDK is implicitly ref by all console application
+It contains NuGet Packages
+
+C# data types are just alias for .NET types
+string -> System.string
+int -> System.Int32
+		nint	(native sized integer)
+		nuint	(native size unsigned integer)
+
+.NET Application Deployment
+	Framework Dependent Deployment (dll files executed)(.net runtime needed on computer)
+	Framework Dependent Executable (exe file executed)(.net runtime needed on computer)
+	Self Contained	()

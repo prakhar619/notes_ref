@@ -14,3 +14,5 @@ conda activate projectName
 conda deactivate projectName
 
 conda info --envs
+
+conda init
