@@ -83,3 +83,22 @@ int -> System.Int32
 	Framework Dependent Deployment (dll files executed)(.net runtime needed on computer)
 	Framework Dependent Executable (exe file executed)(.net runtime needed on computer)
 	Self Contained	()
+
+.NET TYPES
+EFCore: Database Connection Unification			#Entity Framework
+	Scaffolding
+		dotnet ef dbcontext scaffold "Filename=./../Northwind.db" Microsoft.EntityFrameworkCore.Sqlite --namespace Packt.Shared --data-annotations
+		
+LINQ: Query Language for EFCore
+
+ASP.Net vs ASP.Net Core
+
+ASP.Net Core
+	Razor Pages 
+	MVC 
+	Blazor
+
+CMS (content management system)
+	Piranha
+	Optimizely
+	Orchard

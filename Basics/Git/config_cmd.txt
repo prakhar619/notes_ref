@@ -238,6 +238,8 @@ Branching
 
 		git push origin --delete branch_name
 			to delete a branch on remote
+		
+		git branch -d branch_name
 
 		git checkout --track origin/branch_name	
 			to set up tracking  branch
