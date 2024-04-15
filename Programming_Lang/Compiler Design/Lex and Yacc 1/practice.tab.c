@@ -74,15 +74,15 @@
 	int flag = 0;
 	int yyerror();
 	int yylex();
-	void createEntries(char*, char(*)[100], int ,char*,int);
+	void createEntries(char*, char(*)[100],int);
 	void printTable(); 
 	void assignVal(char*, int ,char*);
+
 	struct entry{
 		char type[10];
 		char id[100];
-		int val;
-		char valStr[100];
 	};
+
 	struct entry symbolTable[100];
 	int counter = 0;
 	char currID[10][100];
@@ -121,8 +121,8 @@ enum yysymbol_kind_t
   YYSYMBOL_YYUNDEF = 2,                    /* "invalid token"  */
   YYSYMBOL_SEMICOLON = 3,                  /* SEMICOLON  */
   YYSYMBOL_COMMA = 4,                      /* COMMA  */
-  YYSYMBOL_TYPE = 5,                       /* TYPE  */
-  YYSYMBOL_NUMBER = 6,                     /* NUMBER  */
+  YYSYMBOL_NUMBER = 5,                     /* NUMBER  */
+  YYSYMBOL_TYPE = 6,                       /* TYPE  */
   YYSYMBOL_STRING = 7,                     /* STRING  */
   YYSYMBOL_ID = 8,                         /* ID  */
   YYSYMBOL_9_ = 9,                         /* '+'  */
@@ -472,7 +472,7 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  4
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   28
+#define YYLAST   27
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  18
@@ -549,7 +549,7 @@ static const char *yysymbol_name (yysymbol_kind_t yysymbol) YY_ATTRIBUTE_UNUSED;
 static const char *const yytname[] =
 {
   "\"end of file\"", "error", "\"invalid token\"", "SEMICOLON", "COMMA",
-  "TYPE", "NUMBER", "STRING", "ID", "'+'", "'-'", "'*'", "'/'", "'='",
+  "NUMBER", "TYPE", "STRING", "ID", "'+'", "'-'", "'*'", "'/'", "'='",
   "'('", "')'", "'{'", "'}'", "$accept", "funcDef", "declList", "decl",
   "varList", "stmtList", "stmt", "assignStmt", "exp", "term", "factor", YY_NULLPTR
 };
@@ -561,7 +561,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-27)
+#define YYPACT_NINF (-20)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -575,10 +575,10 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-       1,     6,    15,     2,   -27,     3,     4,    12,    11,    -3,
-     -27,    17,    19,    10,   -27,    -8,   -27,   -27,    11,   -27,
-      16,   -27,   -27,   -27,   -27,    -2,    -1,   -27,   -27,    16,
-      16,    16,    16,    -1,    -1,   -27,   -27
+      -3,     4,    15,     2,   -20,     3,     1,    13,    12,    -4,
+     -20,    17,    19,    10,   -20,    -8,   -20,   -20,    12,   -20,
+      16,   -20,   -20,   -20,   -20,    -2,    -6,   -20,   -20,    16,
+      16,    16,    16,    -6,    -6,   -20,   -20
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -595,8 +595,8 @@ static const yytype_int8 yydefact[] =
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -27,   -27,   -27,    18,     7,   -27,    13,   -27,   -27,   -26,
-     -19
+     -20,   -20,   -20,    18,     7,   -20,    11,   -20,   -20,   -19,
+     -18
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
@@ -611,23 +611,23 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-      13,    28,     8,    33,    34,    13,     1,    29,    30,    21,
-      31,    32,    35,    36,     3,     4,     5,     8,     6,    11,
-       7,    18,    19,    20,    24,    23,     0,    14,    22
+      13,    28,     8,     1,    13,    31,    32,    29,    30,    21,
+      33,    34,     3,    35,    36,     4,     5,     7,     6,     8,
+      11,    18,    19,    20,    24,    23,    22,    14
 };
 
 static const yytype_int8 yycheck[] =
 {
-       8,     3,     5,    29,    30,     8,     5,     9,    10,    17,
-      11,    12,    31,    32,     8,     0,    14,     5,    15,     8,
-      16,     4,     3,    13,     8,    18,    -1,     9,    15
+       8,     3,     6,     6,     8,    11,    12,     9,    10,    17,
+      29,    30,     8,    31,    32,     0,    14,    16,    15,     6,
+       8,     4,     3,    13,     8,    18,    15,     9
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
    state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,     5,    19,     8,     0,    14,    15,    16,     5,    20,
+       0,     6,    19,     8,     0,    14,    15,    16,     6,    20,
       21,     8,    22,     8,    21,    23,    24,    25,     4,     3,
       13,    17,    24,    22,     8,    26,    27,    28,     3,     9,
       10,    11,    12,    27,    27,    28,    28
@@ -1109,7 +1109,7 @@ yyreduce:
     {
   case 2: /* funcDef: TYPE ID '(' ')' '{' declList stmtList '}'  */
 #line 38 "practice.y"
-                                                                {strcpy(currID[0],(yyvsp[-6].str));	createEntries((yyvsp[-7].str),currID,0,"",1); printf("Valid Function Declaration\n");}
+                                                                {strcpy(currID[0],(yyvsp[-6].str));	createEntries((yyvsp[-7].str),currID,1); return 1;}
 #line 1114 "practice.tab.c"
     break;
 
@@ -1121,7 +1121,7 @@ yyreduce:
 
   case 5: /* decl: TYPE varList SEMICOLON  */
 #line 40 "practice.y"
-                                                                {createEntries((yyvsp[-2].str),currID,0,"",idCount); idCount = 0;}
+                                                                {createEntries((yyvsp[-2].str),currID,idCount); idCount = 0;}
 #line 1126 "practice.tab.c"
     break;
 
@@ -1145,13 +1145,13 @@ yyreduce:
 
   case 10: /* stmt: assignStmt  */
 #line 44 "practice.y"
-                                                                {}
+                                                                                {}
 #line 1150 "practice.tab.c"
     break;
 
   case 11: /* assignStmt: ID '=' exp SEMICOLON  */
 #line 45 "practice.y"
-                                                                {assignVal((yyvsp[-3].str),(yyvsp[-1].val),"");}
+                                                                {}
 #line 1156 "practice.tab.c"
     break;
 
@@ -1169,7 +1169,7 @@ yyreduce:
 
   case 14: /* exp: term  */
 #line 48 "practice.y"
-                                                                {}
+                                                                        {}
 #line 1174 "practice.tab.c"
     break;
 
@@ -1394,33 +1394,17 @@ yyreturnlab:
 #line 53 "practice.y"
 
 
-void createEntries(char* type, char id[10][100], int val, char* valStr, int count)
+void createEntries(char* type, char id[10][100], int count)
 {
 	for(int c = 0; c < count; c++)
 	{
 		struct entry nth_entry;
 		strcpy(nth_entry.type,type);
 		strcpy(nth_entry.id,id[c]);
-		nth_entry.val = val;
-		strcpy(nth_entry.valStr,valStr);
-		
+	
 		symbolTable[counter] = nth_entry;
 		counter+=1;
 	}
-}
-
-void assignVal(char* id, int val, char* valStr)
-{
-	for(int c= 0; c < counter; c++)
-	{
-		struct entry nth_entry = symbolTable[c];
-		if(strcmp(nth_entry.id,id) == 0)
-		{
-			nth_entry.val = val;
-			strcpy(nth_entry.valStr,valStr);
-		}
-	}
-	// printf("ERRRRORORORORR");
 }
 
 void printTable()
@@ -1429,7 +1413,7 @@ void printTable()
 	for(int c= 0; c < counter; c++)
 	{
 		struct entry nth_entry = symbolTable[c];
-		printf("Entry No:%d\tType:%s\tId:%s\tVal:%d\tValStr:%s\n",c,nth_entry.type,nth_entry.id,nth_entry.val,nth_entry.valStr);
+		printf("Entry No:%d\tType:%s\tId:%s\n",c,nth_entry.type,nth_entry.id);
 	}
 }
 
