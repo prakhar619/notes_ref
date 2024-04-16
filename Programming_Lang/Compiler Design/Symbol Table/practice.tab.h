@@ -54,12 +54,22 @@ extern int yydebug;
     YYEOF = 0,                     /* "end of file"  */
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
-    SEMICOLON = 258,               /* SEMICOLON  */
-    COMMA = 259,                   /* COMMA  */
-    NUMBER = 260,                  /* NUMBER  */
-    TYPE = 261,                    /* TYPE  */
-    STRING = 262,                  /* STRING  */
-    ID = 263                       /* ID  */
+    TYPE = 258,                    /* TYPE  */
+    IF = 259,                      /* IF  */
+    ELSE = 260,                    /* ELSE  */
+    WHILE = 261,                   /* WHILE  */
+    NUMBER = 262,                  /* NUMBER  */
+    STRING = 263,                  /* STRING  */
+    ID = 264,                      /* ID  */
+    SEMICOLON = 265,               /* SEMICOLON  */
+    COMMA = 266,                   /* COMMA  */
+    LT = 267,                      /* LT  */
+    GT = 268,                      /* GT  */
+    LE = 269,                      /* LE  */
+    GE = 270,                      /* GE  */
+    ET = 271,                      /* ET  */
+    NT = 272,                      /* NT  */
+    NB = 273                       /* NB  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -68,12 +78,12 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 31 "practice.y"
+#line 38 "practice.y"
 
 	int val;
 	char str[100];
 
-#line 77 "practice.tab.h"
+#line 87 "practice.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

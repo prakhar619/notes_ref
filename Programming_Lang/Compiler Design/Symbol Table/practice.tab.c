@@ -72,6 +72,7 @@
 	#include <stdio.h>
 	#include <string.h>
 
+/*Header File*/
 	struct entry{
 		char type[10];
 		char id[100];
@@ -83,21 +84,27 @@
 		int counter;
 	}mainSymbolTable;
 
-
+/*Essential Functions and Declarations */
 	int flag = 0;
 	int yyerror();
 	int yylex();
+
+/*Helper Functions*/
 	void createEntries(char*, char(*)[100],int,struct SymbolTable*);
 	void printTable(); 
 	void assignVal(char*, int ,char*);
+	void checkType2(char*, char*);
+	void typeCast2(char*,char*);
+	char* checkDec(char*,struct SymbolTable*);
 
+/*Helper Declarations*/
 	char currID[10][100];
 	int idCount;
 
 	struct SymbolTable* currTable;
 
 
-#line 101 "practice.tab.c"
+#line 108 "practice.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -128,32 +135,47 @@ enum yysymbol_kind_t
   YYSYMBOL_YYEOF = 0,                      /* "end of file"  */
   YYSYMBOL_YYerror = 1,                    /* error  */
   YYSYMBOL_YYUNDEF = 2,                    /* "invalid token"  */
-  YYSYMBOL_SEMICOLON = 3,                  /* SEMICOLON  */
-  YYSYMBOL_COMMA = 4,                      /* COMMA  */
-  YYSYMBOL_NUMBER = 5,                     /* NUMBER  */
-  YYSYMBOL_TYPE = 6,                       /* TYPE  */
-  YYSYMBOL_STRING = 7,                     /* STRING  */
-  YYSYMBOL_ID = 8,                         /* ID  */
-  YYSYMBOL_9_ = 9,                         /* '+'  */
-  YYSYMBOL_10_ = 10,                       /* '-'  */
-  YYSYMBOL_11_ = 11,                       /* '*'  */
-  YYSYMBOL_12_ = 12,                       /* '/'  */
-  YYSYMBOL_13_ = 13,                       /* '='  */
-  YYSYMBOL_14_ = 14,                       /* '('  */
-  YYSYMBOL_15_ = 15,                       /* ')'  */
-  YYSYMBOL_16_ = 16,                       /* '{'  */
-  YYSYMBOL_17_ = 17,                       /* '}'  */
-  YYSYMBOL_YYACCEPT = 18,                  /* $accept  */
-  YYSYMBOL_funcDef = 19,                   /* funcDef  */
-  YYSYMBOL_declList = 20,                  /* declList  */
-  YYSYMBOL_decl = 21,                      /* decl  */
-  YYSYMBOL_varList = 22,                   /* varList  */
-  YYSYMBOL_stmtList = 23,                  /* stmtList  */
-  YYSYMBOL_stmt = 24,                      /* stmt  */
-  YYSYMBOL_assignStmt = 25,                /* assignStmt  */
-  YYSYMBOL_exp = 26,                       /* exp  */
-  YYSYMBOL_term = 27,                      /* term  */
-  YYSYMBOL_factor = 28                     /* factor  */
+  YYSYMBOL_TYPE = 3,                       /* TYPE  */
+  YYSYMBOL_IF = 4,                         /* IF  */
+  YYSYMBOL_ELSE = 5,                       /* ELSE  */
+  YYSYMBOL_WHILE = 6,                      /* WHILE  */
+  YYSYMBOL_NUMBER = 7,                     /* NUMBER  */
+  YYSYMBOL_STRING = 8,                     /* STRING  */
+  YYSYMBOL_ID = 9,                         /* ID  */
+  YYSYMBOL_SEMICOLON = 10,                 /* SEMICOLON  */
+  YYSYMBOL_COMMA = 11,                     /* COMMA  */
+  YYSYMBOL_LT = 12,                        /* LT  */
+  YYSYMBOL_GT = 13,                        /* GT  */
+  YYSYMBOL_LE = 14,                        /* LE  */
+  YYSYMBOL_GE = 15,                        /* GE  */
+  YYSYMBOL_ET = 16,                        /* ET  */
+  YYSYMBOL_NT = 17,                        /* NT  */
+  YYSYMBOL_NB = 18,                        /* NB  */
+  YYSYMBOL_19_ = 19,                       /* '+'  */
+  YYSYMBOL_20_ = 20,                       /* '-'  */
+  YYSYMBOL_21_ = 21,                       /* '*'  */
+  YYSYMBOL_22_ = 22,                       /* '/'  */
+  YYSYMBOL_23_ = 23,                       /* '='  */
+  YYSYMBOL_24_ = 24,                       /* '('  */
+  YYSYMBOL_25_ = 25,                       /* ')'  */
+  YYSYMBOL_26_ = 26,                       /* '{'  */
+  YYSYMBOL_27_ = 27,                       /* '}'  */
+  YYSYMBOL_YYACCEPT = 28,                  /* $accept  */
+  YYSYMBOL_funcDef = 29,                   /* funcDef  */
+  YYSYMBOL_declList = 30,                  /* declList  */
+  YYSYMBOL_decl = 31,                      /* decl  */
+  YYSYMBOL_varList = 32,                   /* varList  */
+  YYSYMBOL_stmtList = 33,                  /* stmtList  */
+  YYSYMBOL_stmt = 34,                      /* stmt  */
+  YYSYMBOL_assignStmt = 35,                /* assignStmt  */
+  YYSYMBOL_exp = 36,                       /* exp  */
+  YYSYMBOL_term = 37,                      /* term  */
+  YYSYMBOL_factor = 38,                    /* factor  */
+  YYSYMBOL_controlStmt = 39,               /* controlStmt  */
+  YYSYMBOL_ifControl = 40,                 /* ifControl  */
+  YYSYMBOL_whileControl = 41,              /* whileControl  */
+  YYSYMBOL_boolean = 42,                   /* boolean  */
+  YYSYMBOL_comparisonOp = 43               /* comparisonOp  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 
@@ -481,19 +503,19 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  4
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   27
+#define YYLAST   77
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  18
+#define YYNTOKENS  28
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  11
+#define YYNNTS  16
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  18
+#define YYNRULES  34
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  37
+#define YYNSTATES  72
 
 /* YYMAXUTOK -- Last valid token kind.  */
-#define YYMAXUTOK   263
+#define YYMAXUTOK   273
 
 
 /* YYTRANSLATE(TOKEN-NUM) -- Symbol number corresponding to TOKEN-NUM
@@ -511,15 +533,15 @@ static const yytype_int8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-      14,    15,    11,     9,     2,    10,     2,    12,     2,     2,
+      24,    25,    21,    19,     2,    20,     2,    22,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,    13,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,    23,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,    16,     2,    17,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,    26,     2,    27,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -533,15 +555,18 @@ static const yytype_int8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
-       5,     6,     7,     8
+       5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
+      15,    16,    17,    18
 };
 
 #if YYDEBUG
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    48,    48,    49,    49,    50,    51,    52,    53,    53,
-      54,    55,    56,    57,    58,    59,    60,    61,    62
+       0,    61,    61,    62,    62,    62,    63,    64,    65,    66,
+      66,    66,    67,    67,    68,    69,    70,    71,    72,    73,
+      74,    75,    77,    77,    78,    79,    80,    81,    81,    82,
+      82,    82,    82,    82,    82
 };
 #endif
 
@@ -557,10 +582,12 @@ static const char *yysymbol_name (yysymbol_kind_t yysymbol) YY_ATTRIBUTE_UNUSED;
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
 {
-  "\"end of file\"", "error", "\"invalid token\"", "SEMICOLON", "COMMA",
-  "NUMBER", "TYPE", "STRING", "ID", "'+'", "'-'", "'*'", "'/'", "'='",
-  "'('", "')'", "'{'", "'}'", "$accept", "funcDef", "declList", "decl",
-  "varList", "stmtList", "stmt", "assignStmt", "exp", "term", "factor", YY_NULLPTR
+  "\"end of file\"", "error", "\"invalid token\"", "TYPE", "IF", "ELSE",
+  "WHILE", "NUMBER", "STRING", "ID", "SEMICOLON", "COMMA", "LT", "GT",
+  "LE", "GE", "ET", "NT", "NB", "'+'", "'-'", "'*'", "'/'", "'='", "'('",
+  "')'", "'{'", "'}'", "$accept", "funcDef", "declList", "decl", "varList",
+  "stmtList", "stmt", "assignStmt", "exp", "term", "factor", "controlStmt",
+  "ifControl", "whileControl", "boolean", "comparisonOp", YY_NULLPTR
 };
 
 static const char *
@@ -570,7 +597,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-20)
+#define YYPACT_NINF (-42)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -584,10 +611,14 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-      -3,     4,    15,     2,   -20,     3,     1,    13,    12,    -4,
-     -20,    17,    19,    10,   -20,    -8,   -20,   -20,    12,   -20,
-      16,   -20,   -20,   -20,   -20,    -2,    -6,   -20,   -20,    16,
-      16,    16,    16,    -6,    -6,   -20,   -20
+      16,    15,    36,   -18,   -42,    26,    30,    52,    48,    31,
+     -42,    47,    49,    37,    38,    40,   -42,    -2,   -42,   -42,
+     -42,   -42,   -42,    48,   -42,     9,     9,    55,   -42,   -42,
+     -42,    29,    56,    41,    42,   -42,     3,    17,   -42,   -42,
+     -42,   -42,   -42,   -42,   -42,    59,   -42,    43,    44,   -42,
+      55,    55,    55,    55,   -42,    52,    52,    17,    17,   -42,
+     -42,    31,    31,    -1,     5,    66,   -42,    46,    52,    31,
+       6,   -42
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -595,24 +626,28 @@ static const yytype_int8 yypact[] =
    means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       0,     0,     0,     0,     1,     0,     0,     0,     0,     0,
-       4,     7,     0,     0,     3,     0,     9,    10,     0,     5,
-       0,     2,     8,     6,    18,     0,    14,    17,    11,     0,
-       0,     0,     0,    12,    13,    15,    16
+       0,     0,     0,     0,     1,     0,     0,     5,     0,    11,
+       4,     8,     0,     0,     0,     0,     3,     0,    10,    12,
+      13,    22,    23,     0,     6,     0,     0,     0,     2,     9,
+       7,     0,     0,     0,     0,    21,     0,    17,    20,    29,
+      30,    31,    32,    33,    34,     0,    28,     0,     0,    14,
+       0,     0,     0,     0,    27,     5,     5,    15,    16,    18,
+      19,    11,    11,     0,     0,    24,    26,     0,     5,    11,
+       0,    25
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -20,   -20,   -20,    18,     7,   -20,    11,   -20,   -20,   -19,
-     -18
+     -42,   -42,   -39,    -9,    50,   -41,   -16,   -42,   -42,   -20,
+      -3,   -42,   -42,   -42,    51,   -42
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-       0,     2,     9,    10,    12,    15,    16,    17,    25,    26,
-      27
+       0,     2,     9,    10,    12,    17,    18,    19,    36,    37,
+      38,    20,    21,    22,    33,    45
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -620,40 +655,58 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-      13,    28,     8,     1,    13,    31,    32,    29,    30,    21,
-      33,    34,     3,    35,    36,     4,     5,     7,     6,     8,
-      11,    18,    19,    20,    24,    23,    22,    14
+      16,    29,    13,    13,    14,    14,     5,    15,    15,    13,
+      13,    14,    14,    49,    15,    15,    61,    62,    31,     1,
+      63,    64,    50,    51,     3,    28,    65,    32,    70,    69,
+      57,    58,    66,    71,     8,    13,     4,    14,    52,    53,
+      15,    39,    40,    41,    42,    43,    44,    29,    29,    59,
+      60,     6,    16,    16,    29,     8,     7,    11,    23,    24,
+      16,    25,    26,    27,    35,    46,    47,    48,    54,    55,
+      56,    67,    68,    30,     0,     0,     0,    34
 };
 
 static const yytype_int8 yycheck[] =
 {
-       8,     3,     6,     6,     8,    11,    12,     9,    10,    17,
-      29,    30,     8,    31,    32,     0,    14,    16,    15,     6,
-       8,     4,     3,    13,     8,    18,    15,     9
+       9,    17,     4,     4,     6,     6,    24,     9,     9,     4,
+       4,     6,     6,    10,     9,     9,    55,    56,     9,     3,
+      61,    62,    19,    20,     9,    27,    27,    18,    69,    68,
+      50,    51,    27,    27,     3,     4,     0,     6,    21,    22,
+       9,    12,    13,    14,    15,    16,    17,    63,    64,    52,
+      53,    25,    61,    62,    70,     3,    26,     9,    11,    10,
+      69,    24,    24,    23,     9,     9,    25,    25,     9,    26,
+      26,     5,    26,    23,    -1,    -1,    -1,    26
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
    state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,     6,    19,     8,     0,    14,    15,    16,     6,    20,
-      21,     8,    22,     8,    21,    23,    24,    25,     4,     3,
-      13,    17,    24,    22,     8,    26,    27,    28,     3,     9,
-      10,    11,    12,    27,    27,    28,    28
+       0,     3,    29,     9,     0,    24,    25,    26,     3,    30,
+      31,     9,    32,     4,     6,     9,    31,    33,    34,    35,
+      39,    40,    41,    11,    10,    24,    24,    23,    27,    34,
+      32,     9,    18,    42,    42,     9,    36,    37,    38,    12,
+      13,    14,    15,    16,    17,    43,     9,    25,    25,    10,
+      19,    20,    21,    22,     9,    26,    26,    37,    37,    38,
+      38,    30,    30,    33,    33,    27,    27,     5,    26,    30,
+      33,    27
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
-       0,    18,    19,    20,    20,    21,    22,    22,    23,    23,
-      24,    25,    26,    26,    26,    27,    27,    27,    28
+       0,    28,    29,    30,    30,    30,    31,    32,    32,    33,
+      33,    33,    34,    34,    35,    36,    36,    36,    37,    37,
+      37,    38,    39,    39,    40,    40,    41,    42,    42,    43,
+      43,    43,    43,    43,    43
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
-       0,     2,     8,     2,     1,     3,     3,     1,     2,     1,
-       1,     4,     3,     3,     1,     3,     3,     1,     1
+       0,     2,     8,     2,     1,     0,     3,     3,     1,     2,
+       1,     0,     1,     1,     4,     3,     3,     1,     3,     3,
+       1,     1,     1,     1,     8,    13,     8,     3,     2,     1,
+       1,     1,     1,     1,     1
 };
 
 
@@ -1117,97 +1170,103 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* funcDef: TYPE ID '(' ')' '{' declList stmtList '}'  */
-#line 48 "practice.y"
-                                                                {strcpy(currID[0],(yyvsp[-6].str));	createEntries((yyvsp[-7].str),currID,1,currTable); return 1;}
-#line 1123 "practice.tab.c"
-    break;
-
-  case 4: /* declList: decl  */
-#line 49 "practice.y"
-                                                                {}
-#line 1129 "practice.tab.c"
-    break;
-
-  case 5: /* decl: TYPE varList SEMICOLON  */
-#line 50 "practice.y"
-                                                                {createEntries((yyvsp[-2].str),currID,idCount,currTable); idCount = 0;}
-#line 1135 "practice.tab.c"
-    break;
-
-  case 6: /* varList: ID COMMA varList  */
-#line 51 "practice.y"
-                                                                        {strcpy(currID[idCount],(yyvsp[-2].str)); idCount++;}
-#line 1141 "practice.tab.c"
-    break;
-
-  case 7: /* varList: ID  */
-#line 52 "practice.y"
-                                                                                        {strcpy(currID[idCount],(yyvsp[0].str)); idCount++;}
-#line 1147 "practice.tab.c"
-    break;
-
-  case 9: /* stmtList: stmt  */
-#line 53 "practice.y"
-                                                                {}
-#line 1153 "practice.tab.c"
-    break;
-
-  case 10: /* stmt: assignStmt  */
-#line 54 "practice.y"
-                                                                                {}
-#line 1159 "practice.tab.c"
-    break;
-
-  case 11: /* assignStmt: ID '=' exp SEMICOLON  */
-#line 55 "practice.y"
-                                                                {}
-#line 1165 "practice.tab.c"
-    break;
-
-  case 12: /* exp: exp '+' term  */
-#line 56 "practice.y"
-                                                                                {(yyval.val) = (yyvsp[-2].val) + (yyvsp[0].val);}
-#line 1171 "practice.tab.c"
-    break;
-
-  case 13: /* exp: exp '-' term  */
-#line 57 "practice.y"
-                                                                                {(yyval.val) = (yyvsp[-2].val) - (yyvsp[0].val);}
-#line 1177 "practice.tab.c"
-    break;
-
-  case 14: /* exp: term  */
-#line 58 "practice.y"
-                                                                                        {}
-#line 1183 "practice.tab.c"
-    break;
-
-  case 15: /* term: term '*' factor  */
-#line 59 "practice.y"
-                                                                        {(yyval.val) = (yyvsp[-2].val) * (yyvsp[0].val);}
-#line 1189 "practice.tab.c"
-    break;
-
-  case 16: /* term: term '/' factor  */
-#line 60 "practice.y"
-                                                                                {(yyval.val) = (yyvsp[-2].val) / (yyvsp[0].val);}
-#line 1195 "practice.tab.c"
-    break;
-
-  case 17: /* term: factor  */
 #line 61 "practice.y"
-                                                                                        {}
-#line 1201 "practice.tab.c"
+                                                                {strcpy(currID[0],(yyvsp[-6].str));	createEntries((yyvsp[-7].str),currID,1,currTable); return 1;}
+#line 1176 "practice.tab.c"
     break;
 
-  case 18: /* factor: ID  */
+  case 5: /* declList: %empty  */
 #line 62 "practice.y"
-                                                                                        {}
-#line 1207 "practice.tab.c"
+                                                                {}
+#line 1182 "practice.tab.c"
+    break;
+
+  case 6: /* decl: TYPE varList SEMICOLON  */
+#line 63 "practice.y"
+                                                                {createEntries((yyvsp[-2].str),currID,idCount,currTable); idCount = 0;}
+#line 1188 "practice.tab.c"
+    break;
+
+  case 7: /* varList: ID COMMA varList  */
+#line 64 "practice.y"
+                                                                        {strcpy(currID[idCount],(yyvsp[-2].str)); idCount++;}
+#line 1194 "practice.tab.c"
+    break;
+
+  case 8: /* varList: ID  */
+#line 65 "practice.y"
+                                                                                        {strcpy(currID[idCount],(yyvsp[0].str)); idCount++;}
+#line 1200 "practice.tab.c"
+    break;
+
+  case 11: /* stmtList: %empty  */
+#line 66 "practice.y"
+                                                                {}
+#line 1206 "practice.tab.c"
+    break;
+
+  case 13: /* stmt: controlStmt  */
+#line 67 "practice.y"
+                                                                {}
+#line 1212 "practice.tab.c"
+    break;
+
+  case 14: /* assignStmt: ID '=' exp SEMICOLON  */
+#line 68 "practice.y"
+                                                                {checkType2(checkDec((yyvsp[-3].str),currTable),(yyvsp[-1].str));}
+#line 1218 "practice.tab.c"
+    break;
+
+  case 15: /* exp: exp '+' term  */
+#line 69 "practice.y"
+                                                                                {typeCast2((yyvsp[-2].str),(yyvsp[0].str));strcpy((yyval.str),(yyvsp[-2].str));}
+#line 1224 "practice.tab.c"
+    break;
+
+  case 16: /* exp: exp '-' term  */
+#line 70 "practice.y"
+                                                                                {typeCast2((yyvsp[-2].str),(yyvsp[0].str));strcpy((yyval.str),(yyvsp[-2].str));}
+#line 1230 "practice.tab.c"
+    break;
+
+  case 17: /* exp: term  */
+#line 71 "practice.y"
+                                                                                        {strcpy((yyval.str),(yyvsp[0].str));}
+#line 1236 "practice.tab.c"
+    break;
+
+  case 18: /* term: term '*' factor  */
+#line 72 "practice.y"
+                                                                        {typeCast2((yyvsp[-2].str),(yyvsp[0].str));strcpy((yyval.str),(yyvsp[-2].str));}
+#line 1242 "practice.tab.c"
+    break;
+
+  case 19: /* term: term '/' factor  */
+#line 73 "practice.y"
+                                                                                {typeCast2((yyvsp[-2].str),(yyvsp[0].str));strcpy((yyval.str),(yyvsp[-2].str));}
+#line 1248 "practice.tab.c"
+    break;
+
+  case 20: /* term: factor  */
+#line 74 "practice.y"
+                                                                                        {strcpy((yyval.str),(yyvsp[0].str));}
+#line 1254 "practice.tab.c"
+    break;
+
+  case 21: /* factor: ID  */
+#line 75 "practice.y"
+                                                                                        {strcpy((yyval.str),checkDec((yyvsp[0].str),currTable));}
+#line 1260 "practice.tab.c"
+    break;
+
+  case 23: /* controlStmt: whileControl  */
+#line 77 "practice.y"
+                                                        {}
+#line 1266 "practice.tab.c"
     break;
 
 
-#line 1211 "practice.tab.c"
+#line 1270 "practice.tab.c"
 
       default: break;
     }
@@ -1400,22 +1459,82 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 63 "practice.y"
+#line 83 "practice.y"
 
 
 void createEntries(char* type, char id[10][100], int count,struct SymbolTable* symbolTable)
 {
+
+
 	for(int c = 0; c < count; c++)
 	{
+
+		for(int i = 0 ; i < symbolTable->counter; i++)
+		{
+			if(strcmp(symbolTable->table[i].id,id[c]) == 0)
+			{
+				printf("Variable Already Declared:%s\n",id[c]);
+				flag = 1;
+				return;
+			}
+		}
 		struct entry nth_entry;
 		strcpy(nth_entry.type,type);
 		strcpy(nth_entry.id,id[c]);
-		nth_entry.ptr = 0;
+		nth_entry.ptr = -1;
 	
 		symbolTable->table[symbolTable->counter] = nth_entry;
 		symbolTable->counter+=1;
 	}
 }
+
+
+void checkType2(char type1[100], char type2[100])
+{
+	/*type1 x = type2 y*/
+	if(strcmp(type1,type2) == 0)
+	return;
+
+	else if(strcmp("boolean",type1) == 0 && strcmp("int",type2) == 0)
+	{
+		flag = 1;
+		printf("Semantic Error (cannot cast int to boolean)\n");
+		return;
+	}
+
+	else if(strcmp("int",type1) == 0 && strcmp("boolean",type2) == 0)
+	{
+		flag = 0;
+		printf("Semantic Warning (castting boolean to int)\n");
+		return;
+	}
+
+	else
+	{
+		printf("CheckType2 Failed\n");
+	}
+}
+
+void typeCast2(char type1[100], char type2[100])
+{
+	return;
+}
+
+char* checkDec(char id_name[100], struct SymbolTable* currTable)
+{
+	for(int i = 0 ; i < currTable->counter; i++)
+	{
+		if(strcmp(currTable->table[i].id,id_name) == 0)
+		{
+			return currTable->table[i].type;
+		}
+	}
+	flag = 1;
+	printf("Variable not declared:%s\n",id_name);
+	char errorVal[10] = "";
+	return errorVal;
+}
+
 
 void printTable()
 {
@@ -1424,7 +1543,6 @@ void printTable()
 	{
 		struct entry nth_entry = mainSymbolTable.table[c];
 		printf("Entry No:%d\tType:%s\tId:%s\tPtr:%d\n",c,nth_entry.type,nth_entry.id,nth_entry.ptr);
-
 	}
 }
 
