@@ -13,6 +13,7 @@ handle["/index"] = handler.baseForm;
 handle["/formUpload"] = handler.formUpload;
 handle["/medicalOffice"]= handler.medicalOffice;
 handle["/medUpload"]= handler.medUpload;
+
 let sql = mysql.createConnection( {
     host: 'localhost',
     user: 'root',

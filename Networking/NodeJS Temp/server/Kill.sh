@@ -1,3 +1,3 @@
 #!/bin/bash
-kill -9 $(sudo lsof -i:8080 | grep 'node' |  awk '{print $2}')
+kill -9 $(sudo lsof -i:5000 | grep 'node' |  awk '{print $2}')
 

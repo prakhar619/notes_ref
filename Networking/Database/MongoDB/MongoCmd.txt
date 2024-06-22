@@ -1,0 +1,16 @@
+Database => Collection => Document (object)
+Database => Table => Row
+
+Mongosh Scripts
+	db		Active database
+	show dbs	Show all databases (ignores db with no content)
+	use dbName	Create new db
+	
+	db.createCollection("collectionName")		create new collection
+	show collections				list all collections in current dbase
+	
+	db.collectionName.insertOne(document1)		insert document1 in collectionName
+	
+	db.collectionName.find()			list all documents of collectionName
+	
+
