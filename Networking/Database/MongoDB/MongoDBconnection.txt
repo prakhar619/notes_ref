@@ -1,0 +1,5 @@
+Access Method
+	mongosh shell
+		Connection String		(after authenticating on server)
+			mongosh "mongodb+srv://atlascluster.qt3ml3u.mongodb.net/" --apiVersion 1 --username prakharLinux
+

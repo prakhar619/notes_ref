@@ -1,0 +1,98 @@
+Mongoose
+	An ODM for MongoDB (Object Data Modelling)(High lvl API than mongodb)
+	Built on top of mongodb
+	
+Schemas => Model => Object
+
+
+Example Schemas
+		const blog = new Schema({
+		  title: String,
+		  slug: String,
+		  published: Boolean,
+		  author: String,
+		  content: String,
+		  tags: [String],
+		  createdAt: Date,
+		  updatedAt: Date,
+		  comments: [{
+		    user: String,
+		    content: String,
+		    votes: Number
+		  }]
+		});
+	
+	Variation (with field info)
+		const blogSchema = new Schema({
+		  title:  {
+		    type: String,
+		    required: true,
+		    lowercase: true,
+		    default: false,
+		    default: () => Date.now(),
+		    immutable: true,
+		    minLength: 10,
+		    ref: 'Model',			//referencing other Model (not collection)
+		  },
+
+		});
+		
+
+Example Model
+	const Blog = mongoose.model('Blog1', blog);
+			blog1 is the name of collection			(mongoose automatically converts 'Blog1' first letter to small lette
+			But u will use Blog(Model) to extract data regarding blog1
+			
+Example Obj
+	const article = new Blog({
+	  title: 'Awesome Post!',
+	  slug: 'awesome-post',
+	  published: true,
+	  content: 'This is the best post ever',
+	  tags: ['featured', 'announcement'],
+	});
+	
+		
+Data Types
+	String
+	Number
+	Date
+	Buffer
+	Boolean
+	Mixed
+	ObjectId
+	Array
+	Decimal128
+	Map
+
+Adding Data
+	obj.save();
+	const obj = await Model.create({  });
+		//here we can also access id via obj._id
+
+Update Data
+	2 Step Process
+		obj.fieldName = "new value"
+		await obj.save();
+Query
+	Model.findOne({});
+		Variation (Getting ref obj)
+			const obj = await Model.findOne({}).populate("refFieldName");
+	
+	const obj = await Model.findById("Idname").exec();
+		Variations (Projection)
+		const obj = await Model.findById("Idname","field1 field2 field3").exec()
+	
+	const obj = await Model.exists({key:"value"})		//null or objectId
+	
+	const obj = await Model.where("key").equals("value");
+		Variation (Projection)
+		const obj = await Model.where().equals().select("field")
+		
+	
+	
+Delete
+	const obj = await Model.deleteOne({key:"value"})
+	const obj = await Model.deleteMany({key:"value"})
+
+	

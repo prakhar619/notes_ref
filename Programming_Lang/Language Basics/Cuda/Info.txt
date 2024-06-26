@@ -1,0 +1,70 @@
+CUDA File Execution
+    nvcc file.cu
+    ./a.out
+
+Host -> CPU
+Device -> GPU
+
+Grid 2d
+    Block 3d
+        Thread (unit)
+
+Device can pass its memory pointers as well as access it.
+Host can pass device's memory pointers but cant access it.
+
+CUDA FUNCTIONS AND KEYWORDS
+    __global__
+    __device__
+    __shared__
+    __constant__
+    blockIdx
+        .x
+        .y
+        .z
+    gridDim
+        .x
+        .y
+    cudaMemcpy()
+        cudaMemcpyDeviceToHost
+        cudaMemcpyHostToDevice
+    cudaMemcpyToSymbol()
+    cudaMemcpyFromSymbol()
+    cudaFree()
+    __syncthreads()
+    cudaEvent_t
+    cudaEventCreate();
+    cudaEventRecord();
+    cudaEventElapsedTime();
+    cudaEventDestroy();
+
+
+
+
+--------------------------------------
+Memory Heirarchy
+    Global GPU Memory       (For a GPU/All blocks)
+        Shared Memory       (For a block)
+
+
+************************
+g++ 6_juliaSet.cpp -o juliaSet -lglut -lGL -lGLU
+
+
+<<<BlocksCount,ThreadsPerBlock>>>
+<<<(grid.x,grid.y,1),ThreadsPerBlock>>>     //we can pass our grid dimension(grid are of custom size)
+<<<(grid.x,grid.y,1),(block.x,block.y,block.z)>>>
+
+*******************************
+Indexing
+tid = threadIdx.x + blockIdx.x * blockDim.x
+
+tid 0->N
+
+fix BlockCount or ThreadsPerBlock
+
+N/BlockCount = ThreadsPerBlock    ---> ceil(N/BlockCount) = ThreadsPerBlock && tid < N
+
+N/ThreadsPerBlock = BlockCount    ---> ceil(N/ThreadsPerBlock) = BlockCount && tid < N
+
+
+ceil Tricks ==> (N/ThreadsPerBlock)/ThreadsPerBlock  or (N/BlockCount)/BlockCount
