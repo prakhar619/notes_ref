@@ -1,0 +1,11 @@
+Texture Import Setting 
+    1. Pixel Per Unit 
+    2. Mesh Type 
+    3. Filter Mode 
+    4. Compression 
+    5. Max Size
+
+Camera
+    Size
+    Transform
+    Aspect Ratio

@@ -1,0 +1,86 @@
+Imports
+    System.Collections
+    System.Collections.Generics
+    UnityEngine
+    UnityEngine.SceneManager
+
+Inherits 
+    Monobehaviour
+
+
+Implement Functions
+    void Start()    
+        Once in lifetime
+        Communication b/w objects
+    void Update()
+        frame related
+        Handle Input
+    void Awake()
+        Once in lifetime
+        Exe before Start
+        Initialise object
+    void FixedUpdate()
+        fps indepentent calls
+        physics update
+    void LateUpdate()
+        called just before frame switch
+    void onCollisionEnter2D(Collision2D obj)
+    void OnEnable()                         //obj.enabled = true;
+    void OnDisable()
+    void onDestroy()
+    void OnBecameVisible()
+    void OnBecameInvisible()
+    void onCollisionEnter2D(Collision2D obj)
+    void Reset()
+
+
+Call Functions
+    GetComponent< Component_Name >();
+        Get same object other component
+    GetComponents< Component_Name >();
+    GameObject.FindWithTag("tag_name").component;
+    GetComponentInParent< Component_Name >();
+    Input.GetAxis("Horizontal");
+    Mathf.MoveTowards(currentValue,targetValue,stepSize)
+    CameraObj.ScreenToWorldPoint(screenVector2);
+    Mathf.Max();
+    Mathf.Clamp(value,lower,upper);
+    InvokeRepeating(function_name,startTime,repeatTime);
+    CancelInvoke();
+    DestroyImmediate(obj);
+    DontDestroyOnLoad(obj);
+    SceneManager.LoadScene("SceneName");
+    Invoke(nameof(FunctionName),delay);
+    Destroy(obj, delay);
+
+Data Members
+    Time.deltaTime
+        fps b/w frame time
+    Time.fixedDeltaTime
+        independent update for physix
+    Camera  
+        .main
+
+Inspection Members  
+    Rigidbody2D
+        .position 
+        .MovePosition(new_position)
+        .WakeUp();
+        .Sleep();
+        .isKinematic
+    Transform
+        .eulerAngles
+    SpriteRenderer
+        .enabled
+
+
+Extensions
+    static class
+    no inheriting Monobehaviour
+    adding function to a class whom u dont have access to
+    this keyword
+
+
+Sprite
+
+    

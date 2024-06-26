@@ -1,0 +1,7 @@
+Project Setting
+Edit->Project Manager
+    Input Manager
+        Axes    (diff types of input)
+            Horizontal  
+                Gravity     (letting go -> going to normal)
+                Sensitive   (reaching full potential)

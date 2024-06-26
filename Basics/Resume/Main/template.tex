@@ -1,0 +1,108 @@
+\documentclass[\FontSize]{extarticle}
+% --- document --- 
+\usepackage[letterpaper, hmargin=\HMargin, top=\TMargin, bottom=\BMargin]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{nopageno}
+% --- fonts --- 
+\usepackage{fourier}
+\usepackage[lf,scaled=0.9]{carlito}
+\usepackage[x11names]{xcolor}
+\linespread{\LineSpacing}
+\colorlet{IITblue}{DodgerBlue4}
+% --- structure --- 
+\usepackage{multicol,enumitem,tabu}
+\setlist[enumerate]{leftmargin=0pt, label={}, topsep=2pt, itemsep=\ItemSpacing, parsep=0pt}
+\setlist[itemize]{nosep, leftmargin=*, label=\Highlight{\small\textbullet\enspace}}
+\tabulinesep = 2.5pt
+\tabulinestyle{IITblue}
+\setlength{\fboxsep}{0pt}
+% --- function --- 
+\newcolumntype{Y}{@{\hskip 1mm}|@{\hskip 4mm}X[l]}
+\newcommand{\Heading}[1]{\noindent\textbf{\textcolor{IITblue}{\large#1}}\\[-1em] \noindent\rule{\textwidth}{0.5pt}}
+\newcommand{\Link}[2]{\Highlight{\href{#1}{#2}}}
+\newcommand{\Highlight}[1]{\textcolor{IITblue}{\textbf{#1}}}
+\newcommand{\RightAlignDate}[1]{\hfill[#1]}
+\newcommand{\MyDegree}[1]{\textbf{#1},}
+\newcommand{\MyInstitute}[1]{#1&}
+\newcommand{\MyScore}[1]{#1 &}
+\newcommand{\MyEduComment}[1]{\textit{#1}&}
+\newcommand{\MyEduDate}[1]{#1\\}
+\newcommand{\ListItem}[3]{\item\textbf{#1}\hfill\textsf{#2}\begin{itemize}#3\end{itemize} }
+\newcommand{\ListItemSingle}[3]{\item\textbf{#1}\hfill\textsf{#2}\\[2pt]\begin{tabu}{Y}#3\end{tabu}\par\smallskip}
+\newcommand{\SkillsItem}[2]{\item\textbf{#1:}\ \ #2}
+\newcommand{\SkillsRow}[2]{\textbf{#1} & #2\\}
+\newcommand{\StarItem}[2]{\Highlight{\small\textbullet} & #1 & \textsf{#2}\\}
+\newcommand{\PorItem}[3]{\textbf{#1} & #2 & \textsf{#3}\\}
+
+
+\begin{document}
+
+% --- about --- 
+\begin{multicols}{2}
+\vfill
+\ \\\textcolor{IITblue}{\Huge\MyName}\\[5pt]
+{\Large Indian Institute of Technology, Goa}\par
+\vfill
+\columnbreak \raggedleft \linespread{1}
+\MyYear{} Year \textbf{\MyDegreeType}, \Highlight{\MyBranch}\\
+Address: \MyAddress\\
+E-mail: \Highlight{\href{mailto:\MyEmail}{\MyEmail}}\\
+Mobile: \Highlight{\href{tel:+91\MyPhone}{\MyPhone}}\\
+\MyLinks \\
+\github
+\end{multicols}
+
+% --- education --- 
+\Heading{Education}
+\colorbox{black!5}{\sffamily\extrarowsep=1pt\begin{tabu}{X[l]cll}\EducationData\end{tabu}}
+\par\vfill
+
+% --- experience --- 
+\ifdefined\ExperienceData
+\Heading{Experience}
+\begin{enumerate}\ExperienceData\end{enumerate}
+\vfill \fi
+
+% --- projects --- 
+\ifdefined\ProjectData
+\Heading{Projects}
+\begin{enumerate}\ProjectData\end{enumerate}
+\vfill \fi
+
+% --- publications --- 
+\ifdefined\PublicationData
+\Heading{Publications}
+\begin{tabu}{@{}lX[l]r@{}}\PublicationData\end{tabu}
+\vfill \fi
+
+% --- skills --- 
+\ifdefined\SkillsData
+\Heading{Skills}
+\begin{itemize}[leftmargin=1pt, label={}]\SkillsData\end{itemize}
+\vfill \fi
+
+\ifdefined\SkillsTable
+\Heading{Skills}
+\begin{tabu}{@{}lX[l]@{}}\SkillsTable\end{tabu}
+\vfill \fi
+
+
+% --- positions of responsibility ---
+\ifdefined\PorTable
+\Heading{Positions of Responsibility}
+\begin{tabu}{@{}lX[l]r@{}}\PorTable\end{tabu}
+\vfill \fi 
+
+% --- achievements --- 
+\ifdefined\AchievementsData
+\Heading{Achievements}
+\begin{tabu}{@{}lX[l]r@{}}\AchievementsData\end{tabu}
+\vfill \fi
+
+% --- extracurriculars & hobbies --- 
+\ifdefined\HobbiesData
+\Heading{Extracurriculars \& Hobbies}
+\begin{tabu}{@{}lX[l]r@{}}\HobbiesData\end{tabu}
+\vfill \fi
+
+\end{document}

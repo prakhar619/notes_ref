@@ -19,7 +19,7 @@ public class basic_1 {
 		print_();
 		basic_1 x = new basic_1();
 		x.xxx();
-		String d = "Vibesh";
+		String d = "omg u ded";
 		System.out.println(d.charAt(0) );
 
     }

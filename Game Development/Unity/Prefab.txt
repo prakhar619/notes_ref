@@ -1,0 +1,31 @@
+Gizmo
+Tool Handle Position
+    Centre
+    Pivot
+
+Prefab
+    i.  Empty Object
+    ii. Sprite
+
+Inspector
+    1. Transform
+    2. Sprite Renderer
+        Sprite
+        Sorting Layer
+        Order in Layer
+        Draw Mode   
+            Tiled
+    3. Collider
+        is Trigger
+        Size
+    4. Rigid Body 2D
+        mass
+        drag
+        gravity scale
+        collison detection
+        freeze Position
+        Interpolate
+    5. Capsule Collider 2D
+        offset
+        Size
+    6. Script
