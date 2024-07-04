@@ -1,0 +1,128 @@
+gcc file.c                          Compile and link source file to a.out/a.exe
+gcc -o executable file.c        Compile and link source file into executable executable
+
+-o specifies output executable name
+-Wall   prints all warning msg
+-g      generates additional symbolic debugging info for gdb debugger
+
+Linking and Loading Separately
+
+    gcc -c -Wall file.c             Only compile with -c option
+    gcc -o file file.o              Link file into executable 
+
+    #GCC uses a separate linker program called ld.exe to perform linking. Linking is performed when input files are object files instead of source files.
+
+gcc -o file file1.c file2.c
+or 
+    gcc -c file1.c 
+    gcc -c file2.c 
+    gcc -o file file1.o file2.o
+
+GCC Compilation Process
+
+        (cpp)            (gcc/g++)      (as)       (ld)
+       Preprocessing -> Compilaton -> Assemble -> Linking
+.c/.cpp/.h ->     .i/.ii  ->   .s ->        .o/.obj  -> .exe   
+
+cpp helo.c > helo.i 
+gcc -S helo.i  
+as -o helo.o helo.s 
+ld -o helo.exe helo.o 
+
+Library
+    Static
+        .a      Unix            When program is linked against a static library machine code
+        .lib    Window          of external program is copied in executable
+    Shared
+        .so     Unix            Shared object                   Dynamic Linking
+        .dll    Windows         Dynamic Linked library
+
+    
+    Searching for Header and Libraries
+        Compiler needs Header files     (to compile source code)
+        Linker needs Libraries          (to resolve external ref)
+
+        To find appropriate Header and Libraries set appropriate options 
+
+            Header:
+                For each #include directive
+                    compiler searches "include-paths" for these headers
+                    "include-paths" are specified via -Idir option or (env CPATH variable)
+                        /usr/local/include
+                        $CPATH
+                        $C_INCLUDE_PATH
+                        $CPLUS_INCLUDE_PATH
+
+            Library:
+                Linker needs to both dir as well as library names
+                library-paths via Ldir option or LIBRARY_PATH
+                u also need to specify library name 
+                    Unix: libxxx.a  --specified by--> -lxxx       (without lib and .a)
+                    Windows: libxxx.a -> -lxxx.lib
+
+Default Include path, Library path and Libraries
+    cpp -v
+
+    For u program
+    gcc -v helo.c 
+
+GCC Environment Variables:
+    PATH 
+        searching for executables and shared libraries (.dll .so)
+    CPATH 
+    CPLUS_INCLUDE_PATH 
+    LIBRARY_PATH 
+
+#### WHEN U USE "include" gcc copies the code into your main program; therefore dont compile multiple file #####
+#### IF U USE FUNCTION WITHOUT "include" then compile multiple file #####
+
+
+Make File:
+
+target: dependency1 dependency2 ...
+        cmd 
+
+all: finalfile.exe
+
+##bash : make or make all or make main.o or make clean
+## makefile or Makefile or GNUMakefile without extension
+
+Phony Target 
+    that does not represent a file / has cmd  like clean 
+    always out-of-date
+    Standard Phony:
+        all 
+        clean 
+        install 
+
+Variables   
+    begins with $ 
+    enclosed in {} or ()
+    single character dont need () or {}
+
+    CC = gcc
+    $(CC)
+    
+    Automatic Variables
+    $@          target filename 
+    $*          target filename without extension 
+    $<          first prerequisite filename 
+    $^          filenames of all prerequisite
+    $+          similar to $^ but allows duplicates 
+    $?        
+
+########EXAMPLE########
+CC = gcc 
+all: hello.exe
+ 
+# $@ matches the target; $< matches the first dependent
+hello.exe: hello.o
+	$(CC) -o $@ $<
+
+hello.o: hello.c
+	gcc -c $<
+     
+clean:
+	rm hello.o hello.exe
+
+###################
