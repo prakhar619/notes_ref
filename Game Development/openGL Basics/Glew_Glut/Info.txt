@@ -1,0 +1,41 @@
+openGL: Graphical Interface
+GLFW: Window Creation and Management            //ALTERNATIVE: Glut or FreeGlut
+GLEW: Extension Manager                         //ALTERNATIVE: Glad
+
+Graphics Pipeline:
+    Application -> Geometry -> Rasterization -> Screen
+
+Geometry Pipeline:
+    Object Coordinates -> Model&Camera Transformation -> Lighting -> Projection -> Clipping -> Window/ViewPort Transformation -> Device Coordinates
+
+##View Tranformation == Camera Transformation
+
+Transformation 
+    Modelling : Moves object around
+    View : Specifies camera location
+    Projection : Sizes and reshapes viewing volumn
+
+    ModelView: Duality or viewing and modelling
+
+Transformation Pipeline
+    Object Space -> World Space -> Eye Space -> Clip Space -> Normalized Device Space
+            Modelling Trans   View Trans   Projection Trans 
+
+
+For OpenGL to be able to perform its rasterizing operations 
+on the vertex data provided, the data needs to be in a 
+two-dimensional format, along with a depth value for depth buffering
+
+After the transformation to normalized device space, 
+OpenGL takes over and feeds the vertex data into a process called rasterization, 
+which generates fragments for the triangles, lines, and points that we 
+described with our vertex information. At this point, OpenGL also applies 
+the depth information to determine which fragments to discard due to overlap. 
+After the composition of all the final fragments, 
+the graphics hardware outputs the final image to the screen.
+
+Fragment can be thought of as the data needed to shade the pixel,
+ plus the data needed to test whether the fragment survives to become a pixel 
+ (depth, alpha, stencil, scissor, window ID, etc.).
+Shading a fragment is done through a fragment shader (or pixel shaders in Direct3D).
+

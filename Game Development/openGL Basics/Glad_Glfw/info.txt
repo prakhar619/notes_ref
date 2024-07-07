@@ -1,0 +1,16 @@
+OpenGL      DirectX         --> Graphical Interface
+GLFW        FreeGlut        --> Window Manager
+GLAD        Glew            --> Extension Manager
+
+GLFW:
+    -lglfw -ldl
+    #include<GLFW/glfw3.h>                      (usr/include)
+
+Glew  
+    -lGL -lGLEW 
+    #include <GL/glew.h>                        (usr/include/)
+
+freeglut
+    -lglut                  
+    #include <GL/freeglut.h>                    (usr/include)
+        
