@@ -2,11 +2,13 @@
 #include <iostream>
 using namespace std;
 
+//	T(n) = n * T(n-1)
+
 /* 										ABC
 
-		ABC (0 with 0)						BAC (0 with 1)						CAB (0 with 2)
+		ABC (0 with 0)					BAC (0 with 1)				CBA (0 with 2)
 	
-ABC (1 with 1)			ACB(1 with 2)		BAC(1 with 1) 			BCA(1 with 2)		CAB(1 with 1) 			CBA(1 with 2)
+ABC (1 with 1)	ACB(1 with 2)	BAC(1 with 1)	BCA(1 with 2)	CBA(1 with 1)	CAB(1 with 2)
 
 
 */

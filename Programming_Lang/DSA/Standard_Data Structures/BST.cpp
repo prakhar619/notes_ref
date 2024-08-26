@@ -23,9 +23,9 @@
 //		int maximum_bst()		O(h)
 //		node* successor(node*)		O(h)
 //		node* predecessor(node*)	O(h)
-//		int height(node*)		
-//		int height_tree()
-//		int depth(node*)
+//		int height(node*)		O(N)		
+//		int height_tree()		O(N)
+//		int depth(node*)		O(h)
 
 
 //CLASS WORKING FUNCTIONS
@@ -81,9 +81,6 @@ class node
 
 class bst
 {
-    public:
-	node* root = NULL;
-	
 	node* search_main(int key, node* NNode)
 	{
 	    if(NNode == NULL)
@@ -102,16 +99,11 @@ class bst
 		else
 		return search_main(key,NNode->left);
 	}
-	
-	node* search(int key)
-	{
-		return search_main(key,root);
-	}
-	
+
 	// always added as leaf node
 	// *** editing NNode after it is NULL does not change its value up the chain therefore parent needed;
 	// THerefore be carefull;
-	node* insert_main(int value, int priorty,node* NNode,node* parent = NULL)
+	node* insert_main(int value, int priorty, node* NNode, node* parent = NULL)
 	{
 		if(NNode == NULL)
 		{
@@ -132,8 +124,48 @@ class bst
 		return insert_main(value,priorty,NNode->right,NNode);
 		else
 		return insert_main(value,priorty,NNode->left,NNode);
-		
+	}
+
+	void preOrderTrav_main(node* NNode)
+	{
+	    if(NNode == NULL)
+	    return;
+	    cout << "(" <<NNode->value << ")" << NNode->priorty << ":";
+	    preOrderTrav_main(NNode->left);
+	    preOrderTrav_main(NNode->right);
+	}
+
+	void inOrderTrav_main(node* NNode)
+	{
+	    if(NNode == NULL)
+	    return;
+	    inOrderTrav_main(NNode->left);
+	    cout << "(" <<NNode->value << ")" << NNode->priorty << ":";
+	    inOrderTrav_main(NNode->right);
+	}
+
+	void postOrderTrav_main(node* NNode)
+	{
+	    if(NNode == NULL)
+	    return;
+	    postOrderTrav_main(NNode->left);
+	    postOrderTrav_main(NNode->right);
+	    cout << "(" <<NNode->value << ")" << NNode->priorty << ":";
+	}
+
+	int max(int x,int y)
+	{
+		if(x > y)
+		return x;
+		return y;
+	}	
+
+public:
+	node* root = NULL;
 	
+	node* search(int key)
+	{
+		return search_main(key,root);
 	}
 	
 	node* insert(int value,int priorty)
@@ -147,46 +179,21 @@ class bst
 		return insert_main(value,priorty,root);
 	}
 	
-	void preOrderTrav_main(node* NNode)
-	{
-	    if(NNode == NULL)
-	    return;
-	    cout << "(" <<NNode->value << ")" << NNode->priorty << ":";
-	    preOrderTrav_main(NNode->left);
-	    preOrderTrav_main(NNode->right);
-	}
 	void preOrderTrav()
 	{
 	    preOrderTrav_main(root);
 	    cout << endl;
-	}
-	void inOrderTrav_main(node* NNode)
-	{
-	    if(NNode == NULL)
-	    return;
-	    inOrderTrav_main(NNode->left);
-	    cout << "(" <<NNode->value << ")" << NNode->priorty << ":";
-	    inOrderTrav_main(NNode->right);
 	}
 	void inOrderTrav()
 	{
 	    inOrderTrav_main(root);
 	    cout << endl;
 	}
-	void postOrderTrav_main(node* NNode)
-	{
-	    if(NNode == NULL)
-	    return;
-	    postOrderTrav_main(NNode->left);
-	    postOrderTrav_main(NNode->right);
-	    cout << "(" <<NNode->value << ")" << NNode->priorty << ":";
-	}
 	void postOrderTrav()
 	{
 	    postOrderTrav_main(root);
 	    cout << endl;
 	}
-	
 	
 	node* maximum(node* NNode)
 	{
@@ -198,7 +205,12 @@ class bst
 	
 	int maximum_bst()
 	{
-	    return maximum(root)->priorty;
+	    if(root == NULL)
+	    {
+		cout << "BST not created/initialised with values" << endl; 
+	    }
+	    else
+	    	return maximum(root)->priorty;
 	}
 	
 	node* minimum(node* NNode)
@@ -211,12 +223,17 @@ class bst
 	
 	int minimum_bst()
 	{
-	    return minimum(root)->priorty;
+	    if(root == NULL)
+	    {
+		cout << "BST not created/initialised with values" << endl; 
+	    }
+	    else
+	    	return minimum(root)->priorty;
 	}
 	
 	// successor of node x is lowest value node with value greater than x->value;
 	//case 1: node->right->left->left->....
-	//case 2: node->right == NULL  		node->parent[node]->parent[parent[node]]->till parent is right child of a its parent; stop is parent with left child
+	//case 2: node->right == NULL  		node->parent[node]->parent[parent[node]]->till parent is right child of a its parent; stop if parent with left child
 	/* case 2 example
 					15
 			6				18
@@ -225,7 +242,7 @@ class bst
 	     			  9
 	     successor(13) = 15
 	*/
-	// just jadi value
+	// just badi value
 	node* successor(node* NNode)
 	{
 		if(NNode->right != NULL)
@@ -313,23 +330,13 @@ class bst
 	    dev_preOrderTrav(NNode->right);
 	}
 	
-	
-	
-	
-	
-	int max(int x,int y)
-	{
-		if(x > y)
-		return x;
-		return y;
-	}
-	
 	int height(node* NNode)
 	{
 		int height_n;
 		if(NNode == NULL)
-		return height_n = 0;
-		height_n = max(height(NNode->left) + 1,height(NNode->right) + 1);
+			height_n = 0;
+		else
+			height_n = max(height(NNode->left) + 1,height(NNode->right) + 1);
 		return height_n;
 	}
 	
@@ -342,7 +349,6 @@ class bst
 	{
 		if(root == NNode)
 		{	
-			
 			return initial_depth;
 		}
 		int dep = depth(NNode->parent,initial_depth);

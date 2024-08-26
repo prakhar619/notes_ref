@@ -1,7 +1,10 @@
+//Everything checked// output verify
+
+//Heap
 // maxheap				//minheap
 
-/*Data structure HEAP (Heap is not sorted)
-Although heap is usually thought as binary tree, implementation uses heap as array;   Array can represent ONLY COMPLETE BINARY TREE (complete binary tree means all lvl filled + as left as possible)								
+/*Data structure HEAP (Heap is not sorted data structure)
+Although heap is usually thought as binary tree,this implementation uses array as heap;   Array can represent ONLY COMPLETE BINARY TREE (complete binary tree means all lvl filled + as left as possible)								
 					10
 				9		7
 			3 	     4	  5		6
@@ -26,7 +29,7 @@ Although heap is usually thought as binary tree, implementation uses heap as arr
 //CLASS WORKING FUNCTIONS
 //			print()			O(N)
 //*			maxheap()		O(1)
-//*			maxheap(array,len)	O(N)
+//*			maxheap(array,len)	O(NlogN)
 
 //CLASS MAIN FUNCTIONS
 //			swap(a,b)				O(1)
@@ -39,30 +42,6 @@ Although heap is usually thought as binary tree, implementation uses heap as arr
 using namespace std;
 class maxheap
 {
-	public:
-	int* array;
-	int len;
-	int size;
-	
-	//constructors
-	maxheap()
-	{
-	 	len = 0;
-	 	array = NULL;
-	 	size = 0;
-	}
-	maxheap(int *ar, int len)		
-	{
-		array = (int*) malloc(sizeof(int)*len);
-		for(int i = 0; i< len; i++)
-		{
-			array[i] = ar[i];
-		}
-		this->len = len;
-		size = len;
-		build_max_heapify(array,this->len);
-	}
-	
 	//helping functions
 	void swap (int &a,int &b)
 	{
@@ -70,7 +49,7 @@ class maxheap
 	    a = b;
 	    b = k;
 	}
-			// assumes that root(index) and its children are not in heap; but children tree are in heap
+	// assumes that root(index) and its children are not in heap; but children tree are in heap
 	void max_heapify(int* ar, int len, int index)	
 	{
 		int left_index = index*2+1;		//index of left child	; assuming indexing start from zero
@@ -93,10 +72,11 @@ class maxheap
 	
 	void build_max_heapify(int *ar, int len)	
 	{
+		// first node with child
 		for(int i = (len/2) -1; i>=0;i--)
 			max_heapify(ar,len,i);
 	}
-	
+
 	void upchain_max_heapify(int *ar,int len, int index)
 	{
 		int parent = (index%2 == 0) ? (index/2 -1) : (index/2);
@@ -111,6 +91,30 @@ class maxheap
 			if(parent != 0)
 			upchain_max_heapify(ar,len,parent);
 		}
+	}
+
+	public:
+	int* array;
+	int len;
+	int size;
+	
+	//constructors
+	maxheap()
+	{
+	 	len = 0;
+	 	array = NULL;
+	 	size = 0;
+	}
+	maxheap(int *ar, int len)		
+	{
+		array = (int*) malloc(sizeof(int)*len);
+		for(int i = 0; i< len; i++)
+		{
+			array[i] = ar[i];
+		}
+		this->len = len;
+		size = len;
+		build_max_heapify(array,this->len);
 	}
 	
 	//heap operations
@@ -153,8 +157,6 @@ class maxheap
 
 };
 
-
-
 //Time complexity: 
 //CLASS FUNCTIONS	
 //			pop(index=0)		O(logN)
@@ -176,29 +178,6 @@ class maxheap
 using namespace std;
 class minheap
 {
-	public:
-	int* array;
-	int len;
-	int size;
-	
-	//constructors
-	minheap()
-	{
-	 	len = 0;
-	 	size = 0;
-	 	array = NULL;
-	}
-	minheap(int *ar, int len)		
-	{
-		array = (int*)malloc(sizeof(int)*len);
-		for(int i = 0; i < len; i++)
-		    array[i] = ar[i];
-		this->len = len;
-		size = len;
-		build_min_heapify(array,this->len);
-	}
-	
-	
 	//helping functions
 	void swap (int &a,int &b)
 	{
@@ -252,6 +231,28 @@ class minheap
 	{
 		for(int i = (len/2) -1; i>=0;i--)
 			min_heapify(ar,len,i);
+	}
+
+	public:
+	int* array;
+	int len;
+	int size;
+	
+	//constructors
+	minheap()
+	{
+	 	len = 0;
+	 	size = 0;
+	 	array = NULL;
+	}
+	minheap(int *ar, int len)		
+	{
+		array = (int*)malloc(sizeof(int)*len);
+		for(int i = 0; i < len; i++)
+		    array[i] = ar[i];
+		this->len = len;
+		size = len;
+		build_min_heapify(array,this->len);
 	}
 	
 	void insert(int value)
