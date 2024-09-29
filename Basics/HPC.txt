@@ -1,0 +1,63 @@
+scp file.txt username@url:path01
+scp -r folder username@url:path01
+
+ssh username@url
+
+HPC:
+    sbatch file.slurm 
+    squeue
+        squeue -u username 
+    module list 
+    module avail 
+    module load anaconda3/2021.11 
+    scancel jobid01
+    node list
+    sinfo -N
+
+
+
+SLURM FILE:
+TYPE1:
+    #!/bin/bash
+    #SBATCH --job-name=my_python_job          # Job name
+    #SBATCH --output=output_%j.txt            # Output file (%j will be replaced by the job ID)
+    #SBATCH --error=error_%j.txt              # Error file (%j will be replaced by the job ID)
+    #SBATCH --ntasks=1                        # Number of tasks (processes)
+    #SBATCH --cpus-per-task=4                 # Number of CPU cores per task
+    #SBATCH --mem=16G                         # Memory per node
+    #SBATCH --gres=gpu:1                      # Request 1 GPU (if needed, comment this line if not using GPUs)
+    #SBATCH --partition=gpu                   # Partition (queue) to submit to (use 'gpu' for GPU jobs)
+    #SBATCH --mail-type=END,FAIL              # When to send email (options: BEGIN, END, FAIL, ALL)
+    #SBATCH --mail-user=your_email@example.com # Email to send notifications
+    # Run your Python script
+    python hpc.py              # Replace with the path to your Python fil
+    # If using a GPU, check if it's visible
+    nvidia-smi                                  # Optional: Check GPU status
+
+TYPE2:
+    #!/bin/bash
+    #SBATCH --job-name=example_job           # Job name
+    #SBATCH --output=output.txt              # Standard output and error log
+    #SBATCH --error=error.txt                # Error log file
+    #SBATCH --partition=short                # Partition name (queue)
+    #SBATCH --ntasks=1                       # Number of tasks (processes)
+    #SBATCH --cpus-per-task=4                # Number of CPU cores per task
+    #SBATCH --nodes=1                        # Number of nodes
+    #SBATCH --ntasks-per-node=1              # Tasks per node
+    #SBATCH --mem=8G                         # Memory per node
+    #SBATCH --time=01:00:00                  # Time limit hrs:min:sec
+    #SBATCH --mail-user=user@example.com     # Email for notifications
+    #SBATCH --mail-type=ALL                  # Email notifications (BEGIN, END, FAIL, ALL)
+    #SBATCH --gres=gpu:1                     # Request for GPU resources
+    #SBATCH --constraint=highmem             # Constraints, like node features
+    #SBATCH --account=project_account        # Project account for resource usage
+    #SBATCH --array=1-10                     # Job array, run 10 jobs with task IDs from 1 to 10
+    #SBATCH --dependency=afterok:123456      # Run after the job with ID 123456 finishes successfully
+    #SBATCH --exclusive                      # Exclusive access to nodes
+    #SBATCH --no-requeue                     # Disable requeueing the job on failure
+    #SBATCH --nice=1000                      # Set job priority (lower values = higher priority)
+    # Load necessary modules
+    module load python
+    # Run your application
+    python my_script.py
+
