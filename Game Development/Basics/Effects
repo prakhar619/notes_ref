@@ -1,0 +1,30 @@
+Blending
+    How to object color interact; alpha value; window pane;
+
+
+Lights
+    Caster:
+        Directional
+        Point Light    (Attenuation)
+        Spot Light  
+
+Lighting:
+    Ambient
+    Diffuse
+    Specular
+    Phong/Combined
+    Blinn-Phong 
+
+Gamma Correction
+Bloom
+
+Material:   (Object and Light Source)
+    Ambient
+    Diffuse 
+    Specular 
+    Shininess   (Only Object)
+    
+
+
+Culling:
+    Face:
