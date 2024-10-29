@@ -1,0 +1,188 @@
+Right To Left Execution
+
+SHOW DATABASES;
+USE database1;
+SHOW TABLES;
+
+SQL Data Types
+    CHAR
+    VARCHAR
+    TINYTEXT
+    TEXT
+    BLOB 
+    MEDIUMTEXT 
+    LONGTEXT 
+    LONGBLOB 
+    
+    TINYINT 
+    SMALLINT 
+    MEDIUMINT 
+    INT 
+    BIGINT
+    FLOAT 
+    DOUBLE 
+    DECIMAL 
+
+    DATE
+    DATETIME
+    TIMESTAMP
+    TIME 
+
+    ENUM 
+    SET 
+
+    BOOLEAN 
+    BIT 
+
+DDL (Data Definition Language)
+    CREATE 
+        create
+    ALTER TABLE
+        change col properties 
+    DROP 
+        delete
+    TRUNCATE 
+        remove row
+    RENAME
+        rename
+    DESCRIBE    
+        DESCRIBE table1;
+
+DML (Data Manipulation Language)
+    C 
+        INSERT 
+    R 
+        SELECT 
+    U 
+        UPDATE 
+    D 
+        DELETE 
+
+DCL (Data Control Language)
+    GRANT
+    REVOKE
+
+TCL (Transaction Control Language)
+    START TRANSACTION 
+    COMMIT
+    ROLLBACK
+    SAVEPOINT
+
+
+DML 
+    C:
+        INSERT INTO <tableName>(<colName>, <colName>, <colName>) VALUES (v1,v2,v3),(val1,val2,val3);
+
+    R:
+        SELECT <ColName> FROM <tableName> WHERE age > 18 AND age is NULL;
+        SELECT <ColName> FROM <tableName> WHERE name = 'name1';
+        SELECT <ColName> FROM <tableName> WHERE age BETWEEN 0 AND 100;
+        SELECT <ColName> FROM <tableName> WHERE officer_name IN ('Lakshay','Maharana','Deepika');
+        SELECT <ColName> FROM <tableName> WHERE cond1 AND cond2 
+        SELECT <ColName> FROM <tableName> WHERE cond2 OR cond1 
+        SELECT <ColName> FROM <tableName> WHERE <ColName> NOT IN (1,2,3);
+        SELECT <ColName> FROM <tableName> WHERE <ColName> IS NULL;
+        SELECT <ColName> FROM <tableName> WHERE <ColName> LIKE '%p_';
+            % = *
+            _ = . 
+        SELECT <ColName> FROM <tableName> WHERE clause1 ORDER BY <ColName> DESC;
+        SELECT <ColName> FROM <tableName> WHERE clause1 ORDER BY <ColName> ASC;
+        SELECT <ColName>, COUNT(<ColName>) FROM <tableName> WHERE cond1 GROUP BY <ColName>,<ColName>,<ColName>
+        Select COUNT(cust_id), country from customer GROUP BY country HAVING COUNT(cust_id) > 50;
+                #Having and Where with group by very less difference
+        COUNT()
+        SUM()
+        AVG()
+        MIN()
+        MAX()
+
+        SELECT DISTINCT <ColName> FROM <tableName>;
+
+    U:
+        UPDATE <tableName> SET <colName> = <colName> + 1
+        UPDATE <tableName> SET <colName> = <value>, <colName> = <value> WHERE <cond>
+        #replace insert if not updated
+        REPLACE INTO <tableName> (<colName>,<colName) VALUES (<newValue>,<newValue>);
+        REPLACE INTO <tableName> SET <colName> = <value>, <colName> = <value>;
+
+    D:
+        DELETE FROM <tableName>
+        DELETE FROM <tableName> WHERE id = 1;
+        #On delete cascade or null
+
+DDL
+    Primary and Foreign Key:
+        CREATE TABLE <tableName> ( <ColName> INT PRIMARY KEY, <ColName> DATE, FOREIGN KEY (<ColName>) REFERENCES <table<Name>(<ColName>));
+        CREATE TABLE <tableName> ( <ColName> INT PRIMARY KEY, <ColName> DATE, FOREIGN KEY (<ColName>) REFERENCES <table<Name>(<ColName>) ON DELETE CASCADE);
+        CREATE TABLE <tableName> ( <ColName> INT PRIMARY KEY, <ColName> DATE, FOREIGN KEY (<ColName>) REFERENCES <table<Name>(<ColName>) ON DELETE SET NULL); 
+
+    Unique: 
+        CREATE TABLE <tableName> ( <ColName> VARCHAR(1024) UNIQUE);
+
+    Checks:
+        CREATE TABLE <tableName> ( CONSTRAINT <constraint_name> <ColName> > 12);        #constraint_name is optional
+    
+    Default:
+        CREATE TABLE <tableName> ( <ColName> DOUBLE NOT NULL DEFAULT <value>);
+
+    Alter:
+        Add:
+            ALTER TABLE <tableName> ADD <colName> INT ADD <colName> DOUBLE;
+        
+        Modify:
+            ALTER TABLE <tableName> MODIFY <colname> <newDatatype>
+        
+        Rename:
+            ALTER TABLE <tableName> CHANGE COLUMN <colName> <newColName> <newColDatatype>;
+            ALTER TABLE <tableName> RENAME TO <newTableName>
+        Drop:
+            ALTER TABLE <tableName> DROP COLUMN <colName>
+
+Joining Tables:
+(Combining tables based on conditions)
+
+    Inner Join: 
+        SELECT <colName> FROM <tableName1> INNTER JOIN <tableName2> ON <cond1>
+                                            INNER JOIN <tableName3> ON <cond2>;
+            #common entries
+
+    Alias:
+        SELECT <colName> AS <alias_name> FROM table_name;
+
+    Outer Join: 
+        Left Join:
+            SELECT <colName> FROM <table1> LEFT JOIN <table2> ON <join_cond>;
+            #table 1  full with null values for table2 columns
+        
+        Right Join:
+            SELECT <colName> FROM <table1> RIGHT JOIN <table2> ON <join_cond>;
+        
+        Full Join:
+            SELECT <colName> FROM <table1> LEFT JOIN <table2> ON <join_cond1> UNION SELECT <colName> FROM <table1> RIGHT JOIN <table2> ON <join_cond1>;
+        #MySQL dont support
+    
+    Cross Join:
+    Self Join:
+
+Set Operations:
+    UNION:
+        <SELECT1> UNION <SELECT1>
+    
+    INTERSECT:
+
+    MINUS:
+
+Sub Queries:
+
+    where clause
+        SELECT * FROM <table1> WHERE col1 IN (Select col1 FROM <table1>);
+    from clause 
+        SELECT MAX(rating) FROM (SELECT * FROM movie WHERE country = ‘India’) as temp;
+    select clause
+        SELECT (SELECT column_list(s) FROM T_name WHERE condition), columnList(s) FROM T2_name WHERE condition;
+
+
+Functions:
+    LENGTH(string1)     
+    DATE_ADD(W2.recordDate, INTERVAL 1 DAY)
+    ROUND(val, 3);

@@ -26,7 +26,7 @@ Prompt Info
 
 COLUMN PROPERTIES
     PRIMARY										#for each row to be identified this column cannot contain same value for two different row
-    NOT NULLl									#column must have a value
+    NOT NULL									#column must have a value
     UNIQUE										#same as primary key only that many column in same table can be unique
     DEFAULT										#default valueee
 
@@ -191,7 +191,6 @@ Date and Time
 	DATETIME(fsp)		yyyy-mm-dd hh:mm:ss  default current_timestamp
 	TIMESTAMP(fsp)		yyyy-mm-dd hh:mm:ss
 	TIME(fsp)			hh:mm:ss
-	YEAR				a four digit no
-
+	YEAR				a four digit
 
 
