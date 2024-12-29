@@ -1,130 +1,134 @@
 % about
-\def\MyName{Prakhar Gupta}
+\def\MyName{<Name>}
 \def\MyDegreeType{Undergraduate}
-\def\MyBranch{Computer Science and Engineering}
-\def\MyYear{Fourth}
-\def\MyAddress{62-A, Kurmitola, Azamgarh}
-\def\MyEmail{prakhar.gupta.21031@iitgoa.ac.in}
-\def\MyPhone{+91 8858968971}
+\def\MyBranch{Mathematics and Computing}
+\def\MyYear{Second}
+\def\MyAddress{5, Brookfield Street, NYC}
+\def\MyEmail{<email.id> @iitgoa.ac.in}
+\def\MyPhone{+91 xxxxxxxxxx}
 
 %% --- links ---
 \newcommand{\MyLinks}{
-	LinkedIn: \Link{https://in.linkedin.com/in/prakhar-gupta-b5331124b}{Prakhar Gupta}
+	LinkedIn: \Link{www.linkedin.com/in}{www.linkedin.com/in}
 }
 
 \newcommand{\github}{
-	Github: \Link{https://github.com/prakhar619}{prakhar619}
+	Github: \Link{www.linkedin.com/in}{www.linkedin.com/in}
 }
 
 %% --- education ---
 \newcommand{\EducationData}{%%
-	\MyDegree     {BTech, Computer Science and Engineering}
+	\MyDegree     {BTech, Mathematics and Computing}
 	\MyInstitute  {Indian Institute of Technology Goa}
-	\MyScore      {CGPA : \textbf{7.49/10}}
+	\MyScore      {CGPA : \textbf{7.24/10}}
 	\MyEduComment {\hspace*{15mm}}
-	\MyEduDate    {2021 -- Present}
+	\MyEduDate    {2020 -- Present}
 	%
     \hline
 	\MyDegree     {Class 12, CBSE}
-	\MyInstitute  {St.Xavier's High School, Ailwal}
-	\MyScore      {Aggregate: \textbf{93.2} \%}
+	\MyInstitute  {Ryan International School, Mayur Vihar}
+	\MyScore      {Aggregate: \textbf{88} \%}
 	\MyEduComment { \hspace*{15mm}}
-	\MyEduDate    {2019  --  2021}
+	\MyEduDate    {2018  --  2020}
   
 	%
     \hline
-	\MyDegree     {Class 10, ICSE}
-	\MyInstitute  {Jyoti Niketan School, Atlas Tank}
-	\MyScore      {Aggregate: \textbf{95.4} \%}
-	\MyEduComment { \hspace*{15mm}}
-	\MyEduDate    {2017  --  2019}
-   %
-    \hline
 }
-%% --- projects ---
-\newcommand{\ProjectData}{
-	%%
-	\ListItem
-	{Simple Physics Engine \Link{https://github.com/prakhar619/Simple-Physics-Engine}{[Github]}}
-	{( Mar 24  --  Present)}
-	{
-	\item Designed Physics Engine for point objects, rigid bodies to simulate their interaction in different environments based on principles of classical mechanics.
-	\item Used \textbf{ C++ with SDL2(Simple DirectMedia Layer)} library based on OpenGL provided efficient low-level way to handle graphics, audio, input and other multimedia functionalities.
-        \item Extended  application simulator to \textbf{Multi Thread} for efficient handling of user input and Physics using Thread STL, synchronizing between different threads using mutex yielding 30\% faster computation time.
-	\item Created key component features like entity, \textbf{motion dynamics}, \textbf{collision detection and handling}, fixed and variable time stepping, FPS management from ground up.
-	}
-        %%
-	\ListItem
-	{Open Maps Navigator\Link{https://github.com/prakhar619/openMap/}{[Github]}}
-	{(Aug 23  --  Nov 23)}
-	{
-	\item Coded \textbf{OpenStreetMap} Navigation, an open source Google Map alternative, using OSM raw data, leveraging the extensive and constantly updated OSM database.
-	\item  Constructed \textbf{POI (Point of Interest)} special feature to discover more than 100 nearby points of interest such as restaurants, cafes, parks, and landmarks within user's vicinity.
-	\item Executed heuristic based algorithms like \textbf{A* Search} providing 67\% faster result than DFS and BFS to navigate in real world with turn-by-turn directions, estimated travel times, and distance information to reach their destinations efficiently.
-	}
-	%%
-	\ListItem
-	{Lab Coordinator \Link{https://github.com/prakhar619/Lab-Management}{[Github]}}
-	{(Feb 24  --  Mar 24)}
-	{
-	\item Deployed Lab assessment web application for seamless coordinating between students, TAs and other faculties managing multiple hierarchical user login and respective privileges, tested for more than 50 simultaneous logins.
-	\item Used \textbf{SQL} based relation database management system SQLite, an open source which supports ACID (Atomicity, Consistency, Isolation, Durability) transactions providing query execution time of less than 1 millisecond.
-	\item Developed using \textbf{NodeJS} and \textbf{EJS} for accessing Javascript runtime environment and Javascript template engine respectively.
-        \item Constructed the Backend of \textbf{User Management System}, \textbf{Viva Scheduling}, Grading Management, Analytics and Reporting for efficient coordination and ensuring seamless experience for both students and examiners.
-	}
 
-	%%
-        \ListItem
-	{AI Pacman Project\Link{https://github.com/prakhar619/cs188_Project}{[Github]}}
-	{(Sept 23  --  Nov 23)}
+%% --- experience ---
+\newcommand{\ExperienceData}{%%
+	\ListItem
+	{Interned at IIT Bombay with DRDO Scientist Dr. Peeyush Sahay’s thesis under Prof. V.M. Gadre’s supervision}
+	{(May 2019 --  July 2019)}
 	{
-	\item Implemented \textbf{10+ AI algorithms} as part of academic lab in python.
-	\item Performed AI searching like \textbf{Uninformed} and \textbf{Informed search} methods,\textbf{ CSPs} (constraint satisfaction problems consisting of backtracking search, forward checking as well as constraint propagation. 
-        \item Integrated Game Playing technique comprising of \textbf{ Minimax Search} and their optimisation like\textbf{ alpha-beta pruning} and evaluation heuristic approximation improving speed by 32\% for bigger trees.
+	\item [] \small\emph{[Guidance of Dr. Sashidhar Sampathirao | IIT Goa]} \normalsize
+	\item  Worked on thesis topic “Higher Order Time-Frequency Methods and Its Application in RADAR” by Dr. Peeyush Sahay
+	\item Modified Chapter 1 of thesis, which introduced several transforms, for which acknowledgement is promised
+	\item Completed critical review of entire thesis, especially was assigned for SAR (Synthetic Aperture RADAR)
+	\item The thesis involved introduction of modified GTFT, my task was to understand the thesis and verify the results using MATLAB simulations
 	}
+	%%
+}
+
+%% --- projects ---
+\newcommand{\ProjectData}{%%
+	\ListItem
+	{Handwritten Alphabet Classifier using Naive Bayes \Link{www.linkedin.com/in}{[Github]}}
+	{(Jan 20XX  --  May 20XX)}
+	{
+	\item Built a naive bayes classifier as a part of institute course project to predict the handwritten written digits.
+	\item Coded the classifier from scratch without using any machine learning library, using the concepts of probability and statistics.
+	\item Programmed on python, using numpy, pillow, pandas module.
+	}
+	%%
+	\ListItem
+	{Fully autonomous maze solver bot \Link{www.linkedin.com/in}{[REPORT]}}
+	{(Jan 20XX  --  May 20XX)}
+	{
+  	\item[] \small\emph{[Supervisor – Prof. Name]}  \normalsize
+	\item Led the project, divided work into 2 teams, one performed the programming part and other team did hardware design
+	\item Built the bot using Arduino, Ultrasonic and Infrared Sensors, DC Motors and L293D motor controller
+	\item Designed to store only the correct path and implemented the Dijkstra algorithm to find the shortest path
+	}
+	%%
+	\ListItem
+	{Building a fully autonomous flying drone to detect oil leakages and cracks along with its location in ships \Link{www.linkedin.com/in}{[REPORT]}}
+	{(Nov 20XX  --  Present)}
+	{
+	\item Divided project into 3 levels, Vertical Motion, Horizontal Motion and then in both directions
+	\item Developed such that it will leave from seashore to the ship which will be few meters away from seashore, drone will use a sensor to detect certain properties of seawater nearby the ship
+	\item Till February we completed level 1 successful, paused the project due to COVID
+	}
+	%%
 }
 % --- skills ---
 \newcommand{\SkillsTable}{
 	\SkillsRow
 	{Programming Skills:}
-	{C, C++, C\#, Python, Java, Haskell, JavaScript, Bash, R, Prolog, VHDL, SQL, Mongoose, MIPS Assembly, CUDA.}
+	{C, C++, Python, MATLAB, Octave, Javascript, R, AutoCAD.}
 	\SkillsRow
-	{Software Skills:}
-	{Auto-CAD, Solid works, LaTex, Git, GitHub, VS, VS Code, Vivado Xilinx, IntelliJ IDEA, Anaconda.}
-        \SkillsRow
-        {Frameworks/Libraries and OS:}
-        {Ubuntu, Fedora, Windows,  Node,  Express, Spring Boot, Bootstrap, React, MongoDB, MySql, TensorFlow, Sci-kit-learn, SDL, Unity, Posix.}
+	{Electrical Software Skills:}
+	{AutoCAD, Solid works, Latex, Power BI, MS Word, MS Excel., Figma, Linux, Git, Github..}
+ 	\SkillsRow
+	{Computer Skills:}
+	{Microprocessor 8085 and Microcontroller 8051, VHDL, Arduino UNO, FEM: Magnet Software, NGspice.}
 	\SkillsRow
 	{Relevant Coursework}
-	{Data Structures and Algorithms, Algorithm Design, Computer Networks, Machine Learning, Artificial Intelligence, Probability and Statistics, Optimisation, Computer Architecture, Compiler Design, Unix Tools. }
-
+	{Analog Circuits, Digital Electronics, Microprocessor and Microcontroller, Electronic Devices, Control System, Power System Analysis, Machines, Power Electronics}
+	\SkillsRow
+	{Financial Skills}
+	{Macro and Microeconomics, attended various workshops as Entrepreneurship Cell Head, Several PORs, Leadership skills.}
 }
 
 %% --- positions of responsibility ---
 \newcommand{\PorTable}{%%
+	\PorItem
+		{General Secretary Academics }
+		{Head position of IIT Goa Student Academic Council, leading more than 14 student representative }
+		{(20XX -- Present)}
+	\PorItem
+		{Overall Placement Coordinator }
+		{Leader of a team of 13 student coordinators }
+		{(20XX -- Present)}
   	\PorItem
-		{Wing Representative}
-		{Hostel Wing Representative in Student Panchayat}
-		{(2022 -- 2023)}
+		{Class Representative: }
+		{Class Representative of IIT Goa XX Batch of 20XX, handled all the issues related to academics of our batch}
+		{(20XX -- Present)}
 	\PorItem
-		{Core-Member}
-		{Alpha - Finance Club of IIT Goa }
-		{(Mar 23)}
-	\PorItem
-		{Event Overseer}
-		{Cepheus KBC Event Overseer}
-		{(2023 -- 2024)}
+		{Student Mentorship Program }
+		{For consecutive 2 years selected to mentor 9 Student}
+		{(20XX -- Present)}
 }
+
 %% --- achievements ---
- %% \newcommand{\AchievementsData}{%%
-%%	\StarItem {} {(2023)}
-%% }
+\newcommand{\AchievementsData}{%%
+	\StarItem {Team lead by me was selected from IIT Goa for Innovation Contest POC (Proof of Concept) by MHRD} {(2019)}
+}
+
 %% --- hobbies ---
 \newcommand{\HobbiesData}{%%
-	\StarItem {Committed to environmental stewardship, volunteering with Varaha, the Climate Change Society of IIT Goa, to clean various beaches.} {}
-        \StarItem{Gaming enthusiast, engaging in fps, strategic, indie and open-world gameplays.} {}
-        \StarItem{Competitive table tennis player, participating in tournaments and friendly matches in spare time.} {}
-        \StarItem{Dedicated bookworm with a love for literature, exploring diverse genres and authors.} {}
+	\StarItem {Playing TT, also was selected for Table Tennis for Inter IIT Sports Meet, 2018 and Aavahan, IITB sports festival} {}
+	\StarItem {Hosted several events in college (Cultural Fests, Independence Day, Republic Day etc) and organized several talks} {}
 }
 
 % sizes
