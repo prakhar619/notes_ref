@@ -1,6 +1,2 @@
-MYSQL Server Management 
-    
-User    
-    CREATE USER 'user1'@'localhost' IDENTIFIED BY 'password1';
-    DROP USER 'user1'@'localhost';
+
     

@@ -1,0 +1,31 @@
+Ctrl + P: Select all object + At last to_be_parent_object -> ctrl+p
+
+g: Grab Tool 
+
+Alt + p: Selection 
+
+Ctrl + b:
+    Object Mode: Visible Only through box Mode
+    Edit Mode: Bevel
+
+Shift + b: Zoom Region Tool
+
+Tab: Toggle Edit/Object Mode
+
+Shift + z: Toggle Wireframe/X ray
+
+P: Edit Mode -> Separate Selection
+
+Shift + s -> Selection to Cursor menu
+
+~ -> View Toggle
+
+
+
+Pivot:
+Cursor and Selection
+Shift + s and Object -> Origin menu
+1. Shift + s -> Curson to world Origin
+//2. Shift + s -> Selection to cursor keep offset
+3. Place object at world Origin
+4. Object -> Origin -> Origin at 3d cursor

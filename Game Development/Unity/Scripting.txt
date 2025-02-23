@@ -7,18 +7,23 @@ Imports
 Inherits 
     Monobehaviour
 
+GameObject
+    Camera:
+        cameraObject
+            cameraObject.transform.position.x;
+
 
 Implement Functions
+    void Awake()
+        Once in lifetime
+        Exe before Start
+        Initialise object
     void Start()    
         Once in lifetime
         Communication b/w objects
     void Update()
         frame related
         Handle Input
-    void Awake()
-        Once in lifetime
-        Exe before Start
-        Initialise object
     void FixedUpdate()
         fps indepentent calls
         physics update
@@ -35,23 +40,61 @@ Implement Functions
 
 
 Call Functions
-    GetComponent< Component_Name >();
-        Get same object other component
-    GetComponents< Component_Name >();
-    GameObject.FindWithTag("tag_name").component;
-    GetComponentInParent< Component_Name >();
-    Input.GetAxis("Horizontal");
-    Mathf.MoveTowards(currentValue,targetValue,stepSize)
+    Find/Component:
+        GetComponent< Component_Name >();
+            Get same object other component
+        GetComponents< Component_Name >();
+        GameObject.FindWithTag("tag_name").component;
+        GetComponentInParent< Component_Name >();
+        AddComponent<Component_name>();
+
+    Input:
+        Input.GetAxis("Horizontal");
+        Input.GetKeyDown(KeyCode.Return)
+
+    Invoke:
+        InvokeRepeating(function_name,startTime,repeatTime);
+        Invoke(nameof(FunctionName),delay);
+            Invoke("function_name", 10f);
+        CancelInvoke();
+
+    Create:
+        Instantiate(game_object, new Vector3(x,y,z), Quaternion.identity)
+
+    Delay (also check invoke):
+        private IEnumerator DelayCoroutine(float delay_value)
+            yield return new WaitForSeconds(delay_value_inSeconds)
+
+
+    Coroutine:
+        StartCoroutine(coroutine_name);
+
+    Destroy:
+        DestroyImmediate(obj);
+        DontDestroyOnLoad(obj);
+        Destroy(obj, delay);
+
+    
+
     CameraObj.ScreenToWorldPoint(screenVector2);
-    Mathf.Max();
-    Mathf.Clamp(value,lower,upper);
-    InvokeRepeating(function_name,startTime,repeatTime);
-    CancelInvoke();
-    DestroyImmediate(obj);
-    DontDestroyOnLoad(obj);
     SceneManager.LoadScene("SceneName");
-    Invoke(nameof(FunctionName),delay);
-    Destroy(obj, delay);
+    
+
+Coding
+    Data Members:
+        GameObject
+        Vector3
+        float
+
+    Functions:
+        Mathf.MoveTowards(currentValue,targetValue,stepSize)
+        Mathf.Max();
+        Mathf.Clamp(value,lower,upper);
+
+    Printing:
+        Debug.Log("Msg")
+        Debug.LogWarning("Warn")
+        Debug.LogError("Error")
 
 Data Members
     Time.deltaTime
@@ -65,6 +108,7 @@ Inspection Members
     Rigidbody2D
         .position 
         .MovePosition(new_position)
+            for physics movement (not just teleport)
         .WakeUp();
         .Sleep();
         .isKinematic
@@ -72,6 +116,8 @@ Inspection Members
         .eulerAngles
     SpriteRenderer
         .enabled
+    Rigidbody
+        .isKinematic
 
 
 Extensions
@@ -82,5 +128,14 @@ Extensions
 
 
 Sprite
+
+KeyCodes:
+
+
+
+Notes:
+    1. Quaternion.identity means aligned to world axis and not rotated otherwise
+    2. isKinematic means not affected physics forces / rigidbody kindof disabled
+    3. Although public member appear in Unity Inspector. Use [Serialize Field] to set data member as private yet visible in inspector.
 
     

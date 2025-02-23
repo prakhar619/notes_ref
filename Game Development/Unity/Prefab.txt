@@ -29,3 +29,6 @@ Inspector
         offset
         Size
     6. Script
+    7. Hinge Joint
+        Anchor
+        
