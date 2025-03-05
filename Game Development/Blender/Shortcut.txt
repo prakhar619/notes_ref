@@ -7,6 +7,7 @@ Alt + p: Selection
 Ctrl + b:
     Object Mode: Visible Only through box Mode
     Edit Mode: Bevel
+    Ctrl + Alt + b to stop using it
 
 Shift + b: Zoom Region Tool
 
@@ -20,12 +21,14 @@ Shift + s -> Selection to Cursor menu
 
 ~ -> View Toggle
 
+Shift + a: Add (Object Mode)
+
 
 
 Pivot:
-Cursor and Selection
-Shift + s and Object -> Origin menu
-1. Shift + s -> Curson to world Origin
-//2. Shift + s -> Selection to cursor keep offset
-3. Place object at world Origin
-4. Object -> Origin -> Origin at 3d cursor
+    Cursor and Selection
+        Shift + s and Object -> Origin menu
+        1. Shift + s -> Curson to world Origin
+        //2. Shift + s -> Selection to cursor keep offset
+        3. Place object at world Origin
+        4. Object -> Origin -> Origin at 3d cursor
