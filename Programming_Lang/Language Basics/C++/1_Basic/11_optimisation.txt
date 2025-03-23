@@ -1,0 +1,61 @@
+60 fps: 16.6ms for each frame
+
+Earlier: 
+	Reduce code (assembly code)
+
+Nowaday:
+	Reduce memory access
+
+RAM: Thousands of processor cycles
+CACHE: 10-100 processor cycles (in case of hit)
+REGISTER: 1-10 processor cycles
+
+Cache optimises access time by:
+	physically closer to cpu (on same die)
+	fast technology
+
+We need to optimize code so that more cache hit %.
+
+Cache Structure:
+	Cache Size: 32KiB  (~32KB)
+	Cache Line: 128Byte
+
+	How many cache Lines: 256 cache lines
+
+How is RAM address mapped to Cache 
+	i. Direct Mapped Cache
+		Each address of RAM maps to one line in cache
+		Many to one mapping
+		Modulo used in calculation
+	ii. n-way Set Associated Cache
+		Each address of RAM maps to n cache line
+		Create new question: Which way to evict: CPU REPLACEMENT POLICY -> oldest is one of the solution
+
+Instruction Cache and Data Cache
+Set Associativity and Replacement Policy
+
+
+Write Policy
+	When to write on cache, when to write on RAM
+Multilevel Cache
+	L1 and L2 cache
+	New Problem: Cache Consistency/Coherency: => Solution -> Protocols. 
+		MESI	: Modified, Exclusive, Shared, Invalid
+		MOESI	: Modified, Owned, Exclusive, Shared, Invalid
+
+
+Parallelism in CPU itself:
+	1. Instruction Pipelining
+	2. Superscalar CPUs
+		redundant copies of circuitry for some or all stages of its pipeline stages
+
+Pipelining Obstacles:
+	Stalls and Data Dependencies
+		Solution:
+			Branch Prediction
+
+Loat-Hit-Store
+	when you try to convert float to int, no direct way to transfer float register to int register
+	float-point register -> memory -> int register
+	data dependency (mem speed low)
+	

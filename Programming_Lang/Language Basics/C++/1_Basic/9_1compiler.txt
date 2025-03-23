@@ -1,0 +1,31 @@
+Compiled Language:
+	Compiler and Linker  => Source Code -> Executable Program
+	Source File = Translation Unit
+	.c, .cc, .cxx, .cpp
+	C++ Preprocessor => #include -> Add contents into the file prior its starting as if same file
+
+	Translation Unit -compiler-> Object Code (.o) -Linker-> Executable 
+	Object Code:
+		Relocatable (addresses are not resolved)
+		Unlinked (external References, global data outside the translation unit are not resolved)
+	Executable:
+		Final Relative address
+		Linked (external Refs are fulfilled)
+
+	Only during runtime absolute address are fulfilled (base address)
+
+	Library
+		Group of Object files
+	DLL (Dynamic Link Library)
+		Hybrid between regular static library and executable
+		can act as executable
+		some external ref might be unlinked (some are linked)
+	
+	Compiler Macros
+		_MSC_VER (microsoft compiler) or __GNUC__ (GNU compiler)
+	Target Macros
+		__WIN32__ (Windows) or __linux__ (Linux)
+	C++ Macro
+		__cplusplus
+
+	These are defined when used; #ifdef _DEBUG    #endif

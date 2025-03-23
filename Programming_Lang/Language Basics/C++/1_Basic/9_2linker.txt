@@ -1,0 +1,56 @@
+Translation.cpp ---Compiler---> Unresolved_Linkage.o ---Linker---> Resolved.exe      (.o is object file; .exe or .out)
+
+Linker gives only 2 types of error:
+	unresolved reference
+	multiple-defined reference
+
+Use extern of variable defined at other places for compiler to not give error;
+
+Declaration vs Definition
+	Declaration is function signature; No real memory space allotment
+	Definition -> itself a declaration; Memory Alloted
+	
+	extern int max(int a, int b); (function signature)
+
+	int max(int a, int b)
+	{
+		return (a => b)? a : b;
+	}
+
+	Multiple Identical Declaration in single file  and Single Definition => No Error
+	Nultiple Identical Declaration in multiple file and Single Definition => No Error
+	Multiple Identical Definition in single file => Compiler Error    
+	Multiple Identical Declaration and Multiple Identical Definition in multiple file => Linker Error (compiler works on single file at a time)
+
+	Be careful with definition in header files as this can cause multiple reference error
+
+	Inlining does not suffer from such events as each time new space is initialised; (internal linkage)
+		inline int max(int a, int b)
+		{
+		}
+		inline int max(int a, int b);
+
+Linkage
+	Property present in defintion
+	Can be External Linkage or Internal Linkage
+	kind of like public, private (scope) but for linker
+	Changed by static keyword
+	Default: External 
+	static keyword changes linkage to internal
+		2 static definitions (identical) in different files does not cause error as linker considerers them distinct entities
+		Can be used globally inside a file but wont cause issue in other files
+
+	declaration dont have linkage property because they do not allocate any storage
+		merely a refernce to an entity defined elsewhere
+		can be considered to have internal linkage because applies to same translation unit where it appears
+		if we put declaration in header file, each file can see it but each get its own distinct copy of that declaration
+
+	Static keyword all features
+	1. Static variable in function
+		memory allocated for lifetime of program
+	2. Static data member in class
+		memory allocated for lifetime when class in created. Can be used in class object. Instance object share this variable
+	3. Static function member in class
+		class object accessible, can use only static data member;
+	4. Global variable
+		changes linkage to internal

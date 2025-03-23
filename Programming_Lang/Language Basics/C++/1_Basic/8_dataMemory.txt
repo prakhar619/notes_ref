@@ -1,0 +1,87 @@
+Integer
+	Unsigned
+	Signed
+		32 bit (8 * 4bit for each hexadecimal character)  2's Complement
+		0x0000 0000 - 0x7FFF FFFF : Positive
+		0x8000 0000 - 0xFFFF FFFF(-1)					(0x8000 0000: 0b1000 0000 0000 0000  0000 0000 0000 0000)
+			Increasing hexadecimal value we first reach biggest negative value (rather smallest integer) then towards -1az
+	
+Floating
+		Fixed Point Notation
+			One part shows whole number part
+			One part show fractional number part
+				Decreasing power of 2; 1/2, 1/4, 1/8, 1/16 ...
+			-173.25: 16 bit split (Q1.15 format)
+				173: 16 bit: 0b0000 0000 1010 1101 
+				0.25: 15 bit:  0.25 = 1/4 = 2^-2 = 0b0.01 = 0b0100 0000 0000 0000 (Pure binary fractional)
+					2^0=1(0b1); 2^1=2(0b2); 2^2=4(0b4)
+				1 bit for sign: 0b1 (negative)
+				Finally
+					0b 1 0000 0000 1010 1101   0100 0000 0000 000
+					 sign     whole                  fractional
+		Fractional Point Notation
+			No fixed splt
+			3 parts
+				Mantissa
+				Exponent
+				Sign bit
+			Most standard split is IEEE-754: 32bit-> 1 sign bit, 8 exponent bit, 23 mantissa bit
+				 value = s(sign bit) * 2^(e - 127) * (1 + m)
+				exponent is bias by 127
+				2 bit reserved for NAN and Infinite. 8 bit=> 256 values -> 254 values
+			PRECISION VS MAGNITUDE TRADEOFF
+				mantissa size is fixed and is shared by both whole number and fractional
+				if exponent is large -> mantissa loses some value
+				Example
+					0x7F7F FFFF (32 bit)
+					Mantissa: 1 implicit 1bit + last 23 bits:   F F FFFF  (0b0111 1111 0(23 bits)111 1111 ...16bits...)
+					Exponent:	0b1111 1110 -> 254 => removing bias -> 127	(0b0 111 1111 0)
+					Now exponent causes shift therefore: 0xFF FFFF * 2^127 => 0xFFFF FF00 0000 0000 0000 0...26zeros
+					When we minus any number which is not in order of this; mantissa might not change because present in higher bits only
+					Exponent remains same;
+					Therefore precision loss
+
+
+
+Atomic Datatypes
+	char					8bit (can be signed or unsigned)
+	int, short, long		32bit, 16bit, 32or64bit
+	float					32bit	
+	double				64bit
+	bool					8bitor32bit
+
+Compiler Specific Sized Types
+	__int8
+	__int16
+	__int32
+	__int64
+
+SIMD Types (Single Instruction Multiple Data) (vector processor) 
+	__m128		(4 float simd)
+
+Custom Portable Sized Types
+	F32			32bit float
+	U8,U16... and I8,I16...    Unsigned and Signed Int
+	VF32...       4 float SIMD value
+
+<cstdint>
+	int8_t
+	int16_t
+	int32_t
+	uint8_t
+	...
+
+
+Little Endianness and Big Endianness
+	Our Notation:			0xABCD1234
+	 ---low mem address --------------high mem address ----->
+	Little Endianness: 0x34 0x12 0xCD 0xAB
+	Big Endianness: 0xAB 0xCD 0x12 0x34
+
+	Integer Endian Swapping
+		**Future**
+		
+	Floating Point Endian Swapping
+		would have to use reinterpret_cast (type pruning)
+		this causes bugs 
+

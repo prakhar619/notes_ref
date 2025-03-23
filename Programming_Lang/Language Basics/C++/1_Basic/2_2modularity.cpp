@@ -1,4 +1,4 @@
-#include "modularity_2.h"
+#include "2_modularity.h"
 //Implementation
 
 Vector1::Vector1(int s):elem{new double[s]}, sz{s} {}

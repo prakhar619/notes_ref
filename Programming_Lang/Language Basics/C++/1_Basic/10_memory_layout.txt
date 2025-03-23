@@ -1,0 +1,85 @@
+Executable file (.exe or .out)
+	ELF file format (Executable and linking format) (.elf)
+	Windows executable (.exe)
+
+	Contains partial image of program as it will exist in memory when it runs
+	Divided into 5 segments
+	i.	Text Segment / Code Segment
+			Contains executable machine code for all functions
+	ii.	Data Segment
+			Contains all initialized global and static variables (laid out same way as when program is run)
+	iii.BSS Segment (Block Started by Symbol)
+			Contains all uninitialized global and static variable
+			All unintialized variables becomes zero; but rather than assigning each zero, linker simply stores number of variables which
+				will be assigned zero and when they are loaded into memory, os reserves the requested number of bytes for BSS and fills it with zero
+	iv. Read-Only Segment / Rodata Segment
+			Read only global data
+
+Memory Layout of C programs
+	Stack							(high address)
+
+	
+	Heap
+	Unitialized Data (BSS)
+	Initialized Data
+	Text							(low address)
+
+
+Program Stack
+	When executable program is loaded in memory and run.
+	Stack frame: Contiguous area of stack memory
+	3 kinds of data in each stack frame
+		1. Stores return address
+		2. Content of all registers are saved in stack frame
+		3. All local variables
+
+Dynamic Allocation Heap
+	For allocation during execution where storage is not statically defined
+	HeapAlloc() and HeapFree()
+	malloc() and free()
+
+	C++: new and delete keyword
+
+
+Class and Object Layout in Memory
+	Present either in heap or program stack or if global present either in Bss or data segment
+	Order of data member same as code.
+	Alignment (usually 4 byte)
+
+	int a;		(4 byte aligned)
+	int b;
+	bool c; bool d;  (1 byte aligned)
+	int e;
+	bool f;
+	int g;
+	//4 byte alignment (packing when possible but alignment always maintained)
+
+	Possible to have non aligned packing but sometimes garbage value return plus lot more processing
+
+	SIMD (128 bit) => 16 byte aligned
+
+	Also padding added to object end for array context accessiblility
+		explicit padding: int _pad[2];
+
+	FOR INHERITANCE
+
+	Each new derived class simply tacks its data member on at the end. (usually after padding)
+	
+	If virtual functions are inherited: 4 additional bytes (8 for 64bit) are added at the very beginning of the class layout
+	Virtual table Pointer or vpointer which points to vtable or virtual function table
+	Every concreate class has its own virtual table and each instance of the class has pointer to it
+
+	Shape Class
+		virtual void SetId()
+		int GetId()
+
+	Circle Class
+		inherits shape
+
+	Circle Object Memory Layout
+		vtable pointer			---> Points to Circle Class Virtual table
+		Shape Data Member
+		Circle Data member
+
+
+
