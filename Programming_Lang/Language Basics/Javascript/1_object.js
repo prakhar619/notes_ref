@@ -21,7 +21,7 @@ Objects : unordered collection of properties, each of which has a name and a val
           dynamic in nature (property add or delete or value changed during execution)
           All values in JS except String,Number,Symbol,true,false,null or undefined is an object
                 even these can behave as immutable objects
-          Objects are immutable
+          Objects are mutable
           Objects are loosely typed in Js; no fixed no. of properties; runtime creation and deleting of properties;
 
 
@@ -172,7 +172,7 @@ function object_extention()
 {
     //Object.assign()
         //In order: first object gives all its properties
-        //          2nd object gives its properties, if same property then modify
+        //          2nd object gives its properties, if same property then modify the value
         // and so on...
             let o1 = {x: 1, y: 2, z: 3};
             let defaults = {x:undefined}

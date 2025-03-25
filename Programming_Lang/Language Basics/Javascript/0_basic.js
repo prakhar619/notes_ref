@@ -19,7 +19,7 @@
 
 //  Line Breaks and Optional Semicolons
 //      Semicolon not required if line break is given
-//      Line break does always works usually when statement begin with (,[,/,+,-
+//      Line break does not always works usually when statement begin with (,[,/,+,-
 //      Therefore use semicolon like this ;[x,x+1,x+2]
 //      Mostly line breaks are not taken as ; and 2 lines are taken in continuation
 

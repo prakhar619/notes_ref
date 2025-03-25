@@ -1,4 +1,5 @@
-/*Classes
+/*
+Classes
     Basics of Class:
         1.All object/function that inherit prototype from other object => other object is class, object/function objects of that class
           Prototype based inheritance: prototype of one object same as prototye of (class) object

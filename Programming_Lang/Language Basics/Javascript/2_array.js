@@ -29,7 +29,7 @@ function creating_array()
     //Array.of()
         //to address the problem of array constructor to create array of length 1 and one element
         let array_of = Array.of(10);     //array of 1 length with element 10 
-        let array_of1 = Array.of(10,3);   //array of size 2 and element
+        let array_of1 = Array.of(10,3);   //array of size 2 and element 10 and 3
     
     //Array.from()
         //array[] Array.from(<iterable>)

@@ -9,7 +9,8 @@ Function:
 */
 
 
-/*Defining a function:
+/*
+Defining a function:
     1. function keyword [Name]
     2. function keyword [Anonymous]
     3. Function() constructor
