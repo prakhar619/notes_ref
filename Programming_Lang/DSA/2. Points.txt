@@ -1,0 +1,31 @@
+XOR
+1. 0 | 0 -> 0
+2. 1 | 0 -> 1
+3. 0 | 1 -> 1
+4. 1 | 1 -> 0
+
+5. 10 ^ 10 = 0
+6. 1 ^ 2 = 3
+7. 10 ^ 0 = 10
+
+Division Constraint
+1. x / y then y cannot be zero
+
+Multiply Constraint
+1. Overflow
+
+Array Constraint
+1. Index out of bounds
+
+Time Complexity:
+1. Consider carefully O(1) from O(n) as loops does not always mean O(n)
+2. Try to increase loop (when needed) without increasing time complexity
+
+
+
+
+
+
+
+
+

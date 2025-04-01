@@ -1,0 +1,4 @@
+1. Find Duplicate Integer or Floyd's Turtoise and Hare
+2. LRU Cache
+3. Reverse List in K groups
+4. Reverse a Linked List

@@ -1,0 +1,22 @@
+Question Attempt:
+    1. Question Read Carefully
+    2. Methodology mentally
+    3. Constrainst -> Change Methodology
+    4. Code with conventions
+        i. Hungarian Notation
+        ii. great variable names
+        iii. not look great, but eazy to debug
+        iv. Convention:
+            a. All Global variable: ALL CAPS
+            b. Class Name: PascalCase
+            c. Function / Method: Pascal Case
+            d. Fields / Attributes : 
+                3.i Private Member : _camelCase
+                3.ii Static Member: s_camelCase
+                3.iii Public: Pascal _camelCase
+            d. Local variable: camelCase
+
+Debugging
+    1. Typo / Mispell never
+    2. Final Check line by line
+    3. Assert statement

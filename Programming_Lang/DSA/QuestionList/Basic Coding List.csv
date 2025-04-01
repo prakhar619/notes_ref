@@ -1,4 +1,5 @@
 DSA Sheet
+
 Arrays
 Easy,https://leetcode.com/problems/find-the-duplicate-number/ ,unsolved
 Easy,https://leetcode.com/problems/sort-colors/ ,unsolved
@@ -28,6 +29,7 @@ Hard,https://leetcode.com/problems/max-value-of-equation/ ,unsolved
 Hard,https://leetcode.com/problems/insert-delete-getrandom-o1-duplicates-allowed/ ,unsolved
 Hard,https://leetcode.com/problems/largest-rectangle-in-histogram/ ,unsolved
 Hard,https://leetcode.com/problems/max-value-of-equation/ ,unsolved
+
 Strings ,unsolved
 Easy,https://leetcode.com/problems/valid-parentheses/ ,unsolved
 Easy,https://www.geeksforgeeks.org/print-all-the-duplicates-in-the-input-string/ ,unsolved
@@ -49,12 +51,14 @@ Hard,https://leetcode.com/problems/minimum-window-substring/ ,unsolved
 Hard,https://leetcode.com/problems/text-justification/ ,unsolved
 Hard,https://www.geeksforgeeks.org/boyer-moore-algorithm-for-pattern-searching/ ,unsolved
 Hard,https://leetcode.com/problems/distinct-subsequences/ ,unsolved
+
 Matrix Problems ,unsolved
 Medium,https://www.geeksforgeeks.org/maximum-size-rectangle-binary-sub-matrix-1s/ ,unsolved
 Medium,https://www.geeksforgeeks.org/find-number-of-islands/ ,unsolved
 Medium,https://www.geeksforgeeks.org/given-matrix-o-x-replace-o-x-surrounded-x/ ,unsolved
 Medium,https://leetcode.com/problems/spiral-matrix/ ,unsolved
 Medium,https://leetcode.com/problems/rotate-image/ ,unsolved
+
 Mathematical Problems ,unsolved
 medium,https://leetcode.com/problems/minimum-moves-to-equal-array-elements/ ,unsolved
 Easy,https://leetcode.com/problems/add-binary/ ,unsolved
@@ -68,6 +72,7 @@ Easy,https://leetcode.com/problems/power-of-two/ ,unsolved
 hard,https://leetcode.com/problems/max-points-on-a-line/ ,unsolved
 Medium,https://leetcode.com/problems/valid-square/ ,unsolved
 Medium,https://leetcode.com/problems/the-kth-factor-of-n/ ,unsolved
+
 Sorting and Searching ,unsolved
 Easy,https://www.geeksforgeeks.org/permute-two-arrays-sum-every-pair-greater-equal-k/ ,unsolved
 Easy,https://www.geeksforgeeks.org/ceiling-in-a-sorted-array/ ,unsolved
@@ -84,6 +89,7 @@ Hard,https://www.spoj.com/problems/AGGRCOW/ ,unsolved
 Hard,https://leetcode.com/problems/search-in-rotated-sorted-array/ ,unsolved
 Hard,https://leetcode.com/problems/count-of-smaller-numbers-after-self/ ,unsolved
 Hard,https://leetcode.com/problems/split-array-largest-sum/ ,unsolved
+
 Linked List
 Easy,https://leetcode.com/problems/middle-of-the-linked-list/ ,unsolved
 Easy,https://leetcode.com/problems/linked-list-cycle/ ,unsolved
@@ -115,6 +121,7 @@ Hard,https://leetcode.com/problems/reverse-nodes-in-k-group/ ,unsolved
 Hard,https://www.geeksforgeeks.org/merge-sort-for-linked-list/ ,unsolved
 Hard,https://www.geeksforgeeks.org/flattening-a-linked-list/ ,unsolved
 Hard,https://www.geeksforgeeks.org/subtract-two-numbers-represented-as-linked-lists/ ,unsolved
+
 Stacks and Queues ,unsolved
 Easy,https://leetcode.com/problems/implement-queue-using-stacks/ ,unsolved
 Easy,https://leetcode.com/problems/backspace-string-compare/ ,unsolved
@@ -136,6 +143,7 @@ Medium,https://leetcode.com/problems/flatten-nested-list-iterator/ ,unsolved
 Hard,https://www.geeksforgeeks.org/find-the-maximum-of-minimums-for-every-window-size-in-a-given-array/ ,unsolved
 Hard,https://www.geeksforgeeks.org/lru-cache-implementation/ ,unsolved
 Hard,http://geeksforgeeks.org/the-celebrity-problem/ ,unsolved
+
 Trees ,unsolved
 Easy,https://leetcode.com/problems/diameter-of-binary-tree/ ,unsolved
 Easy,https://leetcode.com/problems/invert-binary-tree/ ,unsolved
@@ -185,6 +193,7 @@ Hard,https://leetcode.com/problems/serialize-and-deserialize-binary-tree/ ,unsol
 Hard,https://www.geeksforgeeks.org/find-median-bst-time-o1-space/ ,unsolved
 Hard,https://www.geeksforgeeks.org/largest-bst-binary-tree-set-2/ ,unsolved
 Hard,https://www.geeksforgeeks.org/construct-bst-from-given-preorder-traversa/ ,unsolved
+
 GRAPHS ,unsolved
 Easy,https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1 ,unsolved
 Easy,https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/ ,unsolved
@@ -223,6 +232,7 @@ Hard,https://www.geeksforgeeks.org/travelling-salesman-problem-set-1/ ,unsolved
 Hard,https://www.geeksforgeeks.org/total-number-spanning-trees-graph/ ,unsolved
 Hard,https://leetcode.com/problems/word-ladder/ ,unsolved
 Hard,https://www.geeksforgeeks.org/minimize-cash-flow-among-given-set-friends-borrowed-money/ ,unsolved
+
 Tries ,unsolved
 Medium,https://leetcode.com/problems/design-add-and-search-words-data-structure/ ,unsolved
 Medium,https://www.geeksforgeeks.org/word-break-problem-trie-solution/ ,unsolved
@@ -230,6 +240,7 @@ Medium,https://www.geeksforgeeks.org/trie-insert-and-search/ ,unsolved
 Medium,https://practice.geeksforgeeks.org/problems/k-anagrams-1/0 ,unsolved
 Hard,https://leetcode.com/problems/palindrome-pairs/ ,unsolved
 Hard,https://practice.geeksforgeeks.org/problems/phone-directory/0 ,unsolved
+
 Heaps / PQs ,unsolved
 Easy/Medium,https://leetcode.com/problems/top-k-frequent-elements/ ,unsolved
 Easy/Medium,https://leetcode.com/problems/kth-largest-element-in-an-array/ ,unsolved
@@ -245,8 +256,8 @@ Hard,https://leetcode.com/problems/minimum-number-of-refueling-stops/ ,unsolved
 Hard,https://leetcode.com/problems/minimum-cost-to-hire-k-workers/ ,unsolved
 Hard,https://leetcode.com/problems/swim-in-rising-water/ ,unsolved
 Hard,https://leetcode.com/problems/sliding-window-maximum/ ,unsolved
-, ,unsolved
-,Dynamic Programming ,unsolved
+
+Dynamic Programming ,unsolved
 Easy,https://leetcode.com/problems/climbing-stairs ,unsolved
 Easy,https://leetcode.com/problems/maximum-product-subarray/ ,unsolved
 Easy,https://leetcode.com/problems/ones-and-zeroes/ ,unsolved
@@ -277,10 +288,12 @@ Hard,https://leetcode.com/problems/count-different-palindromic-subsequences/ ,un
 Hard,https://leetcode.com/problems/maximal-rectangle/ ,unsolved
 Hard,https://leetcode.com/problems/burst-balloons/ ,unsolved
 Hard,https://leetcode.com/problems/super-egg-drop/ ,unsolved
+
 Two Pointer Approach ,unsolved
 Medium,https://leetcode.com/problems/sort-colors/ ,unsolved
 Medium,https://leetcode.com/problems/longest-repeating-character-replacement/ ,unsolved
 Medium,https://leetcode.com/problems/maximum-number-of-visible-points/ ,unsolved
+
 Greedy Algorithms ,unsolved
 Easy/Medium,https://leetcode.com/problems/gas-station/ ,unsolved
 Easy/Medium,https://www.geeksforgeeks.org/minimum-cost-for-acquiring-all-coins-with-k-extra-coins-allowed-with-every-coin/ ,unsolved
@@ -292,6 +305,7 @@ Easy/Medium,https://www.spoj.com/problems/CHOCOLA/ ,unsolved
 Easy/Medium,https://leetcode.com/problems/non-overlapping-intervals/ ,unsolved
 Easy/Medium,https://leetcode.com/problems/minimum-deletion-cost-to-avoid-repeating-letters/ ,unsolved
 Easy/Medium,https://www.geeksforgeeks.org/minimum-sum-two-numbers-formed-digits-array-2/ ,unsolved
+
 Backtracking
 Medium,https://leetcode.com/problems/combination-sum-ii/ ,unsolved
 Medium,https://practice.geeksforgeeks.org/problems/subset-sum-problem2014/1 ,unsolved
@@ -311,6 +325,7 @@ Hard,https://www.geeksforgeeks.org/tug-of-war/ ,unsolved
 Hard,https://www.geeksforgeeks.org/find-paths-from-corner-cell-to-middle-cell-in-maze/ ,unsolved
 Hard,https://www.geeksforgeeks.org/solving-cryptarithmetic-puzzles-backtracking-8/ ,unsolved
 Hard,https://www.geeksforgeeks.org/print-palindromic-partitions-string/ ,unsolved
+
 Segment Tree
 Medium/Hard,https://leetcode.com/problems/range-sum-query-immutable/ ,unsolved
 Medium/Hard,https://leetcode.com/problems/range-sum-query-mutable/ ,unsolved
