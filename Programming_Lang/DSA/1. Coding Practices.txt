@@ -1,8 +1,11 @@
 Question Attempt:
-    1. Question Read Carefully
+    1. Question Read Carefully. What is input and What is output?
     2. Methodology mentally
-    3. Constrainst -> Change Methodology
-    4. Code with conventions
+    3. Constrainst
+    4. Final Methodology/Concept after considering constraint.
+    5. All Flow decided (Theoretically)
+
+    6. Code with conventions
         i. Hungarian Notation
         ii. great variable names
         iii. not look great, but eazy to debug
@@ -13,10 +16,7 @@ Question Attempt:
             d. Fields / Attributes : 
                 3.i Private Member : _camelCase
                 3.ii Static Member: s_camelCase
-                3.iii Public: Pascal _camelCase
+                3.iii Public: Pascal 
             d. Local variable: camelCase
-
-Debugging
-    1. Typo / Mispell never
-    2. Final Check line by line
-    3. Assert statement
+    7. Control all flows (assertions)
+    8. Fidnal Revise for Typo/Silly/Miscell

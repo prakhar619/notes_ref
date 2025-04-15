@@ -9,12 +9,16 @@
     : Find longest length of consecutive *subsequence (order dont matter)
     O(n)+O(n)
 
-Constains Duplicate 
+4. Two Sum
+    : Given an array and target, give array of 2 values contains index of number that sum to target
+    O(n)+O(n)
+
+5. Constains Duplicate 
     : Find if a list contains duplicate (any)
     O(n)+O(n)           (Set/Hash Map)
     O(nlogn)+O(1)       (Sort)
 
-Valid Anagram
+6. Valid Anagram
     : same characters, reordered to make new string
     O(n)+O(n) --Optimize space--> O(n)+O(1)         (Set/Hash Map)
     O(nlogn) + O(1)                                 (Sort)                

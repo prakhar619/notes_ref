@@ -22,7 +22,15 @@ Time Complexity:
 2. Try to increase loop (when needed) without increasing time complexity
 
 
+If you cant find condition check for not conditions
 
+Optimisation
+    1. Store index/ Rely of Index [Memory Optimisation]
+        if its not changing, not destroying then use it.
+
+Array & Stack -> Awesome Combination
+
+2 Pointers and Sliding Window: Lot of optimisation on space and time because store only index and do not create lot of new array; (just change the already created ones)
 
 
 
