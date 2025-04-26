@@ -1,0 +1,13 @@
+AWS Cloud Solution Architech
+
+Roadmap
+1. Getting Started
+    a. AWS Global Infrastructure
+    b. AWS Identity and Access Management (IAM)
+    c. AWS APIs
+    d. AWS Shared Responsibility Model and Best Practices
+2. AWS Compute and Networking
+3. Storage and Databases on AWS
+4. Monitoring, Optimizing and Going Serverless on AWS
+
+

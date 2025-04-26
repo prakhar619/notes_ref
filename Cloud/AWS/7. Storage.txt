@@ -1,0 +1,79 @@
+Storage vs Databases 
+
+Storage is required by 
+    OS 
+    Software 
+    System file
+    Can be extended to media like 
+        Images
+        Database data like JSON or CSV 
+
+2 Types of Storage 
+    Block 
+        Each file is split into multiple chucks
+        Easy modify
+    Object
+        Each file, single unit of data 
+        Rewrite whole if small section modify 
+
+AWS Storage Service 
+    File Storage
+        Analogous to NAS         (Network Attached Storage)
+        AWS EFS                  (Amazon Elastic File System)
+        Hierarchical/Path System
+    Block Storage 
+        Analogous to DAS/SAN     (Direct Attached Storage) or (Storage Area Network)
+        AWS EBS
+        Instance Storage
+    Object Storage
+        AWS S3
+
+Instance Storage vs EBS 
+    Instance Storage is attached with EC2 and is terminated with EC2.
+    EBS can be configured either to be terminated / not terminated with EC2.
+    Instance Storage is faster. 
+    IS contains OS.
+    EBS Multi-Attach for Multiple EC2 to have same EBS.
+    EBS is like external HDD, whereas IS is like internal HDD.
+
+EBS 
+    SSD Backed Volumn
+    HDD Backed Volumn
+
+    Back up using SnapShot 
+        Incremental Backup 
+
+
+Object Storage with AWS S3
+    EBS has size limitation.
+    S3 can store variety of media (unstructured).
+    Region -> Bucket -> Redundance across AZs.
+
+    Create Bucket (like collection)
+        Each bucket has an associated url
+    Change Access in bucket details to Public Access.
+    S3 Bucket Policy 
+        JSON 
+        Like IAM
+        Policy apply to each object in that bucket
+
+    Can Store:
+        Media 
+        Data Lake 
+        static website 
+
+    Encryption 
+        Server-side 
+        Client-side 
+
+    Use Versioning to prevent data loss on overwrite. (when overwrite on same url/path of file)
+
+    S3 Storage Class 
+        Standard 
+        S3 Intelligent-Tiering
+        S3 Standard-Infrequent Access 
+        
+
+
+
+

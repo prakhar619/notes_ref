@@ -1,0 +1,82 @@
+Database    
+    Unmanaged/On-Premise
+        Separate Server 
+        Manage everything yourself include infrastructure, electricity 
+    Managed
+        Host on EC2 
+            Manage DB Application Download
+            Patches 
+            Backup 
+        AWS Database Service 
+            Manage only optimisation like indexing
+
+Databases 
+    AWS RDS 
+        like MySQL
+    Amazon DynamoDB
+        like mongoDB
+
+    Amazon DocumentDB
+        Content Management system
+    Amazon Neptune
+        Graph based storing
+    Amazon QLDB (Quantum Ledger Database)
+        Immutable entries
+    
+AWS RDS 
+    Present inside Subset 
+    (*Always create 2 instance across different AZs for redundancy)
+    ( or use RDS Multi-AZ Deployment for automatic fail switching)
+
+    Choose any engine
+        Amazon Aurora
+        MySQL
+        PostgreSQL
+        Oracle
+        Microsoft SQL Server 
+
+    DB Instance 
+        Standard 
+        Memory Optimised 
+        Burstable Performance 
+
+    Storage Type
+        SSD (General Purpose)
+        SSD (Provisioned IOPS)
+        Magnetic
+
+    Backup 
+        Automatic Backup 
+            Upto 35 days 
+            Action -> Automatic Backup
+            Cant happen if state is other than "Available"
+        Manual Snapshot
+            Similar to EBS Snapshot (can create new Db instance with same data)
+            Snapshots are incremental and charged on incrementals only.
+
+        Backups are stored in S3.
+
+IAM Policy to connect to S3 
+{
+   "Version": "2012-10-17",
+   "Statement": [
+      {
+         "Effect": "Allow",
+         "Action": [
+             "rds-db:connect"
+         ],
+         "Resource": [
+             "arn:aws:rds-db:us-east-2:123456789012:dbuser:db-ABCDEFGHIJKL01234/jane_doe",
+             "arn:aws:rds-db:us-east-2:123456789012:dbuser:db-ABCDEFGHIJKL01234/mary_roe"
+         ]
+      }
+   ]
+}
+
+Amazon DynamoDB 
+    Serverless
+    Stores redundancy across multiple AZs 
+    SSD Storage 
+
+    Table -> Items -> Attributes 
+    

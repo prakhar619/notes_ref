@@ -1,0 +1,82 @@
+Scaling 
+    Horizontally Scaling
+        Multiple Server/Instances
+    Vertical Scaling 
+        Single Server hardware increased 
+
+Automating Horizontal Scaling 
+    Amazon EC2 Auto Scaling 
+        Would require Load Balancer for public ip 
+            (then ec2 instance can remain private)
+
+
+Availability 
+    90%     Single 9    36.53 days down/ year
+    99%     Double 9    3.65 days down/ year
+    99.9%   3's 9       8.77 days down/ year
+    ... 
+
+
+Manage Replication, Redirection and High Availability 
+    Automate EC2 instance replication for different AZs.
+    Load Balancer for Managing Load as well as DNS IP.
+    Availability
+        Active-Passive 
+            One active instance - One fallback instance 
+        Active-Active
+            Both instance share load; need load balancer.
+
+
+SPOF (Single Point of Failure)
+    Removed by 
+        N+1 redundancy -> Active-Active Config 
+        2N redundancy -> Active-Passive Config 
+
+
+Autoscaling
+    Template -> Create Launch Template -> Choose AMI 
+    Autoscaling Group -> Create (select the above template) -> Select VPC -> Attach with Load Balancer -> Policy for Scaling
+
+AWS Elastic Load Balancer (ELB)
+    Highly Available
+    Highly Scalable 
+    Types
+        Application Load Balancer (ALB)
+            HTTP/HTTPS
+        Network Load Balancer 
+            TCP/UDP/TLS 
+        Gateway Load Balancer 
+            3rd party application 
+    Components
+        Listener    
+            Port for listening requests
+        Target Group
+            EC2 instance, Lambda function etc 
+        Rules
+            Routing where this request should go
+    
+Target Group 
+    Backend resources Group
+
+Application of Load Balancer 
+    Route Traffic 
+    TLS Offloading
+    Authenticate Users
+    Round robin routing 
+    Sticky session 
+        Rememebers where it recieved request from 
+
+Load Balancer 
+    Target Group 
+        Backend Resource 
+        Security
+        Health Checkup
+    
+For AutoScaling you need load balancer but not vice versa 
+
+
+
+
+
+
+         

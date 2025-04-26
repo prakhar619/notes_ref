@@ -1,0 +1,40 @@
+Amazon CloudWatch
+    Amazon CloudWatch Alarms
+        SNS (Simple Notification Service)
+
+
+Alarm State 
+    ALARM 
+    OK 
+    Insufficient data 
+
+Metric 
+    Namespace -> Metric 
+    High Resolution Custom Metrics such as 
+        Web page load times 
+        Request Error Rate 
+        Number of process or threads on your instance 
+
+        Use PutMetricData Api to create HR Custom Metric programmatically
+
+Metric Rate 
+    Free/Basic Monitoring  
+        1 data point/5 min
+    Detailed Monitoring 
+        1 data point/1 min 
+
+External Tool to Analyse AWS Data 
+    Use GetMetricData Api 
+
+Logs 
+    Log Event 
+        Record of Activity recorded
+    Log Stream
+        Grouped Log Event 
+    Log Groups
+        Composed of Log Stream 
+
+    
+     
+
+

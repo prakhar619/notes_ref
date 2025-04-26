@@ -1,0 +1,208 @@
+About Compute 
+    Hardware 
+        EC2 Instance   (t3.small) 
+            Instance Family Type    (t3)
+            Instance Size           (small)
+        Hardware such as 
+            CPU
+            Memory
+            Network
+            Storage 
+            GPU
+    Software 
+        AMI                                 (like Class of EC2)
+            Amazon Machine Image 
+            Configuration for Instance on Software level like   
+                OS 
+                Pre-install application 
+            Can launch multiple instance of EC2 with same AMI 
+            Available on AWS Marketplace to buy / build your own / defaults provided by AWS
+            Build your own 
+                Configure existing AMI
+                Using Snapshot of root device volumn
+            Each AMI has AMI ID (starting with ami-), unique to each AWS region
+            Specific to 
+                Region
+                OS 
+                Processor Architecture
+                Root Device Type 
+                Virtualization Type 
+            Can be 
+                EBS-backed AMI
+                Instance store-backed AMI
+
+
+Instance Life-Cycle                 (heading means current and subheading means available state to enter)
+    1. Start
+            Pending State 
+    2. Pending State
+            Running State 
+    3. Running State                (chargeable state)                      
+            Reboot
+                Maintains its public and private ip
+                Different from stop then start
+                Same host device
+            Stopped State
+                EBS volumn still holds the data; instance data is lost
+                **2 ways 
+                    one is basic
+                        (apps restart)
+                    stop-hibernate
+                        (memory is written onto blocked storage therefore retrived; apps does not restart)
+            Terminate
+            
+    4. Stopped State            (not chargable state | EBS is charged)
+            Pending State 
+                New public ip
+                Same private ip
+            Termination
+                EBS volumn is deleted by default
+
+VPCs 
+    Network where EC2/services lies
+
+Compute vs Container Service vs Serverless
+    Compute 
+        Amazon Elastic Cloud Compute    (EC2)
+            General Purpose Compute 
+            Virtual Machine for OS
+            Decide the hardware by choosing instance type and size
+    Container
+        Amazon Elastic Container Service   (ECS)
+        Amazon Elastic Kubernetes Service  (EKS)
+    Serverless
+        AWS Lambda (Serverless Option)
+            No need to manage the server manually; taken care by AWS
+
+
+Instance Type EC2       (intials of name)
+    General Purpose 
+        M 
+        Mac 
+    Compute Optimized 
+        C 
+    Memory Optimized 
+        R 
+        U 
+        X
+    Storage Optimized 
+        D 
+        I 
+    Accelerated Computing 
+        DL 
+        F 
+        G 
+        P  
+        T  
+    High Performance Computing 
+        Hpc
+
+Container 
+    is a standardized unit that packages up code and all of its dependencies.
+    Run reliably on any platform, because the container creates its own independent environment.
+    Docker is a popular container runtime.
+    Container share the same OS and kernel, VM has its own OS.
+
+Container Orchestration Tools
+    A single instance can host multiple container depending upon its size.
+    Each EC2 instance needs to have ECS Container Agent.
+    Instance + Container Agent -> Container Instance
+    ECS
+    EKS 
+
+    Task Definition 
+        JSON 
+        Describe one or more container 
+        Eg
+        {    
+            "family": "webserver",    
+            "containerDefinitions": [ {        
+                "name": "web",        
+                "image": "nginx",        
+                "memory": "100",        
+                "cpu": "99"    
+            }],    
+            "requiresCompatibilities": [ "FARGATE" ],    
+            "networkMode": "awsvpc",    
+            "memory": "512",    
+            "cpu": "256"
+        }
+    
+    In EKS:
+        Instance + Container Agent -> Worker node 
+        ECS container is called a task, while EKS container is called a pod 
+        ECS run on AWS naive technology, EKS run on top of Kubernetes.
+
+
+In both EKS and ECS, running on top of EC2 as compute platform, you are required to set up 
+    and manage your fleet of instances. 
+    This includes 
+        Patching,
+        Scaling those instance 
+        Location of containers Elastic
+
+AWS Fargate 
+    Serverless Compute Platform for container that you can use with EKS or ECS 
+    No provisioning
+    No Patching
+    No Cluster Capacity Management
+
+Amazon Elastic Container Registry 
+    Repository for containing container images.
+    Images from here are loaded on Fargate or EC2 based EKS/ECS
+
+AWS Lambda 
+    runs of triggers
+    run time of 15 minutes. (therefore not suitable for long processes)
+    each lambda function is independent of other running lambda functions
+    Only billed when run 
+    Launch Type 
+        Fargate
+        EC2 
+    Working of Lambda 
+    1. Trigger 
+    2. Code 
+        your code 
+        aws provided code 
+        aws serverless application repo
+    3. Configuration 
+        built in runtimes like python, nodejs, ruby, go, java, .net etc
+    Function Handler Type
+        def handler_name(event, context):   //this function is run when triggered 
+        default 
+            lamdba_handler 
+        For your function name, edit the Runtime setting for function name 
+        
+Use Cases for Lambda 
+    1. https://aws.amazon.com/serverless/#:~:text=Serverless%20is%20the%20native%20architecture,services%20without%20thinking%20about%20servers.
+
+Billing 
+    EC2 charges per second/ per hour 
+    Lambda charges per second only when run 
+
+SAM 
+    AWS Serverless Application Model 
+    Consists of 
+        AWS Resources 
+        All functions 
+        All event sources 
+    Various model architecture like
+        Web application
+
+Either a code(web app) can we written such that single lambda function triggers code 
+    and then we branch it to specfic part of code that handles the request. (Method 1)
+    OR We can create multiple lambda (from single accessPoint) function for each part (Method 2)
+
+    Method 1 is reproducible across various cloud platforms.
+    Method 2 although would requires specific code for AWS, but more efficient and managable
+
+
+Serverless Architecture Models
+1. https://aws.amazon.com/blogs/architecture/ten-things-serverless-architects-should-know/
+2. 
+
+
+
+
+
+

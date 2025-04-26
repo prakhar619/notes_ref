@@ -1,0 +1,109 @@
+Sample Application
+    Application Backend Code on             EC2 (Amazon Elastic Compute Cloud)
+    Textual Data on                         RDS (Amazon Relational Database Service)
+    Image Data on                           S3 (Amazon Storage Service)
+    Monitoring this project on              CloudWatch
+    Managing Personal using                 IAM (Identity and Access Management)
+    Managing Server Load using              Amazon Elastic Load Balancing
+    Cacheing data for lower latency using   Amazon CloudFront
+
+Benefits of Cloud Computing
+    1. Pay as you Go 
+    2. Massive economies of scale 
+    3. Stop guessing capacity
+    4. Increased speed and agility
+    5. Stop spending money on running and maintaining data centres
+    6. Go Global
+
+
+AWS Infrastruture 
+    Region(36 in total)  
+        AZ (Availability Zones)(114 in total)
+            Data centre
+            Data centre
+            Edge Network(CloudFront) (700+ in total)
+                Edge location
+                Edge caches
+        AZ
+        AZ
+    Local Zones ?
+    Wavelength Zone ?
+    Direct Connect Location ?
+*There is redundancy in a region, but not outside of a single region for safer storage.
+    Meaning Data centres across a region may store same data for redundancy but not outside a region
+
+Region Contains AZs which itself contain Data centres.
+
+Choosing Region
+1. Compliance
+2. Latency
+3. Pricies 
+4. Service 
+    Services majorly are provided on Region basics rather on account basis.
+
+Available Regions
+4 in US (east-2, west-2)
+1 in Africa 
+7 in Asia 
+6 in Europe
+1 in Middle east
+1 in Canada
+1 in South America 
+
+Managing AWS
+1. AWS Management Console
+    GUI Interface
+    Email and Password login
+    Web based application
+2. AWS CLI 
+    CLI shell for Managing 
+    User id and Password login
+3. AWS SDKs
+    programmatic login for code api calls 
+    Access Key and Secret key 
+    Support for major languages like C++, Java, JS, .NET, Node.js, Python, PHP, Go, Kotlin, Ruby, Rust, Swift, SAP ABAP
+    Tool type by 
+        CLI Tools
+        Communication and Collaboration SDKs 
+        DevOps and Automation 
+        Encryption SDKs 
+        Front-End Web and Mobile SDKs 
+        IDE Toolkits
+        IoT Device Toolkits 
+        Language SDKs 
+        Monitoring and Tracing
+
+AWS Service Endpoints
+    An endpoint is the URL of the entry point for an AWS web service.
+    AWS CLI and SDKs automatically use default values within a region.
+    All services are independent of each other in AWS meaning authorization, billing everything independent.
+    Eg:
+        https://dynamodb.us-west-2.amazonaws.com is the endpoint for the Amazon DynamoDB service in US west region 
+
+    Global Endpoints do not support Regions.
+        Amazon CloudFront
+        AWS Global Accelerator
+        AWS Identity and Access Management
+        AWS Network Manager 
+        AWS Organisations
+        Amazon Route S3 
+        AWS Shield Advanced 
+        AWS WAF Classic 
+
+FIPS Endpoint 
+    ?
+
+Dual Stack Endpoints 
+    Some AWS service have 2 URL, IPv4 and IPv6 requests.
+    ?
+
+
+
+
+
+
+
+
+
+
+

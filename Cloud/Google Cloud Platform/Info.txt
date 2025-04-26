@@ -1,0 +1,13 @@
+Vertex AI Studio
+Google Cloud SDK 
+Gemini 
+Vertex AI 
+BigQuery
+CloudStorage
+AI Platform Prediction
+Google Cloud Functions
+Google Cloud Run
+Google Cloud Dataflow
+Google Cloud Pub/Sub
+Google Cloud Monitoring
+Google Cloud Trace

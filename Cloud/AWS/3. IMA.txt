@@ -1,0 +1,73 @@
+IAM: Identity and Access Management
+    Manage user/people as well as apis
+    and their authority
+
+Authentication vs Authorisation
+    Authentication: You say who you are.
+        Email and Password
+        Access key id and secret access key
+        User id and Password 
+
+    Authorisation: Are you authorised to do this 
+
+Root User
+    Dont create/enable access key pair
+    Dont use email-password for normal usage; create admin for it.
+    Always use MFA
+
+Multi Factor Authentication 
+    Virtual MFA
+        Phone app 
+        Not as secure as others
+    Hardware
+        Key Fob
+        Display Card Device
+        Shows code to enter on device
+    U2F
+        Hardware device to plug into USB
+
+IAM
+Global and not region specific (which is unlike services)
+Supports Identity Federation (where corporate network or internet identity provider directly integrates to create multiple user and psd)
+
+    Types of Ids
+        IAM Users
+        IAM Groups
+        IAM Roles
+
+        IAM Policy
+        
+
+IAM Policy
+    Json Based Document
+        {
+            "Version" : "2017-10-17",
+            "Statement" : [{
+                "Effect" : "Allow",
+                "Action" : "*",
+                "Resource" : "*"
+        }]
+        }
+    4 Major Parts 
+        Version 
+            which version of IAM policy will be use
+        Effect  
+            whether to allow or disable the specified action
+        Action  
+            which APIs/Service we are refering
+        Resource  
+            the scope of the action/ objects that will be affected
+
+IAM Role 
+    Either an Service needs IAM role to access other APIs calls (like EC2 instance needs S3 access)
+    or an user may need it when using identity provider system (like creating instant user ids using federated system for many users)
+    
+IAM Identity centre 
+    AWS Service for Enhancing IAM experience.
+    Easily integrates with Federated IdP.
+
+By Default all users are implicitly denied any request except root which has just the opposite.
+Explict allow is required.
+A permission boundary such as Amazon Organization SCP or session policy may implicitly deny user of request.
+
+

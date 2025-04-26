@@ -49,4 +49,6 @@ Extensions
 	.tmp
 	.avi
 	.mkv
+	.yaml
+	
 	

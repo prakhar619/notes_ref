@@ -1,0 +1,77 @@
+Compute Services    
+    Virtual Machines
+        EC2 
+        *EC2 Spot Instances 
+        *EBS
+        EC2 Auto Scaling 
+        LightSail 
+        AWS Batch
+    Container Services 
+        ECS 
+        ECS Anywhere
+        ECR 
+        EKS 
+        EKS Anywhere 
+        AWS Fargate
+        AWS App Runner
+    Serverless
+        Lambda
+    Edge Compute
+        Outposts
+        Snow Family
+        Wavelength
+        VMware Cloud
+        AWS Local Zones
+    Cost and Capacity Optimisation
+        AWS Compute Optimiser
+        AWS Elastic Beanstalk
+        EC2 Image Builder
+        Elastic Load Balancing
+
+    EC2 Image Builder
+    App Runner
+
+Explaination
+    EC2
+        Contains Hypervisor and manages host machines and hypervisor layer
+        Installs Guest OS on VM.
+
+        Instance Types 
+            On-Demand Instances 
+                Compute as much as you need. Does not change dynamically. Manually on-demand
+            Spot Instances
+                When compute is below set threshold, you get the compute; Prone to losing compute when demand increase
+            Reserved Instances
+                1-3 year plan for compute instance.
+            C7g Instances
+            ....
+
+            Trn1 Instances
+                Contains GPU (ig); build for high performance deep learning training of GenAI
+
+    Amazon EBS 
+        Elastic Block Storage 
+        EC2 + External Persistant Storage (like Hard-disk)
+        Unlike Normal EC2 Where instance is either running or terminated; Can be in stopped state too
+        Data is stored on Persistant Block which does not lose data on stopped state.
+        Root Device is EBS volumn (unlike instance store volumn)
+
+    EC2 Auto Scaling 
+        Responds to demand.
+        Create new instances according to your set requirement.
+        Couples well with Load Balancer for IP Configuration of public ip 
+
+    AWS Fargate
+        Serverless for Container Service
+        2 Mode 
+            Fargate Launch type
+            EC2 launch type
+
+    AWS Lambda 
+        General Purpose Serverless compute started by set triggers
+        Charged only when used (efficient compute)
+
+
+    AWS Image Builder
+        Itself free
+        Automate AMI building process

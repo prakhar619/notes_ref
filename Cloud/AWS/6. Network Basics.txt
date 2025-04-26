@@ -1,0 +1,90 @@
+Network not so important for Serverless (lambda)
+
+IP Address
+    IPv4
+    IPv6
+
+Collections of IP Address
+    CIDR Notation
+        192.168.1.30/24 : Out of All the 32 bits, starting 24 bits are fixed.
+        Therefore usable: 192.168.1.1, 192.168.1.2, ..., 192.168.1.255, 192.168.2.255, ...
+
+
+VPC
+    Virtual Private Cloud -> Set CIDR IP Range 
+    Specific to Region
+    DNS resolution enabled DNS hostnames enabled, allowing instances within the VPC to receive DNS hostnames that correspond to their public IP addresses.
+
+Subnet 
+    Sub Network inside VPC which is present at one AZ only.
+    Different AZ, different Subnet.
+    Same AZ, multiple Subnet present.
+    Requirement 
+        VPC Selection 
+        AZ Selection 
+        CIDR  (should be subset of VPC CIDR) 
+    5 address for Subset CIDR is reserved by AWS for functionality
+    Can be set to private or public (using route table entry and association)
+
+Example of VPC and Subnet CIDR 
+    10.1.0.0/16
+    10.1.1.0/24
+
+Now we have AWS Cloud -> Region -> VPC -> AZ -> Subnet -> EC2 Instance
+
+Now Internet Gateway/Private Gateway, Routing, 
+
+Internet Gateway    
+    Create and attach to VPC 
+
+Private Gateway 
+    VGW (Virtual Gateway) for connecting to another private network through VPN 
+
+Routing 
+    Public Subnet   
+        Local
+        Internet Gateway 
+
+    Private
+        Local 
+
+    Destination:
+        For public: 0.0.0.0/0
+    Target:
+        Next step for packet to ultimately reach destination 
+        Eg. Internet Gateway, local
+
+    Can be applied at VPC level or Subnet level
+    Routing table need to associated with subset.
+    Longest Prefix Match
+    Arrange in order of Priority (cause if matched, wont go to next)
+    Dual stacking is using IPv4 and IPv6 in routing tables.
+
+Security 
+    ACL level
+    Security Groups
+
+ACL 
+    Access Control List
+    Subnet level (Control traffic of a subnet)
+    Stateless, meaning add both inbound and outbound traffic. 
+
+Security Group 
+    EC2 instance level 
+    Not optional 
+    Default: Block all inbound traffic and allow all outbound traffic 
+    Stateful, meaning configure either inbound or outbound will work as they will temporary allow traffic on both side to respond to request. 
+
+
+AWS VPN 
+    2 Different Service 
+        Site-Site VPN 
+            Connecting Private Data centre to AWS 
+        AWS Client VPN 
+            Connecting Admins to AWS Service through VPN for managing services 
+    
+AWS Direct Connect 
+    provides hosted private connection to AWS through a Direct Connect Delivery partner/AWS for higher bandwidth 
+    Dedicated Connection 
+    No use of Internet 
+

@@ -1,0 +1,19 @@
+Create virtual Environment
+python -m venv environmentName1
+
+Activate virtual Environment
+Windows:
+    .\environmentName1\Scripts\Activate.ps1
+Command Prompt:
+    .\environmentName1\Scripts\activate.bat
+Bash or Linux:
+    .\environmentName1\Scripts\activate 
+
+
+
+**Extra
+Requirement file for python project 
+pip freeze > requirements.txt 
+
+Installing requirements
+pip install -r requirements.txt

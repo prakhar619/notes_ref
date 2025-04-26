@@ -1,0 +1,65 @@
+Commands 
+
+    Start/Stop Docker
+        Windows
+            Start-Process "Docker Desktop"
+            Stop-Process -Name "Docker Desktop" -Force
+        Linux
+            systemctl start docker
+            systemctl stop docker 
+
+    Get Image from hub to Local
+        docker pull imageName01
+
+    List Container/Images
+        docker ps           (get all running container)
+        docker ps -a        (get all container that has run in past and currently running)
+        docker image ls     (get all images)
+
+    Create your Image
+        docker build -t imageName01             (in dir where Dockerfile is present)
+    
+    Create Container
+        docker run -p local_port:vm_port imageName01        (Creates new Container; can also get image from hub if absent locally)
+        docker run --name containerName imageName
+
+    Start Container/Stop Container
+        docker start -d -p local_port:vm_port imageName01      (Restarts container; can only start if image is already present) (-d for detached mode/ background process)
+        docker stop hash01_or_name
+
+    Get inside VM/Container
+        docker run -it imageName01 sh
+        docker exec -it hash_or_imageName01 /bin/bash
+    
+    Export Docker Image
+        docker save -o filename01.tar imagename01
+
+    Log files 
+        docker log hash_or_name
+
+
+
+
+###########################################
+Sample Example 
+1. docker run --name pg-vector-container -e POSTGRES_USER=langchain -e POSTGRES_PASSWORD=langchain -e POSTGRES_DB=langchain -p 6024:5432 -d pgvector/pgvector:pg16 
+    is same as 
+        docker run \
+        --name pg-vector-container \
+        -e POSTGRES_USER=langchain \
+        -e POSTGRES_PASSWORD=langchain \
+        -e POSTGRES_DB=langchain \
+        -p 6024:5432 \
+        -d pgvector/pgvector:pg16 
+
+    Run to create container out of image 
+        if image is available then good else get it from docker hub
+        Image name = pgvector/pgvector:pg16    (last argument)
+
+    -d to run in detacted mode 
+
+    -p for port mapping local_port:vm_port
+
+    --name to set name of container manually 
+
+    

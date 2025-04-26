@@ -1,0 +1,30 @@
+AWS Services API Types
+1. Compute
+2. Database
+3. Storage
+4. Security
+5. Identity
+6. Compliance
+
+AWS Service Types
+1. Infrastructure services          (EC2)
+2. Container services               (RDS)
+3. Abstracted services              (S3)
+
+
+
+
+
+
+
+Amazon Elastic Compute Cloud
+AWS Elastic Container Service
+AWS Lambda
+Amazon Virtual Private Cloud 
+Amazon S3
+Amazon Elastic Block Store
+Amazon Relational Database Service
+Amazon DynamoDB
+Amazon CloudWatch
+Amazon EC2 AutoScaling
+Elastic Load Balancing
