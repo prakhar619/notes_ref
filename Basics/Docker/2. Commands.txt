@@ -15,9 +15,10 @@ Commands
         docker ps           (get all running container)
         docker ps -a        (get all container that has run in past and currently running)
         docker image ls     (get all images)
+            docker image
 
-    Create your Image
-        docker build -t imageName01             (in dir where Dockerfile is present)
+    Create your Image                           (only create image; no container; wont show on ps)
+        docker build -t imageName01 .          (in dir where Dockerfile is present)
     
     Create Container
         docker run -p local_port:vm_port imageName01        (Creates new Container; can also get image from hub if absent locally)

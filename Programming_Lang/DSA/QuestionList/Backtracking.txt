@@ -1,5 +1,0 @@
-1. Subsets / Find all the Subsets
-    i. Unique Elements
-    ii.Duplicate Elements
-2. Permutations / Find all the Permutations
-3. Palindromic Partitioning

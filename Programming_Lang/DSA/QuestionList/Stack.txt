@@ -1,7 +1,0 @@
-1. MinStack
-2. Daily Temperature or Next Greatest Element
-3. Largest Rectangle in Histogram
-
-4. Generate Parenthesis
-    Catalan number: 1,2,5,14,42,...
-    

@@ -1,4 +1,0 @@
-1.  Jump Game II 
-2.  Gas Station
-3.  Hands of Straight
-4.  Valid Parenthesis String

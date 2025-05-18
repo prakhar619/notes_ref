@@ -1,5 +1,6 @@
  Docker
     Software for Containerisation/virtual environment with no extra dependency
+    All dependencies are contained in the container itself.
 
 Difference between Docker and VM 
     Docker is lightweight
@@ -61,5 +62,18 @@ Docker Hub
 Port 
     A container running might interact with local machine using host.
     TBH a application inside a container might interact with local machine using container port
-    Need mapping of local port to container port during running the container 
+    Need mapping of local port to container port during running the container
 
+
+Steps 
+1. Choose Docker Image to Use
+2. Set up Dockerfile
+    Based on image, code to run inside, copy files inside image, ports to expose  and cmd to execute on each run 
+3. Run build cmd 
+    docker build -t newImageName .
+4. New image is ready to be run / turned to container 
+    docker run -d --name containerName ImageName 
+5. Go inside Docker Container using the cmd 
+    docker exec -it containerName /bin/bash
+6. To save any changes done during running container (create a new image)
+    docker commit containerName imageName
