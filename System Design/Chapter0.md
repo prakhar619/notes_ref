@@ -1,3 +1,3 @@
-### Designing Data-Intensive Application 
-##### -Martin Kleppmann
+# Designing Data-Intensive Application 
+### - Martin Kleppmann
     
