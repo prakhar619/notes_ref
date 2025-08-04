@@ -53,7 +53,7 @@ class AdjacencyMatrix : public Graph
 
                 for(int v = 0; v < dist.size(); v++)
                 {
-                    if(!sptSet[v] && Matrix[minDistanceVertex][v] != INT_MAX && dist[minDistanceVertex] != INT_MAX)
+                    if(sptSet[v] == false && Matrix[minDistanceVertex][v] != INT_MAX && dist[minDistanceVertex] != INT_MAX)
                     {
                         dist[v] = min(dist[minDistanceVertex] + Matrix[minDistanceVertex][v], dist[v]);
                     }
@@ -184,7 +184,7 @@ class AdjacencyMatrix : public Graph
 
                 for(int v = 0; v < dist.size(); v++)
                 {
-                    if(!mstSet[v] && Matrix[minV][v] != INT_MAX && dist[minV] != INT_MAX)
+                    if(mstSet[v] == false && Matrix[minV][v] != INT_MAX && dist[minV] != INT_MAX)
                     {
                         if(dist[v] > Matrix[minV][v] )
                         {

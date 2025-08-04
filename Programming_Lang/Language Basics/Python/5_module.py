@@ -16,7 +16,46 @@
 # *
 # as
 
+
+#______________ERR________________
+#imp STLM (standard library module)
+#python reserves __name1__ (double score before and after) name for defining methods
+#re STLM 
+    #match()    pattern match
+
+#Python DOCUMENTATION
+    #dir function   (import sys; dir(sys))
+    #comments
+    #Docstring      (sys.__doc__)
+    #help function  (help(sys))
+    #PyDoc
+    #
+
+"""
+MODULES:
+    Python files are modules
+    Modules are just package of variable names known as namespace
+    Names within package are called attributes
+    Use import and from and reload
+        1.import file1; print(file1.attrib1);
+        2.from file1 import attrib1; print(attrib1);          now directly use attributes; defeats the purpose of using module
+        3.reload(file1);                                      import at first import full code; but 2nd time imports only bytecode; therefore not updated; use reload as it causes bytecode to be generated each time
+            reload is present in imp; from imp import reload
+        4.exec(open('file1.py').read())                       exec runs the current version of file.
+"""
+
+'''
+Program Decomposition
+    Programs -> Modules -> Statements -> Expressions -> Objects (creation or processing)
+'''
+
 '''Object defined by a module is created at runtime'''
+
+#dir()          function to get all attribute of the object
+#help()         function to see what function does
+#type()         function to see which type of data; even output of type is type object data type
+    #type([]) == list:      true
+#isinstance()   oops test for type
 
 #Python STL roughly 200 Modules
 

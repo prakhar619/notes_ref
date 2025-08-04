@@ -1,4 +1,4 @@
-#Comment
+# Comment
 
 '''Multi line comment 
 (actually multiline string)'''
@@ -6,61 +6,38 @@
 """or use this
 doesnt matter
 """
-#______________ERR________________
-#imp STLM (standard library module)
-#python reserves __name1__ (double score before and after) name for defining methods
-#re STLM 
-    #match()    pattern match
-
-#Python DOCUMENTATION
-    #dir function   (import sys; dir(sys))
-    #comments
-    #Docstring      (sys.__doc__)
-    #help function  (help(sys))
-    #PyDoc
-    #
-
-"""
-MODULES:
-    Python files are modules
-    Modules are just package of variable names known as namespace
-    Names within package are called attributes
-    Use import and from and reload
-        1.import file1; print(file1.attrib1);
-        2.from file1 import attrib1; print(attrib1);          now directly use attributes; defeats the purpose of using module
-        3.reload(file1);                                      import at first import full code; but 2nd time imports only bytecode; therefore not updated; use reload as it causes bytecode to be generated each time
-            reload is present in imp; from imp import reload
-        4.exec(open('file1.py').read())                       exec runs the current version of file.
-"""
-
-'''Program Decomposition
-Programs -> Modules -> Statements -> Expressions -> Objects (creation or processing)
-'''
 
 '''
-Primitive DataTypes
-    Numbers
-    Strings
-    List
-    Dictionaries
-    Tuples
-    Files
-'''
-'''
-Non Core DataTypes
-    Set
+DataTypes
+1. Primitive DataTypes
+    int
+    float
+    bool
+    str
+
+2. Non Core DataTypes
+    set
+    list
+    dict
+    tuple
+
+3. Special Type
+    None
+    
+4. Other Types
+    complex
+    frozenset
+    bytearray
+    bytes
 '''
 
-#dir()          function get all attribute of the object
-#help()         function to see what function does
-#type()         function to see which type of data; even output of type is type object data type
-    #type([]) == list:      true
-#isinstance()   oops test for type
 s = "string"
 n = 1010
-dir(s)
-dir(n)
+
+#use help to get syntax and usage information for functions
 help(s.replace)
+
+#use type to get type/class of an object
 print(type(s))
 
 #KIND OF GENERIC OPERATORS
